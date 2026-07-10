@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Tiro_Devanagari_Sanskrit, Inter } from "next/font/google";
 import "./globals.css";
-import CanvasRoot from "@/components/canvas/CanvasRoot";
+import CanvasRoot from "@/components/canvas/CanvasRootLazy";
 import StoreHydrator from "@/components/StoreHydrator";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import SiteChrome from "@/components/chrome/SiteChrome";
