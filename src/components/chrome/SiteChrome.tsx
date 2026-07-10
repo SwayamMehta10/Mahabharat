@@ -220,7 +220,7 @@ export default function SiteChrome() {
               <button
                 onClick={() => setSoundOn(!soundOn)}
                 aria-pressed={soundOn}
-                className="ui-label cursor-pointer transition-colors hover:text-gold-bright"
+                className="ui-label -m-2 cursor-pointer p-3 transition-colors hover:text-gold-bright"
               >
                 Sound {soundOn ? "On" : "Off"}
               </button>

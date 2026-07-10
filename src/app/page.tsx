@@ -75,7 +75,7 @@ export default function EntryGate() {
         <p className="ui-label">The Official Guide</p>
         <button
           onClick={() => setSoundOn(!soundOn)}
-          className="ui-label cursor-pointer transition-colors hover:text-bone"
+          className="ui-label -m-3 cursor-pointer p-3 transition-colors hover:text-bone"
           aria-pressed={soundOn}
         >
           Sound {soundOn ? "On" : "Off"}
