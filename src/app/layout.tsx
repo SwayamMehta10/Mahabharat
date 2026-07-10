@@ -5,6 +5,7 @@ import CanvasRoot from "@/components/canvas/CanvasRootLazy";
 import StoreHydrator from "@/components/StoreHydrator";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import SiteChrome from "@/components/chrome/SiteChrome";
+import KarnaSecret from "@/components/chrome/KarnaSecret";
 import SoundscapeProvider from "@/components/providers/SoundscapeProvider";
 
 const cormorant = Cormorant_Garamond({
@@ -57,6 +58,7 @@ export default function RootLayout({
         <div className="grain-overlay" aria-hidden />
         <div className="vignette-overlay" aria-hidden />
         <SiteChrome />
+        <KarnaSecret />
         <div className="relative z-10 flex min-h-dvh flex-col">{children}</div>
       </body>
     </html>
