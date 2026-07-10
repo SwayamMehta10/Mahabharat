@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* The void — near-black indigo, the night before the war */
+  --color-void: #05060a;
+  --color-abyss: #0a0d16;
+  --color-indigo-deep: #131a33;
+  --color-indigo-dusk: #232c4e;
+
+  /* Burnished gold — divinity, never yellow */
+  --color-gold: #c9a437;
+  --color-gold-bright: #e9cd7a;
+  --color-gold-dim: #7a6420;
+
+  /* Vermillion / saffron — blood and dharma */
+  --color-vermillion: #cf4a1f;
+  --color-saffron: #e78a1e;
+
+  /* Ash and bone — the field after day 18 */
+  --color-ash: #8f8c85;
+  --color-bone: #e9e4d8;
+
+  --font-display: var(--font-cormorant), "Cormorant Garamond", serif;
+  --font-deva: var(--font-tiro), "Tiro Devanagari Sanskrit", serif;
+  --font-ui: var(--font-inter), "Inter", sans-serif;
+
+  --tracking-epic: 0.45em;
+  --tracking-wide-ui: 0.28em;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--color-void);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-void);
+  color: var(--color-bone);
+  font-family: var(--font-ui);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-gold-dim);
+  color: var(--color-bone);
+}
+
+/* ————— cinematic overlays above the WebGL canvas, below the UI ————— */
+
+.grain-overlay {
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 40;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 0.9s steps(4) infinite;
+}
+
+@keyframes grain-shift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2%, 1.5%); }
+  50% { transform: translate(1.5%, -1%); }
+  75% { transform: translate(-1%, -2%); }
+  100% { transform: translate(2%, 1%); }
+}
+
+.vignette-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 41;
+  background:
+    radial-gradient(ellipse 120% 90% at 50% 45%, transparent 55%, rgba(3, 4, 7, 0.55) 100%);
+}
+
+/* the Gita moment: when time stops, even the film grain holds its breath */
+body.time-frozen .grain-overlay {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grain-overlay {
+    animation: none;
+  }
+}
+
+/* ————— shared UI idioms ————— */
+
+/* the browser's default blue × on search inputs breaks the palette */
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.ui-label {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-wide-ui);
+  text-transform: uppercase;
+  color: var(--color-ash);
+}
+
+/* Word-reveal masks: each word sits in an overflow-hidden span */
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.word-mask > span {
+  display: inline-block;
+  transform: translateY(115%);
+  will-change: transform, opacity;
 }

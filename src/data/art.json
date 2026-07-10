@@ -1,0 +1,74 @@
+{
+  "bhishma": {
+    "title": "Bheeshma's Oath",
+    "year": "c. 1890",
+    "source": "https://commons.wikimedia.org/wiki/File:Bheeshma_oath_by_RRV.jpg",
+    "position": "50% 20%"
+  },
+  "ganga": {
+    "title": "Ganga and Shantanu",
+    "year": "1890",
+    "source": "https://commons.wikimedia.org/wiki/File:Raja_Ravi_Varma,_Ganga_and_Shantanu_(1890).jpg",
+    "position": "50% 25%"
+  },
+  "shantanu": {
+    "title": "Shantanu and Satyavati",
+    "year": "c. 1890",
+    "source": "https://commons.wikimedia.org/wiki/File:Ravi_Varma-Shantanu_and_Satyavati.jpg",
+    "position": "50% 25%"
+  },
+  "satyavati": {
+    "title": "Shantanu and Matsyagandhi",
+    "year": "c. 1890 (oleograph)",
+    "source": "https://commons.wikimedia.org/wiki/File:Raja_Ravi_Varma,_Shantanu_and_Matsyagandhi_(Oleograph).jpg",
+    "position": "35% 25%"
+  },
+  "draupadi": {
+    "title": "Draupadi Vastraharan",
+    "year": "c. 1890",
+    "source": "https://commons.wikimedia.org/wiki/File:Draupadi_Vastraharan,_Raja_Ravi_Varma.jpg",
+    "position": "50% 30%"
+  },
+  "duryodhana": {
+    "title": "Duryodhana",
+    "year": "c. 1890",
+    "source": "https://commons.wikimedia.org/wiki/File:Duryodhana,_Raja_Ravi_Varma_(cropped).jpg",
+    "position": "50% 15%"
+  },
+  "krishna": {
+    "title": "Sri Krishna as Envoy",
+    "year": "1906",
+    "source": "https://commons.wikimedia.org/wiki/File:Raja_Ravi_Varma,_Sri_Krishna_as_Envoy.jpg",
+    "position": "40% 25%"
+  },
+  "dhritarashtra": {
+    "title": "Krishna Pleads with Dhritarashtra to Avoid War",
+    "year": "c. 1900",
+    "source": "https://commons.wikimedia.org/wiki/File:Krishna_Pleads_with_Dhritarashtra_to_Avoid_War.jpg",
+    "position": "60% 30%"
+  },
+  "arjuna": {
+    "title": "Kiratarjuniya — Arjuna and Shiva as the Hunter",
+    "year": "c. 1890",
+    "source": "https://commons.wikimedia.org/wiki/File:Kiratarjuniya.jpg",
+    "position": "50% 25%"
+  },
+  "subhadra": {
+    "title": "Arjuna and Subhadra",
+    "year": "1890",
+    "source": "https://commons.wikimedia.org/wiki/File:Ravi_Varma-Arjuna_and_Subhadra.jpg",
+    "position": "55% 25%"
+  },
+  "jayadratha": {
+    "title": "Jayadratha Abducts Draupadi",
+    "year": "c. 1890",
+    "source": "https://commons.wikimedia.org/wiki/File:Jaydrath_abduct_Draupadi.jpg",
+    "position": "50% 30%"
+  },
+  "yudhishthira": {
+    "title": "Draupadi and the Pandavas",
+    "year": "c. 1890",
+    "source": "https://commons.wikimedia.org/wiki/File:Draupadi_and_Pandavas.jpg",
+    "position": "50% 25%"
+  }
+}
