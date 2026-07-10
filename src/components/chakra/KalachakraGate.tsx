@@ -150,26 +150,33 @@ export default function KalachakraGate() {
             const known = n <= selected;
             const isHover = hovered === n;
             return (
-              <text
-                key={`num-${n}`}
-                data-seg
-                x={nx}
-                y={ny}
-                textAnchor="middle"
-                dominantBaseline="central"
-                className={`anim-hidden cursor-pointer select-none font-ui text-[11px] transition-colors duration-300 ${
-                  isHover
-                    ? "fill-gold-bright"
-                    : known
-                      ? "fill-gold/90"
-                      : "fill-bone/45"
-                }`}
-                onMouseEnter={() => setHovered(n)}
-                onMouseLeave={() => setHovered(null)}
-                onClick={() => choose(n)}
-              >
-                {n}
-              </text>
+              <g key={`num-${n}`} data-seg className="anim-hidden cursor-pointer">
+                <text
+                  x={nx}
+                  y={ny}
+                  textAnchor="middle"
+                  dominantBaseline="central"
+                  className={`pointer-events-none select-none font-ui text-[11px] transition-colors duration-300 ${
+                    isHover
+                      ? "fill-gold-bright"
+                      : known
+                        ? "fill-gold/90"
+                        : "fill-bone/45"
+                  }`}
+                >
+                  {n}
+                </text>
+                {/* invisible 44px-diameter hit circle — thumbs, not cursors */}
+                <circle
+                  cx={nx}
+                  cy={ny}
+                  r={22}
+                  fill="transparent"
+                  onMouseEnter={() => setHovered(n)}
+                  onMouseLeave={() => setHovered(null)}
+                  onClick={() => choose(n)}
+                />
+              </g>
             );
           })}
         </svg>
