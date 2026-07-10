@@ -40,8 +40,16 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${cormorant.variable} ${tiro.variable} ${inter.variable} h-full antialiased`}
+      // the pre-hydration script stamps data-js on <html>; expected mismatch
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
+        {/* progressive-reveal gate: animation initial-states (hidden text) only
+            apply when JS is actually running — crawlers, link previews, and a
+            failed script load all still see the content */}
+        <script
+          dangerouslySetInnerHTML={{ __html: `document.documentElement.dataset.js="1"` }}
+        />
         <StoreHydrator />
         <SmoothScroll />
         <SoundscapeProvider />

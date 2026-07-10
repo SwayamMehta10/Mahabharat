@@ -41,7 +41,7 @@ export default function EntryGate() {
       className="flex min-h-dvh flex-col items-center justify-between px-6 py-10 text-center"
     >
       {/* brand — the epic's own name in its own script */}
-      <header data-fade className="opacity-0">
+      <header data-fade className="anim-hidden">
         <p className="font-deva text-lg text-bone/70" style={{ letterSpacing: "0.6em" }}>
           म हा भा र त
         </p>
@@ -61,7 +61,7 @@ export default function EntryGate() {
           delay={2.0}
         />
 
-        <div data-fade className="mt-4 flex flex-col items-center gap-8 opacity-0">
+        <div data-fade className="anim-hidden mt-4 flex flex-col items-center gap-8">
           <p className="font-deva text-sm text-gold/80">
             यदा यदा हि धर्मस्य ग्लानिर्भवति भारत
           </p>
@@ -71,7 +71,7 @@ export default function EntryGate() {
         </div>
       </main>
 
-      <footer data-fade className="flex w-full items-center justify-between opacity-0">
+      <footer data-fade className="anim-hidden flex w-full items-center justify-between">
         <p className="ui-label">The Official Guide</p>
         <button
           onClick={() => setSoundOn(!soundOn)}

@@ -113,7 +113,7 @@ export default function KalachakraGate() {
             const known = n <= selected;
             const isHover = hovered === n;
             return (
-              <g key={n} data-seg className="cursor-pointer" style={{ opacity: 0 }}>
+              <g key={n} data-seg className="anim-hidden cursor-pointer">
                 {/* wide invisible hit area */}
                 <path
                   d={d}
@@ -157,14 +157,13 @@ export default function KalachakraGate() {
                 y={ny}
                 textAnchor="middle"
                 dominantBaseline="central"
-                className={`cursor-pointer select-none font-ui text-[11px] transition-colors duration-300 ${
+                className={`anim-hidden cursor-pointer select-none font-ui text-[11px] transition-colors duration-300 ${
                   isHover
                     ? "fill-gold-bright"
                     : known
                       ? "fill-gold/90"
                       : "fill-bone/45"
                 }`}
-                style={{ opacity: 0 }}
                 onMouseEnter={() => setHovered(n)}
                 onMouseLeave={() => setHovered(null)}
                 onClick={() => choose(n)}
@@ -193,7 +192,7 @@ export default function KalachakraGate() {
         <p className="font-display text-base italic text-ash">{parva.meaning}</p>
       </div>
 
-      <div data-fade className="flex flex-col items-center gap-3 opacity-0">
+      <div data-fade className="anim-hidden flex flex-col items-center gap-3">
         <WordReveal
           text="Turn the wheel to how far you know the tale, and nothing beyond it shall be spoken."
           className="max-w-md font-display text-base italic text-ash"
