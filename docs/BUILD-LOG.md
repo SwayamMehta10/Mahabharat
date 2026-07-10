@@ -471,10 +471,38 @@ Live (owner-only until protection is disabled):
 
 ---
 
+## Session 10 — 2026-07-10 · Public, and readable
+
+The site went public (user disabled Deployment Protection; repo now on
+GitHub → Vercel auto-deploys **mahabharat-ten.vercel.app**), and the first
+round of real-user feedback arrived — from the user browsing their own
+deploy. All four items fixed and shipped:
+
+1. **"Text too small to read easily."** Cormorant's small x-height strikes
+   again, this time site-wide: `ui-label` 0.7→0.75rem, war-day events
+   base→lg, saga/parva meanings →lg, parva summaries →xl, tree/who card
+   names up two notches. Tree labels got *tighter* tracking (0.28→0.13em)
+   so DHRITARASHTRA fits its card — bigger type sometimes needs narrower
+   letterspacing.
+2. **Chakra icon overlapping the tree legend** (and the menu glyph striking
+   through THE KURU LINE): the tree's HUD was `top-0` under the fixed
+   chrome. Now `pt-16` — HUD starts below the chrome bar. Two fixed layers
+   need a contract about who owns the top strip.
+3. **Scroll indication on every page** (like Dark's): a global `ScrollCue`
+   in the chrome — a gold drop falling down a dotted line, bottom-center.
+   Appears only when the page actually scrolls (checked after content
+   settles), fades on first scroll, remounts per route via `key={pathname}`
+   (derived-state again — no setState-in-effect). Replaced the per-page
+   "Descend" labels. Verified: opacity 1 on /war → 0 after scrolling;
+   stays 0 on non-scrolling /saga.
+4. **Easter-egg hint**: the menu footer now whispers *"Some names, typed
+   into the dark, answer back."*
+
+Also this session: killed all stray dev servers; `.vercel` gitignored.
+
 ## Backlog
 
-1. **Disable Deployment Protection** so the URL is publicly shareable, then
-   promote to production (`vercel deploy --prod`) / wire a custom domain.
-2. Recorded audio layers later if wanted (real conch, whispered ślokas) —
+1. Recorded audio layers later if wanted (real conch, whispered ślokas) —
    the synth bed makes them optional, not blocking.
-3. Broaden the KB beyond the core cast; source more Ravi Varma paintings.
+2. Broaden the KB beyond the core cast; source more Ravi Varma paintings.
+3. Custom domain, if the project earns one.
