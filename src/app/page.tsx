@@ -49,7 +49,7 @@ export default function EntryGate() {
 
       <main className="flex flex-col items-center gap-10">
         <h1
-          className="font-display text-5xl font-light text-bone sm:text-7xl"
+          className="font-display text-[clamp(1.7rem,7vw,4.5rem)] font-light text-bone"
           style={{ letterSpacing: "var(--tracking-epic)", textIndent: "var(--tracking-epic)" }}
         >
           <WordReveal as="span" text="MAHABHARAT" stagger={0.12} delay={1.2} />

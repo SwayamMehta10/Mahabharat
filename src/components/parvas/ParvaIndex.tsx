@@ -35,7 +35,7 @@ export default function ParvaIndex() {
   return (
     <div ref={rootRef} className="mx-auto w-full max-w-3xl px-6 pb-32 pt-28">
       <h1
-        className="font-display mb-2 text-4xl font-light text-bone"
+        className="font-display mb-2 text-[clamp(1.5rem,6vw,2.25rem)] font-light text-bone"
         style={{ letterSpacing: "0.25em" }}
       >
         THE EIGHTEEN PARVAS

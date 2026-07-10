@@ -92,7 +92,7 @@ export default function WarTimeline() {
       <section className="flex min-h-dvh flex-col items-center justify-center gap-8 px-6 text-center">
         <p className="ui-label">Bhishma Parva · Drona Parva · Karna Parva · Shalya Parva</p>
         <h1
-          className="font-display text-4xl font-light text-bone sm:text-6xl"
+          className="font-display text-[clamp(1.6rem,7vw,3.75rem)] font-light text-bone"
           style={{ letterSpacing: "0.3em", textIndent: "0.3em" }}
         >
           KURUKSHETRA
