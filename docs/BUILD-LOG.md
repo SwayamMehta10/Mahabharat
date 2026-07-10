@@ -381,9 +381,57 @@ spoiler veil intact, 0 console errors, build green (49 pages).
 
 ---
 
+## Session 8 — 2026-07-10 · Design review: audit → fix → verify
+
+Ran the full /design-review workflow. First: **v1 finally committed to git**
+(71 files, 12,611 insertions) so each fix could land as its own atomic,
+revertable commit. Then four findings, four fixes, all verified live.
+
+### The best catch came from a broken tool
+
+The headless audit browser's first screenshot was **pure black** — its
+backgrounded tab throttles `requestAnimationFrame`, freezing GSAP mid-tween.
+Annoying tool artifact… and a genuine HIGH finding hiding underneath: the
+markup shipped content *hidden* (`opacity-0` classes, translate masks),
+becoming visible only when animation ran. Crawlers, link previews, and any
+failed script load saw a black page.
+
+**Fix (FINDING-001):** a pre-hydration inline script stamps
+`html[data-js]`; all animation initial-states are now CSS-gated on that
+attribute (`html[data-js] .anim-hidden { opacity: 0 }`). No JS → full
+content. JS → identical cinematic entrance. Plus `suppressHydrationWarning`
+on `<html>` for the expected attribute delta (the theme-script pattern).
+Lesson: **author content visible; let running JS hide it** — never the
+reverse.
+
+### The typography trap (FINDING-002)
+
+Tracked single-word display headings can't wrap: KURUKSHETRA at 0.3em
+tracking measured 384px against a 342px mobile container → horizontal
+scroll. Same math doomed MAHABHARAT (0.45em) and THE EIGHTEEN PARVAS.
+Fixed with fluid `clamp()` font sizes (e.g. `text-[clamp(1.6rem,7vw,3.75rem)]`);
+re-measured 292px @ 375px viewport, zero overflow.
+
+### Touch targets (FINDINGS-003/004)
+
+- Sound toggles were 86×17px → `p-3 -m-3` (bigger hit area, identical look).
+- The Kalachakra's *arcs* had generous 34px hit strokes but the *numerals*
+  were bare 11px text → invisible 44px hit circles behind each numeral,
+  click-through re-verified.
+
+### What passed
+
+Trunk test (menu + ever-present chakra icon + parva badge), reduced-motion
+fallbacks (real ones), spoiler integrity incl. search, 3-font discipline,
+**AI-slop score: A** — no gradient-purple, no icon-circle grids, nothing
+generic. Design score B+ → A− after fixes. Full report:
+`~/.gstack/projects/Mahabharat/designs/design-audit-20260709/`.
+
+---
+
 ## Backlog (agreed order)
 
 1. Recorded layers later if wanted (real conch, whispered ślokas) — the
    synth bed makes them optional rather than blocking.
-2. Mobile + performance + design-review polish pass; easter eggs.
+2. Performance/bundle pass (Lighthouse, shader budget on low-end); easter eggs.
 3. Vercel deploy.
