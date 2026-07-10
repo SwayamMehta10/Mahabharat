@@ -429,9 +429,52 @@ generic. Design score B+ → A− after fixes. Full report:
 
 ---
 
-## Backlog (agreed order)
+## Session 9 — 2026-07-10 · Performance, an easter egg, and first deploy
 
-1. Recorded layers later if wanted (real conch, whispered ślokas) — the
-   synth bed makes them optional rather than blocking.
-2. Performance/bundle pass (Lighthouse, shader budget on low-end); easter eggs.
-3. Vercel deploy.
+### three.js off the critical path
+
+The biggest chunk we ship is the GL stack — **~231 kB gzipped**, and it sat
+in the shared render-blocking bundle, so even a text-only route like
+`/parvas` waited on it before painting. Fix: `CanvasRoot` now mounts through
+`next/dynamic({ ssr: false })` via a thin `CanvasRootLazy` wrapper. Verified
+the win structurally — `grep` of the biggest chunk against `/parvas` static
+HTML returns **0 references** (three.js is now an async chunk, not
+render-blocking). The smoke's existing fade-from-black (`uIntensity` ramps
+0→1) absorbs its slightly later arrival, so it reads as cinematography, not
+pop-in. Prod numbers on the home route: **LCP 544 ms, DCL 422 ms**.
+
+### The Karna easter egg
+
+Type `karna` anywhere outside an input and the river gives up its secret —
+a full-screen overlay: *"Before the five, there was a sixth. Kunti's
+firstborn, son of the Sun — set adrift on the river before dawn."* A 5-char
+rolling keybuffer (`KarnaSecret.tsx`), guarded against firing inside form
+fields, links to `/who/karna`, dismiss on click or Escape. The reader has
+known since Adi Parva §67; the brothers never did. Verified live in the
+production build.
+
+### First deploy — and a gotcha worth remembering
+
+Deployed to Vercel (`vercel deploy --yes`). Two things bit:
+1. **Project name**: the directory is `Mahabharat` (capital M), and Vercel
+   project names must be lowercase — auto-derivation 400'd. Fixed with
+   `--name mahabharat`.
+2. **Deployment Protection**: new Vercel projects ship with the SSO auth
+   wall ON. The deploy is `READY` and the app is perfect, but the URL 302s
+   to `vercel.com/sso-api` for anyone who isn't the account owner. For a
+   demo/interview site this must be turned OFF: Project → Settings →
+   Deployment Protection → Vercel Authentication → Disabled. (A build being
+   `READY` and a URL being *publicly viewable* are two different things.)
+
+Live (owner-only until protection is disabled):
+`mahabharat-a17kntxoi-swayams-projects-09869114.vercel.app`
+
+---
+
+## Backlog
+
+1. **Disable Deployment Protection** so the URL is publicly shareable, then
+   promote to production (`vercel deploy --prod`) / wire a custom domain.
+2. Recorded audio layers later if wanted (real conch, whispered ślokas) —
+   the synth bed makes them optional, not blocking.
+3. Broaden the KB beyond the core cast; source more Ravi Varma paintings.
