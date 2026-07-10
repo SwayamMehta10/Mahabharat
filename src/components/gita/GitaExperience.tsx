@@ -157,7 +157,6 @@ export default function GitaExperience() {
           className="max-w-md font-display text-xl italic text-ash"
           delay={0.8}
         />
-        <p className="ui-label mt-8 animate-pulse">Descend</p>
       </section>
 
       {/* the despair — time slows across this passage */}

@@ -103,7 +103,6 @@ export default function WarTimeline() {
           className="max-w-md font-display text-xl italic text-ash"
           delay={0.8}
         />
-        <p className="ui-label mt-8 animate-pulse">Descend</p>
       </section>
 
       {/* the days */}
@@ -158,7 +157,7 @@ export default function WarTimeline() {
                 </p>
                 <ul className={`flex flex-col gap-3 ${left ? "sm:items-end" : ""}`}>
                   {d.events.map((ev, j) => (
-                    <li key={j} className="font-display max-w-sm text-base leading-relaxed text-bone/75">
+                    <li key={j} className="font-display max-w-sm text-lg leading-relaxed text-bone/80">
                       {ev}
                     </li>
                   ))}

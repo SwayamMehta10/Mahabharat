@@ -23,6 +23,44 @@ interface Hit {
   group: "Who" | "Parvas" | "Days";
 }
 
+/**
+ * A gold drop falling down a dotted line, bottom-center — the invitation to
+ * scroll, like Dark's. Appears only when the page actually scrolls; lets go
+ * the moment the visitor does. Remounted per route via key={pathname}.
+ */
+function ScrollCue() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    // content often settles a beat after navigation (animations, canvas)
+    const check = () =>
+      setShow(
+        window.scrollY < 40 &&
+          document.documentElement.scrollHeight > window.innerHeight + 120
+      );
+    const t1 = setTimeout(check, 700);
+    const t2 = setTimeout(check, 2200);
+    const onScroll = () => {
+      if (window.scrollY > 60) setShow(false);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  return (
+    <div className="scroll-cue" style={{ opacity: show ? 1 : 0 }} aria-hidden>
+      <div className="scroll-cue-line">
+        <span className="scroll-cue-dot" />
+      </div>
+      <span className="ui-label !text-[0.6rem] !text-ash/70">Scroll</span>
+    </div>
+  );
+}
+
 export default function SiteChrome() {
   const pathname = usePathname();
   // derived open state: the menu is open only on the route it was opened on,
@@ -117,6 +155,7 @@ export default function SiteChrome() {
 
   return (
     <>
+      <ScrollCue key={pathname} />
       {/* fixed chrome */}
       <header className="pointer-events-none fixed inset-x-0 top-0 z-30 flex items-center justify-between p-5">
         <button
@@ -226,6 +265,9 @@ export default function SiteChrome() {
               </button>
               <p className="ui-label text-center !text-ash/50">
                 Knowing parva {Math.max(knownParva, 0)} of 18 · every fact cited to the Ganguli translation
+              </p>
+              <p className="font-display text-sm italic !normal-case text-ash/50">
+                Some names, typed into the dark, answer back.
               </p>
             </div>
           </div>

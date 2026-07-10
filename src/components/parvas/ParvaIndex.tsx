@@ -66,9 +66,9 @@ export default function ParvaIndex() {
                   {p.name}
                   <span className="font-deva ml-3 text-base text-bone/50">{p.deva}</span>
                 </h2>
-                <p className="font-display mt-1 text-base italic text-ash">{p.meaning}</p>
+                <p className="font-display mt-1 text-lg italic text-ash">{p.meaning}</p>
                 {known ? (
-                  <p className="font-display mt-4 max-w-xl text-lg leading-relaxed text-bone/80">
+                  <p className="font-display mt-4 max-w-xl text-xl leading-relaxed text-bone/85">
                     {p.summary}
                   </p>
                 ) : (

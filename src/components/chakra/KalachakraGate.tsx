@@ -196,13 +196,13 @@ export default function KalachakraGate() {
           {parva.name}
           <span className="font-deva ml-3 text-lg text-bone/60">{parva.deva}</span>
         </p>
-        <p className="font-display text-base italic text-ash">{parva.meaning}</p>
+        <p className="font-display text-lg italic text-ash">{parva.meaning}</p>
       </div>
 
       <div data-fade className="anim-hidden flex flex-col items-center gap-3">
         <WordReveal
           text="Turn the wheel to how far you know the tale, and nothing beyond it shall be spoken."
-          className="max-w-md font-display text-base italic text-ash"
+          className="max-w-md font-display text-lg italic text-ash"
           delay={1.6}
         />
         <EllipseButton onClick={continueOn} ariaLabel="Continue to the family tree">

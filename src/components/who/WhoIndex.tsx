@@ -50,9 +50,9 @@ function CharacterCard({ c, revealed }: { c: Character; revealed: boolean }) {
           {c.deva.charAt(0)}
         </span>
       )}
-      <span className="ui-label relative !text-[0.62rem] !text-bone">{c.name}</span>
+      <span className="ui-label relative !text-[0.7rem] !text-bone">{c.name}</span>
       {c.epithets[0] && (
-        <span className="font-display relative mt-0.5 text-xs italic text-ash">
+        <span className="font-display relative mt-0.5 text-sm italic text-ash">
           {c.epithets[0]}
         </span>
       )}

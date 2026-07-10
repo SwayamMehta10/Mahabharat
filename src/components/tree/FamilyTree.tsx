@@ -214,7 +214,7 @@ export default function FamilyTree() {
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-void/95 via-transparent to-void/30" />
-                    <span className="ui-label relative mt-auto pb-1.5 !text-[0.58rem] !text-bone">
+                    <span className="ui-label relative mt-auto pb-1.5 !text-[0.65rem] !tracking-[0.13em] !text-bone">
                       {c.name}
                     </span>
                   </>
@@ -223,7 +223,7 @@ export default function FamilyTree() {
                     <span className={`font-deva text-2xl leading-none ${style.glyph}`}>
                       {c.deva.charAt(0)}
                     </span>
-                    <span className="ui-label !text-[0.58rem] !text-bone/90">{c.name}</span>
+                    <span className="ui-label !text-[0.65rem] !tracking-[0.13em] !text-bone/90">{c.name}</span>
                   </>
                 )
               ) : (
@@ -234,8 +234,8 @@ export default function FamilyTree() {
         })}
       </div>
 
-      {/* HUD */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-start justify-between p-6">
+      {/* HUD — pushed below the fixed chrome (menu glyph / chakra icon) */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-start justify-between px-6 pb-6 pt-16">
         <div>
           <h1 className="font-display text-2xl font-light tracking-[0.2em] text-bone">
             THE KURU LINE
