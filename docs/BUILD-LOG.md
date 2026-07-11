@@ -500,9 +500,48 @@ deploy. All four items fixed and shipped:
 
 Also this session: killed all stray dev servers; `.vercel` gitignored.
 
+## Session 11 - The Complete Guide push (2026-07-11)
+
+The site graduates from overview to guide. Five commits:
+
+1. **Visibility pass + em dash purge** (`5307341`): portrait grade
+   0.62 -> 0.80 in the GLSL and CSS twins, softer void gradients; family
+   tree cards 150x118 at 0.78 initial zoom, edge strokes at 45-50%
+   opacity counter-scaled against camera zoom (they were sub-pixel at
+   0.62). All ~130 em dashes in src/ rewritten; `scripts/check-prose.mjs`
+   fails lint if one ever returns.
+2. **KB schema for depth** (`6178800`): JourneyChapter, WarDay.narrative,
+   Parva.synopsis, JourneyArtEntry (license-tracked), AudioAsset;
+   `scripts/validate-kb.mjs` in lint (id resolution, citation format,
+   journey ordering, on-disk asset checks).
+3. **The Eighteen Days in full** (`9d3b0fb`): 141 narrative paragraphs
+   across all 18 days, written from the Ganguli sections each day cites;
+   WarTimeline renders them as a book-measure column under the events.
+4. **The Eighteen Parvas in full** (`e1c7510`): 100 synopsis paragraphs,
+   Adi through Svargarohana; ParvaIndex shows them indented under each
+   known parva.
+5. **DARK-style journeys** (`6430a53` + `e7434c7`): CharacterJourney
+   scrolls a life parva by parva, ScrollTrigger writing
+   atmosphere.portrait per chapter (PortraitPlane crossfades), Devanagari
+   rail scrubber, per-chapter spoiler gating. Arjuna (9 chapters),
+   Bhishma (6), Draupadi (7) authored. fetch-art.mjs verifies PD/CC0 via
+   the Commons API before download (discovery mode lists candidates for
+   scene verification by eye); three verified paintings now crossfade
+   inside the journeys.
+
+Decisions taken with the user: journeys for ALL characters eventually,
+near-book prose depth, TV stills permitted case-by-case (pipeline flags
+them `unverified` so exposure stays auditable; none used yet).
+
 ## Backlog
 
-1. Recorded audio layers later if wanted (real conch, whispered ślokas) —
-   the synth bed makes them optional, not blocking.
-2. Broaden the KB beyond the core cast; source more Ravi Varma paintings.
-3. Custom domain, if the project earns one.
+1. Journeys for the remaining 36 characters (dramatic core next: Karna,
+   Krishna, Duryodhana, Kunti, Abhimanyu, Ashwatthama); source per-chapter
+   art via scripts/fetch-art.mjs discovery mode.
+2. Broaden the KB toward ~75 characters (Vichitravirya, Amba, Hidimbi,
+   Ghatotkacha line, Satyaki, Yuyutsu, Uttara, Ekalavya kin, ...) via
+   Sorensen's Index / Dowson (both PD, archive.org).
+3. Recorded audio layers: SampleBank on the existing AudioContext,
+   Freesound CC0 conch (sound 439477) + tanpura loops, synth stays the
+   fallback; audio.json schema already shipped.
+4. Custom domain, if the project earns one.
