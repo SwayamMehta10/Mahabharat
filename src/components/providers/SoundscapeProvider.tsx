@@ -13,7 +13,7 @@ function sceneFor(pathname: string): SceneName {
 
 /**
  * Routes choose their sound. The engine itself is created on the first
- * user gesture (autoplay policy) — until someone touches the page,
+ * user gesture (autoplay policy) - until someone touches the page,
  * the site is silent by law and by design.
  */
 export default function SoundscapeProvider() {

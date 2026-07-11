@@ -72,7 +72,7 @@ const fragmentShader = /* glsl */ `
 
     vec2 uv = uFocal * (1.0 - s) + vUv * s;
 
-    // parallax with the cursor — the painting leans away, slightly
+    // parallax with the cursor - the painting leans away, slightly
     uv += uMouse * vec2(-0.008, -0.006) * s;
 
     // the paint breathes: sub-pixel fbm displacement, slow
@@ -81,13 +81,13 @@ const fragmentShader = /* glsl */ `
 
     vec3 c = texture2D(uMap, clamp(uv, 0.001, 0.999)).rgb;
 
-    // the grade — same intent as the CSS treatment, computed per-pixel
+    // the grade, same intent as the CSS treatment, computed per-pixel
     float g = dot(c, vec3(0.299, 0.587, 0.114));
-    c = mix(vec3(g), c, 0.72);            // desaturate
+    c = mix(vec3(g), c, 0.85);            // desaturate, gently
     c *= vec3(1.05, 0.99, 0.90);          // lean warm
-    c *= 0.62;                            // into the dark
+    c *= 0.80;                            // into the dusk, not the dark
     vec3 indigo = vec3(0.075, 0.102, 0.200);
-    c = mix(c, c * indigo * 4.2, 0.16);   // indigo wash in the shadows
+    c = mix(c, c * indigo * 4.2, 0.10);   // indigo wash in the shadows
 
     gl_FragColor = vec4(c, uReveal);
   }

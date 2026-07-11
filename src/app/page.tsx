@@ -40,7 +40,7 @@ export default function EntryGate() {
       ref={pageRef}
       className="flex min-h-dvh flex-col items-center justify-between px-6 py-10 text-center"
     >
-      {/* brand — the epic's own name in its own script */}
+      {/* brand - the epic's own name in its own script */}
       <header data-fade className="anim-hidden">
         <p className="font-deva text-lg text-bone/70" style={{ letterSpacing: "0.6em" }}>
           म हा भा र त

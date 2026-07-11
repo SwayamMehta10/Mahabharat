@@ -41,7 +41,7 @@ export default function ParvaIndex() {
         THE EIGHTEEN PARVAS
       </h1>
       <p className="font-display mb-16 text-lg italic text-ash">
-        One epic, eighteen books — from the first oath to the last ascent.
+        One epic, eighteen books, from the first oath to the last ascent.
       </p>
 
       <ol className="flex flex-col">
@@ -73,7 +73,7 @@ export default function ParvaIndex() {
                   </p>
                 ) : (
                   <p className="ui-label mt-4 !normal-case italic !text-ash/50">
-                    — the wheel has not yet turned this far —{" "}
+                    · the wheel has not yet turned this far ·{" "}
                     <Link
                       href="/saga"
                       className="underline decoration-dotted underline-offset-2 transition-colors hover:text-gold"

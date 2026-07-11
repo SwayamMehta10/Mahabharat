@@ -58,7 +58,7 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
   return (
     <div className="relative min-h-dvh overflow-hidden">
       {painting ? (
-        /* the painting, graded into the void — rendered live in the WebGL
+        /* the painting, graded into the void: rendered live in the WebGL
            canvas (breathing displacement + parallax); the DOM <img> below is
            the reduced-motion fallback with the same grade in CSS */
         <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -70,16 +70,16 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
             className="absolute inset-y-0 right-0 hidden h-full w-full object-cover motion-reduce:block sm:w-3/5"
             style={{
               objectPosition: painting.position,
-              filter: "grayscale(0.25) sepia(0.14) contrast(1.06) brightness(0.62) saturate(0.85)",
+              filter: "grayscale(0.15) sepia(0.10) contrast(1.04) brightness(0.80) saturate(0.92)",
             }}
           />
-          {/* full-width fade — no container edge, the painting simply emerges */}
-          <div className="absolute inset-0 bg-gradient-to-r from-void from-35% via-void/70 via-60% to-void/15" />
-          <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-void/70" />
-          <div className="absolute inset-0 bg-indigo-deep/25 mix-blend-multiply" />
+          {/* full-width fade, no container edge: the painting simply emerges */}
+          <div className="absolute inset-0 bg-gradient-to-r from-void from-22% via-void/55 via-52% to-void/5" />
+          <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-void/45" />
+          <div className="absolute inset-0 bg-indigo-deep/12 mix-blend-multiply" />
         </div>
       ) : (
-        /* no painting yet — the Devanagari watermark stands in */
+        /* no painting yet - the Devanagari watermark stands in */
         <div
           aria-hidden
           className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 select-none font-deva text-[26rem] leading-none text-indigo-deep/60"
@@ -133,7 +133,7 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
                     href={`/war#day-${c.deathDay}`}
                     className="transition-colors hover:text-vermillion"
                   >
-                    Day {c.deathDay} — {fallDay.title}
+                    Day {c.deathDay} · {fallDay.title}
                   </Link>
                 </SpoilerGuard>
               </p>
@@ -144,7 +144,7 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
         <div className="mt-4 flex items-end justify-between gap-6 border-t border-dotted border-ash/25 pt-6">
           <div className="flex max-w-md flex-col gap-1.5">
             <p className="ui-label !normal-case">
-              {c.citations.join(" · ")} — K.M. Ganguli tr.
+              {c.citations.join(" · ")} · K.M. Ganguli tr.
             </p>
             {painting && (
               <p className="ui-label !normal-case !text-ash/70">

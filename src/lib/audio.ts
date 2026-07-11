@@ -56,7 +56,7 @@ export function playConch(durationSec = 4.5): void {
   partial.connect(partialGain).connect(lowpass);
   shimmer.connect(shimmerGain).connect(lowpass);
 
-  // swell in, hold, long release — like a breath
+  // swell in, hold, long release - like a breath
   master.gain.setValueAtTime(0, now);
   master.gain.linearRampToValueAtTime(0.35, now + 1.4);
   master.gain.setValueAtTime(0.35, now + durationSec * 0.55);

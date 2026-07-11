@@ -38,7 +38,7 @@ export interface TreeEdge {
 }
 
 /**
- * Edges derived from the KB itself — a parent link exists whenever a
+ * Edges derived from the KB itself - a parent link exists whenever a
  * character's `parents` mentions another KB id (this is what draws Karna's
  * long, terrible line from Kunti across the whole tree).
  */

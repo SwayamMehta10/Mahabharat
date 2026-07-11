@@ -8,9 +8,11 @@ import { TREE_POSITIONS, CELL_X, CELL_Y } from "@/data/tree-layout";
 import { useEpicStore } from "@/lib/store";
 import type { Character } from "@/data/schema";
 
-const CARD_W = 116;
-const CARD_H = 92;
-const PAD = 260;
+const CARD_W = 150;
+const CARD_H = 118;
+const PAD = 200;
+// on-screen stroke width the edges should hold at any zoom
+const EDGE_STROKE = 1.75;
 
 const ALLEGIANCE_STYLE: Record<Character["allegiance"], { border: string; glyph: string }> = {
   pandava: { border: "border-gold/35", glyph: "text-gold" },
@@ -23,6 +25,7 @@ export default function FamilyTree() {
   const router = useRouter();
   const viewportRef = useRef<HTMLDivElement>(null);
   const worldRef = useRef<HTMLDivElement>(null);
+  const edgesRef = useRef<SVGSVGElement>(null);
   const knownParva = useEpicStore((s) => s.knownParva);
 
   const { nodes, edges, width, height, toPx } = useMemo(() => {
@@ -47,7 +50,7 @@ export default function FamilyTree() {
   }, []);
 
   // pan/zoom state lives in refs; gsap.set applies the transform
-  const cam = useRef({ tx: 0, ty: 0, scale: 0.6 });
+  const cam = useRef({ tx: 0, ty: 0, scale: 0.78 });
   const drag = useRef({ active: false, startX: 0, startY: 0, moved: 0 });
 
   const apply = () => {
@@ -57,6 +60,11 @@ export default function FamilyTree() {
       scale: cam.current.scale,
       transformOrigin: "0 0",
     });
+    // counter-scale the edge strokes so lines never thin to sub-pixel;
+    // children inherit this from the svg root (they carry no stroke-width
+    // of their own)
+    const sw = Math.min(3, Math.max(1, EDGE_STROKE / cam.current.scale));
+    edgesRef.current?.style.setProperty("stroke-width", String(sw));
   };
 
   useEffect(() => {
@@ -66,7 +74,7 @@ export default function FamilyTree() {
     // start centered on the trunk (Shantanu), slightly zoomed out
     const rect = vp.getBoundingClientRect();
     const shantanu = toPx("shantanu");
-    cam.current.scale = 0.62;
+    cam.current.scale = 0.78;
     cam.current.tx = rect.width / 2 - shantanu.x * cam.current.scale;
     cam.current.ty = rect.height * 0.22 - shantanu.y * cam.current.scale;
     apply();
@@ -82,7 +90,7 @@ export default function FamilyTree() {
       { opacity: 1, y: 0, duration: 1.1, stagger: 0.025, ease: "power3.out", delay: 0.3 }
     );
 
-    // no pointer capture — capturing retargets the click away from the
+    // no pointer capture: capturing retargets the click away from the
     // node buttons, so a tap on a card would never navigate
     const onPointerDown = (e: PointerEvent) => {
       drag.current = { active: true, startX: e.clientX, startY: e.clientY, moved: 0 };
@@ -107,7 +115,7 @@ export default function FamilyTree() {
       const mx = e.clientX - rect.left;
       const my = e.clientY - rect.top;
       const prev = cam.current.scale;
-      const next = Math.min(1.5, Math.max(0.32, prev * (e.deltaY > 0 ? 0.9 : 1.11)));
+      const next = Math.min(1.6, Math.max(0.42, prev * (e.deltaY > 0 ? 0.9 : 1.11)));
       // zoom toward the cursor
       cam.current.tx = mx - ((mx - cam.current.tx) / prev) * next;
       cam.current.ty = my - ((my - cam.current.ty) / prev) * next;
@@ -138,8 +146,15 @@ export default function FamilyTree() {
       className="relative h-dvh w-full cursor-grab touch-none overflow-hidden active:cursor-grabbing"
     >
       <div ref={worldRef} className="absolute left-0 top-0" style={{ width, height }}>
-        {/* edges */}
-        <svg width={width} height={height} className="absolute left-0 top-0">
+        {/* edges - stroke-width lives on the svg root so apply() can
+            counter-scale it against the camera zoom */}
+        <svg
+          ref={edgesRef}
+          width={width}
+          height={height}
+          className="absolute left-0 top-0"
+          style={{ strokeWidth: EDGE_STROKE }}
+        >
           {edges.map((e, i) => {
             const a = toPx(e.from);
             const b = toPx(e.to);
@@ -149,14 +164,13 @@ export default function FamilyTree() {
                   key={i}
                   x1={a.x} y1={a.y} x2={b.x} y2={b.y}
                   stroke="currentColor"
-                  strokeWidth="1"
-                  strokeDasharray="1 6"
+                  strokeDasharray="2 7"
                   strokeLinecap="round"
-                  className="text-bone/25"
+                  className="text-bone/50"
                 />
               );
             }
-            // parent → child: gentle elbow through the space between rows
+            // parent to child: gentle elbow through the space between rows
             const midY = a.y + (b.y - a.y) * 0.55;
             const d = `M ${a.x} ${a.y + CARD_H / 2} L ${a.x} ${midY} L ${b.x} ${midY} L ${b.x} ${b.y - CARD_H / 2}`;
             const isKarnaLine = e.from === "kunti" && e.to === "karna";
@@ -166,10 +180,9 @@ export default function FamilyTree() {
                 d={d}
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="1"
-                strokeDasharray={isKarnaLine ? "1 5" : undefined}
+                strokeDasharray={isKarnaLine ? "2 6" : undefined}
                 strokeLinecap="round"
-                className={isKarnaLine ? "text-gold/50" : "text-bone/20"}
+                className={isKarnaLine ? "text-gold/75" : "text-bone/45"}
               />
             );
           })}
@@ -207,14 +220,14 @@ export default function FamilyTree() {
                       src={painting.thumb}
                       alt=""
                       draggable={false}
-                      className="absolute inset-0 h-full w-full object-cover opacity-80"
+                      className="absolute inset-0 h-full w-full object-cover opacity-90"
                       style={{
                         filter:
-                          "grayscale(0.35) sepia(0.15) contrast(1.05) brightness(0.66)",
+                          "grayscale(0.2) sepia(0.12) contrast(1.04) brightness(0.78)",
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-void/95 via-transparent to-void/30" />
-                    <span className="ui-label relative mt-auto pb-1.5 !text-[0.65rem] !tracking-[0.13em] !text-bone">
+                    <span className="ui-label relative mt-auto pb-1.5 !text-[0.75rem] !tracking-[0.13em] !text-bone">
                       {c.name}
                     </span>
                   </>
@@ -223,7 +236,7 @@ export default function FamilyTree() {
                     <span className={`font-deva text-2xl leading-none ${style.glyph}`}>
                       {c.deva.charAt(0)}
                     </span>
-                    <span className="ui-label !text-[0.65rem] !tracking-[0.13em] !text-bone/90">{c.name}</span>
+                    <span className="ui-label !text-[0.75rem] !tracking-[0.13em] !text-bone/90">{c.name}</span>
                   </>
                 )
               ) : (
@@ -234,7 +247,7 @@ export default function FamilyTree() {
         })}
       </div>
 
-      {/* HUD — pushed below the fixed chrome (menu glyph / chakra icon) */}
+      {/* HUD, pushed below the fixed chrome (menu glyph / chakra icon) */}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-start justify-between px-6 pb-6 pt-16">
         <div>
           <h1 className="font-display text-2xl font-light tracking-[0.2em] text-bone">

@@ -24,7 +24,7 @@ interface Hit {
 }
 
 /**
- * A gold drop falling down a dotted line, bottom-center — the invitation to
+ * A gold drop falling down a dotted line, bottom-center - the invitation to
  * scroll, like Dark's. Appears only when the page actually scrolls; lets go
  * the moment the visitor does. Remounted per route via key={pathname}.
  */
@@ -142,7 +142,7 @@ export default function SiteChrome() {
       if (d.title.toLowerCase().includes(q) || `day ${d.day}` === q) {
         out.push({
           href: `/war#day-${d.day}`,
-          primary: `Day ${d.day} — ${d.title}`,
+          primary: `Day ${d.day} · ${d.title}`,
           secondary: "Kurukshetra",
           group: "Days",
         });
@@ -168,7 +168,7 @@ export default function SiteChrome() {
         </button>
         <Link
           href="/saga"
-          aria-label="Turn the wheel — spoiler settings"
+          aria-label="Turn the wheel: spoiler settings"
           className="pointer-events-auto p-2 text-bone/70 transition-colors hover:text-gold-bright"
         >
           <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden>
@@ -214,7 +214,7 @@ export default function SiteChrome() {
                 <ul className="mt-6 flex flex-col gap-1">
                   {hits.length === 0 && (
                     <li className="font-display italic text-ash">
-                      Nothing by that name — or the wheel forbids it.
+                      Nothing by that name, or the wheel forbids it.
                     </li>
                   )}
                   {hits.map((h) => (

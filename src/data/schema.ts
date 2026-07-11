@@ -12,7 +12,7 @@ export interface Character {
   deva: string; // Devanagari
   epithets: string[]; // e.g. "Gudakesha", "Radheya"
   allegiance: Allegiance;
-  /** Divine father/aspect, if any — the luminous nodes above the tree */
+  /** Divine father/aspect, if any: the luminous nodes above the tree */
   divineParent?: string;
   parents: string[]; // character ids (or plain names if outside the KB)
   spouses: string[];

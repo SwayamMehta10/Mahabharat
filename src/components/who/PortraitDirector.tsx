@@ -10,7 +10,7 @@ interface PortraitDirectorProps {
 }
 
 /**
- * Server-rendered character pages can't talk to the canvas — this tiny
+ * Server-rendered character pages can't talk to the canvas - this tiny
  * client component does it for them: on mount it asks the PortraitPlane to
  * show this painting; on unmount it lets it fade back to nothing.
  */

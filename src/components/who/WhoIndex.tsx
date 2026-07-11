@@ -37,8 +37,8 @@ function CharacterCard({ c, revealed }: { c: Character; revealed: boolean }) {
           <img
             src={painting.thumb}
             alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-75 transition-all duration-500 group-hover:scale-[1.03] group-hover:opacity-90"
-            style={{ filter: "grayscale(0.35) sepia(0.15) contrast(1.05) brightness(0.6)" }}
+            className="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
+            style={{ filter: "grayscale(0.2) sepia(0.12) contrast(1.04) brightness(0.78)" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent" />
         </>
@@ -84,7 +84,7 @@ export default function WhoIndex() {
         WHO
       </h1>
       <p className="font-display mb-14 text-lg italic text-ash">
-        The figures of the epic — as far as the wheel allows.
+        The figures of the epic, as far as the wheel allows.
       </p>
 
       {GROUPS.map((g) => {

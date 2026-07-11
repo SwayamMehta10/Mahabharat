@@ -6,11 +6,11 @@ import * as THREE from "three";
 import { atmosphere } from "@/lib/atmosphere";
 
 /**
- * The Vishvarupa — the cosmic form as an erupting mandala of ~16k particles.
+ * The Vishvarupa - the cosmic form as an erupting mandala of ~16k particles.
  * It ignores the frozen smoke-clock on purpose: when time stops for the Gita,
  * this is the only thing in the universe still moving.
  *
- * Additive blending gives the "thousand suns" bloom for free — no
+ * Additive blending gives the "thousand suns" bloom for free - no
  * postprocessing pass needed.
  */
 
@@ -27,7 +27,7 @@ const vertexShader = /* glsl */ `
   attribute float aHeat; // 0 = rim (vermillion) … 1 = core (white-gold)
 
   uniform float uProgress;   // 0..1 eruption
-  uniform float uTime;       // the form's own clock — never freezes
+  uniform float uTime;       // the form's own clock - never freezes
   uniform float uPixelRatio;
 
   varying float vAlpha;
@@ -102,7 +102,7 @@ export default function VishvarupaParticles() {
     const R_IN = 1.05;
     let i = 0;
 
-    // the bindu — a small burning heart
+    // the bindu - a small burning heart
     const BINDU = 300;
     for (; i < BINDU; i++) {
       radii[i] = Math.random() ** 2 * 0.14;
@@ -112,7 +112,7 @@ export default function VishvarupaParticles() {
       heats[i] = 1;
     }
 
-    // structured rings — the rim of the wheel
+    // structured rings - the rim of the wheel
     const RINGS = 18;
     for (let ring = 0; ring < RINGS && i < COUNT_RINGS; ring++) {
       const r = R_IN + (ring / (RINGS - 1)) ** 1.2 * (MAX_R - R_IN);
@@ -125,7 +125,7 @@ export default function VishvarupaParticles() {
         heats[i] = 1 - ((r - R_IN) / (MAX_R - R_IN)) * 0.9;
       }
     }
-    // free dust — the storm around the wheel, none in the hollow
+    // free dust - the storm around the wheel, none in the hollow
     for (; i < COUNT; i++) {
       const r = R_IN + Math.sqrt(Math.random()) * (MAX_R * 1.15 - R_IN);
       radii[i] = r;
@@ -154,7 +154,7 @@ export default function VishvarupaParticles() {
     const pts = pointsRef.current;
     if (!mat || !pts) return;
 
-    // the form has its own clock — it moves even when the world is frozen
+    // the form has its own clock - it moves even when the world is frozen
     formTime.current += delta;
 
     const target = atmosphere.vishvarupa;

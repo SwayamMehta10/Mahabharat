@@ -1,6 +1,6 @@
 /**
  * The void-smoke shader. Domain-warped fbm (iq's q/r technique) rendered on a
- * fullscreen quad — the same "living darkness" idiom as dark.netflix.io, tinted
+ * fullscreen quad - the same "living darkness" idiom as dark.netflix.io, tinted
  * toward midnight indigo with the faintest breath of gold near the cursor.
  */
 
@@ -20,7 +20,7 @@ export const smokeFragment = /* glsl */ `
   uniform vec2 uResolution;
   uniform vec2 uMouse;      // smoothed, in NDC (-1..1)
   uniform float uIntensity; // 0..1 master fade
-  uniform float uWar;       // 0..1 — indigo night ... ember and ash
+  uniform float uWar;       // 0..1 - indigo night ... ember and ash
 
   float hash(vec2 p) {
     p = fract(p * vec2(123.34, 456.21));

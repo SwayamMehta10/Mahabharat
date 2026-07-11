@@ -11,7 +11,7 @@ import WordReveal from "@/components/ui/WordReveal";
 const SIZE = 380;
 const C = SIZE / 2;
 const R_SEG = 142; // interactive parva arcs
-const R_NUM = 168; // numeral ring — the dial's affordance
+const R_NUM = 168; // numeral ring - the dial's affordance
 const R_INNER = 92; // single faint inner ring, clearly not the control
 const GAP_DEG = 3.2;
 
@@ -98,7 +98,7 @@ export default function KalachakraGate() {
     >
       <div className="relative" style={{ width: SIZE, height: SIZE }}>
         <svg ref={svgRef} width={SIZE} height={SIZE} viewBox={`0 0 ${SIZE} ${SIZE}`}>
-          {/* one faint inner ring for depth — clearly not the control */}
+          {/* one faint inner ring for depth - clearly not the control */}
           <g data-ring>
             <circle
               cx={C} cy={C} r={R_INNER}
@@ -144,7 +144,7 @@ export default function KalachakraGate() {
             );
           })}
 
-          {/* numerals — the affordance that says "this is a dial of 18" */}
+          {/* numerals - the affordance that says "this is a dial of 18" */}
           {segments.map(({ n }) => {
             const [nx, ny] = polar(R_NUM, n * 20 - 10);
             const known = n <= selected;
@@ -166,7 +166,7 @@ export default function KalachakraGate() {
                 >
                   {n}
                 </text>
-                {/* invisible 44px-diameter hit circle — thumbs, not cursors */}
+                {/* invisible 44px-diameter hit circle - thumbs, not cursors */}
                 <circle
                   cx={nx}
                   cy={ny}

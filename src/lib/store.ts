@@ -32,7 +32,7 @@ export const useEpicStore = create<EpicState>()(
       name: "mahabharat-progress",
       partialize: (s) => ({ soundOn: s.soundOn, knownParva: s.knownParva }),
       // rehydrate manually after mount (StoreHydrator) so server HTML and
-      // client first paint always agree — no hydration mismatches, no
+      // client first paint always agree - no hydration mismatches, no
       // flash of spoilers
       skipHydration: true,
     }

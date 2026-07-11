@@ -159,10 +159,10 @@ export default function GitaExperience() {
         />
       </section>
 
-      {/* the despair — time slows across this passage */}
+      {/* the despair - time slows across this passage */}
       <section data-stillness className="mx-auto flex min-h-[160vh] max-w-xl flex-col justify-around gap-24 px-6 py-32 text-center">
         <p data-line className="font-display text-2xl italic leading-relaxed text-bone/85">
-          Arjuna looks across the field and sees no enemies — only teachers,
+          Arjuna looks across the field and sees no enemies. Only teachers,
           uncles, cousins, sons.
         </p>
         <p data-line className="font-display text-2xl italic leading-relaxed text-bone/85">
@@ -170,7 +170,7 @@ export default function GitaExperience() {
           his hand.
         </p>
         <p data-line className="font-display text-2xl italic leading-relaxed text-bone/70">
-          &ldquo;I will not fight,&rdquo; he says — and falls silent.
+          &ldquo;I will not fight,&rdquo; he says, and falls silent.
         </p>
         <p data-line className="ui-label !text-gold-dim">
           And between one breath and the next, time stood still
@@ -182,7 +182,7 @@ export default function GitaExperience() {
       <VerseCard v={byRef.get("2.20")!} />
       <VerseCard v={byRef.get("4.7–8")!} />
 
-      {/* the reveal — 350vh of held breath */}
+      {/* the reveal - 350vh of held breath */}
       <section data-vishvarupa className="relative h-[350vh]">
         <div className="sticky top-0 flex h-dvh flex-col items-center justify-center px-6 text-center">
           {/* a soft dark scrim so the verses survive the glare of the form */}

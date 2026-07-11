@@ -13,7 +13,7 @@ interface WordRevealProps {
 
 /**
  * Dark-style staggered text: every word wrapped in its own masked span,
- * rising into view. (The original site does exactly this — its DOM is a
+ * rising into view. (The original site does exactly this - its DOM is a
  * sea of per-word spans.)
  */
 export default function WordReveal({
@@ -42,7 +42,7 @@ export default function WordReveal({
   }, [delay, stagger, text]);
 
   return (
-    // @ts-expect-error — polymorphic tag with a shared HTMLElement ref
+    // @ts-expect-error - polymorphic tag with a shared HTMLElement ref
     <Tag ref={rootRef} className={className} aria-label={text}>
       {text.split(" ").map((word, i) => (
         <span className="word-mask" key={`${word}-${i}`} aria-hidden>

@@ -1,7 +1,7 @@
 /**
  * A tiny mutable channel between the DOM world and the WebGL world.
  * Pages write to it (on scroll, on events); the smoke shader reads it every
- * frame. No React state — nothing re-renders at 60fps.
+ * frame. No React state - nothing re-renders at 60fps.
  *
  * war:        0 = the night before (indigo) … 1 = day eighteen (ember and ash)
  * timeScale:  1 = the world flows … 0 = time stands still (the Gita moment)

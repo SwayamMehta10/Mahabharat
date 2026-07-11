@@ -27,9 +27,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "MAHABHARAT — The Epic of Epics",
+  title: "MAHABHARAT · The Epic of Epics",
   description:
-    "An immersive guide to the Mahabharat — the dynasty, the war, and the song of the divine. Eighteen parvas. Eighteen days. One dharma.",
+    "An immersive guide to the Mahabharat: the dynasty, the war, and the song of the divine. Eighteen parvas. Eighteen days. One dharma.",
 };
 
 export default function RootLayout({
@@ -46,7 +46,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {/* progressive-reveal gate: animation initial-states (hidden text) only
-            apply when JS is actually running — crawlers, link previews, and a
+            apply when JS is actually running; crawlers, link previews, and a
             failed script load all still see the content */}
         <script
           dangerouslySetInnerHTML={{ __html: `document.documentElement.dataset.js="1"` }}

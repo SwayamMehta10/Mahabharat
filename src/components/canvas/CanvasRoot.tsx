@@ -16,7 +16,7 @@ function subscribeReducedMotion(onChange: () => void) {
 
 /**
  * The single persistent WebGL canvas. Lives in the root layout so the GL
- * context — and the smoke — survives every route transition.
+ * context - and the smoke - survives every route transition.
  */
 export default function CanvasRoot() {
   const reducedMotion = useSyncExternalStore(
@@ -26,7 +26,7 @@ export default function CanvasRoot() {
   );
 
   if (reducedMotion) {
-    // Static gradient stand-in — no animation, no GL churn
+    // Static gradient stand-in - no animation, no GL churn
     return (
       <div
         aria-hidden

@@ -11,7 +11,7 @@ interface EllipseButtonProps {
 
 /**
  * Dark's signature hover: a slightly imperfect, hand-drawn ellipse that
- * strokes itself around the label. The path is deliberately wobbly —
+ * strokes itself around the label. The path is deliberately wobbly;
  * a perfect <ellipse> reads as sterile.
  */
 export default function EllipseButton({

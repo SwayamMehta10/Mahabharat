@@ -1,12 +1,12 @@
 /**
- * The soundscape is synthesized, not sampled — the same philosophy as the
+ * The soundscape is synthesized, not sampled - the same philosophy as the
  * conch. Three scenes, all built from oscillators and filtered noise:
  *
- *   void — a deep breathing drone on Sa (A1) and its fifth, with a whisper
+ *   void - a deep breathing drone on Sa (A1) and its fifth, with a whisper
  *          of wind. The night before everything.
- *   war  — the void drone darkened, plus sparse deep drum strikes
- *          (pitch-dropping sines — membrane physics in two lines).
- *   gita — a tanpura-like cycle: plucked Sa–Pa–Sa–Sa through a resonant
+ *   war  - the void drone darkened, plus sparse deep drum strikes
+ *          (pitch-dropping sines - membrane physics in two lines).
+ *   gita - a tanpura-like cycle: plucked Sa–Pa–Sa–Sa through a resonant
  *          bandpass, each pluck ringing into the next.
  *
  * Everything is gain-ramped; nothing clicks. The engine only exists after a
@@ -16,7 +16,7 @@
 
 export type SceneName = "void" | "war" | "gita" | "silence";
 
-const SA = 55; // A1 — the tonic of the whole site
+const SA = 55; // A1 - the tonic of the whole site
 const PA = SA * 1.5;
 
 interface Scene {
@@ -50,7 +50,7 @@ class Soundscape {
     this.master.gain.value = this.enabled ? 1 : 0;
     this.master.connect(this.ctx.destination);
     this.setScene(this.pendingScene);
-    // debug/demo handle — lets devtools ask what the soundscape is doing
+    // debug/demo handle - lets devtools ask what the soundscape is doing
     (window as unknown as { __soundscape?: unknown }).__soundscape = this;
   }
 
@@ -90,7 +90,7 @@ class Soundscape {
     this.current = scene;
   }
 
-  // ————— scene builders —————
+  // ----- scene builders -----
 
   private sceneGain(): GainNode {
     const g = this.ctx!.createGain();
@@ -111,7 +111,7 @@ class Soundscape {
     lp.frequency.value = cutoff;
     lp.Q.value = 0.7;
 
-    const breath = ctx.createOscillator(); // LFO on the filter — the drone inhales
+    const breath = ctx.createOscillator(); // LFO on the filter - the drone inhales
     breath.frequency.value = 0.045;
     const breathGain = ctx.createGain();
     breathGain.gain.value = cutoff * 0.4;
@@ -139,7 +139,7 @@ class Soundscape {
     return () => oscs.forEach((o) => o.stop());
   }
 
-  /** Filtered noise — wind over the field. */
+  /** Filtered noise - wind over the field. */
   private wind(out: AudioNode, level: number): () => void {
     const ctx = this.ctx!;
     const len = ctx.sampleRate * 4;
@@ -208,7 +208,7 @@ class Soundscape {
     const stopDrone = this.drone(gain, [SA * 0.5, SA], 0.05, 170);
     const stopWind = this.wind(gain, 0.011);
 
-    // sparse, irregular war drums — distant, patient
+    // sparse, irregular war drums - distant, patient
     let alive = true;
     const schedule = () => {
       if (!alive || !this.ctx) return;

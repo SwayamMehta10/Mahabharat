@@ -6,7 +6,7 @@ import gsap from "gsap";
 
 /**
  * Easter egg: type "karna" anywhere (outside an input) and the river gives
- * up its secret. The reader has known since Adi Parva §67 — the brothers
+ * up its secret. The reader has known since Adi Parva §67 - the brothers
  * never did.
  */
 export default function KarnaSecret() {
@@ -54,7 +54,7 @@ export default function KarnaSecret() {
       <p data-secret className="font-deva text-4xl text-gold-bright/90">कर्ण</p>
       <p data-secret className="font-display max-w-md text-2xl italic leading-relaxed text-bone/90">
         Before the five, there was a sixth. Kunti&rsquo;s firstborn, son of the
-        Sun — set adrift on the river before dawn.
+        Sun, set adrift on the river before dawn.
       </p>
       <p data-secret className="font-display max-w-md text-lg italic text-ash">
         The eldest Pandava fought his brothers all his life. Only the river

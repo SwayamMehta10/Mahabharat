@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * Lenis smooth scroll driven by the GSAP ticker — the standard pairing for
+ * Lenis smooth scroll driven by the GSAP ticker - the standard pairing for
  * scroll-story sites. Pages that fit the viewport (the gates, the tree)
  * simply have nothing to scroll; the war timeline rides this.
  */
