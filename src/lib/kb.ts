@@ -1,8 +1,10 @@
-import type { Character, Parva, WarDay } from "@/data/schema";
+import type { AudioAsset, Character, JourneyArtEntry, JourneyChapter, Parva, WarDay } from "@/data/schema";
 import charactersData from "@/data/characters.json";
 import parvasData from "@/data/parvas.json";
 import warDaysData from "@/data/war-days.json";
 import artData from "@/data/art.json";
+import journeyArtData from "@/data/journey-art.json";
+import audioData from "@/data/audio.json";
 
 export interface ArtEntry {
   title: string;
@@ -21,6 +23,18 @@ export function getArt(id: string): (ArtEntry & { file: string; thumb: string })
   return { ...a, file: `/art/${id}.webp`, thumb: `/art/${id}-thumb.webp` };
 }
 
+/** Journey-chapter backgrounds, keyed by asset id (shared across characters). */
+export const journeyArt = journeyArtData as Record<string, JourneyArtEntry>;
+
+export function getJourneyArt(assetId: string): (JourneyArtEntry & { file: string }) | undefined {
+  const a = journeyArt[assetId];
+  if (!a) return undefined;
+  return { ...a, file: `/art/journey/${assetId}.webp` };
+}
+
+/** Recorded audio layers; the synth bed remains the fallback for each. */
+export const audioAssets = audioData as AudioAsset[];
+
 export const characters = charactersData as Character[];
 export const parvas = parvasData as Parva[];
 export const warDays = warDaysData as WarDay[];
@@ -29,6 +43,13 @@ export const charactersById = new Map(characters.map((c) => [c.id, c]));
 
 export function getCharacter(id: string): Character | undefined {
   return charactersById.get(id);
+}
+
+/** A character's journey chapters, sorted by parva (empty if none authored). */
+export function getJourney(id: string): JourneyChapter[] {
+  const c = charactersById.get(id);
+  if (!c?.journey) return [];
+  return [...c.journey].sort((a, b) => a.parva - b.parva);
 }
 
 export interface TreeEdge {
