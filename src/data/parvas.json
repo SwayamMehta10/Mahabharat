@@ -1,20 +1,282 @@
 [
-  { "number": 1, "id": "adi", "name": "Adi Parva", "deva": "आदि पर्व", "meaning": "The Book of the Beginning", "summary": "The origins of the Kuru line: Shantanu and Ganga, Bhishma's terrible vow, the births of Dhritarashtra, Pandu and Vidura, the fire-born Draupadi, the boyhood rivalry of the cousins, and the house of lac." },
-  { "number": 2, "id": "sabha", "name": "Sabha Parva", "deva": "सभा पर्व", "meaning": "The Book of the Assembly Hall", "summary": "Yudhishthira's imperial sacrifice, Shishupala's death at Krishna's hand, and the dice game: Draupadi dragged into the hall, the vows of Bhima, and the exile of the Pandavas." },
-  { "number": 3, "id": "vana", "name": "Vana Parva", "deva": "वन पर्व", "meaning": "The Book of the Forest", "summary": "Twelve years in the forest: Arjuna wins the Pashupatastra from Shiva, Yudhishthira answers the Yaksha's questions, and the seeds of the war are watered by grief." },
-  { "number": 4, "id": "virata", "name": "Virata Parva", "deva": "विराट पर्व", "meaning": "The Book of Virata", "summary": "The thirteenth year in disguise at King Virata's court: Arjuna as the dance teacher Brihannala, Bhima in the kitchens, Draupadi as a maid, and the cattle raid that nearly unmasks them." },
-  { "number": 5, "id": "udyoga", "name": "Udyoga Parva", "deva": "उद्योग पर्व", "meaning": "The Book of the Effort", "summary": "The last attempts at peace. Krishna rides as envoy to Hastinapura and shows his cosmic form to the blind court. Karna learns whose son he truly is, and keeps the secret." },
-  { "number": 6, "id": "bhishma", "name": "Bhishma Parva", "deva": "भीष्म पर्व", "meaning": "The Book of Bhishma", "summary": "The armies meet at Kurukshetra. Arjuna's bow slips from his hand, and Krishna sings the Bhagavad Gita. Ten days of Bhishma's command, until he falls on a bed of arrows." },
-  { "number": 7, "id": "drona", "name": "Drona Parva", "deva": "द्रोण पर्व", "meaning": "The Book of Drona", "summary": "Five days of slaughter under the teacher's command: the boy Abhimanyu trapped alone inside the wheel formation, Arjuna's terrible vow against Jayadratha, and a lie that fells Drona himself." },
-  { "number": 8, "id": "karna", "name": "Karna Parva", "deva": "कर्ण पर्व", "meaning": "The Book of Karna", "summary": "Two days of Karna's command, ending in the duel the whole epic has waited for: a chariot wheel sunk in the earth, a forgotten mantra, and brother slaying brother." },
-  { "number": 9, "id": "shalya", "name": "Shalya Parva", "deva": "शल्य पर्व", "meaning": "The Book of Shalya", "summary": "The eighteenth day. Shalya falls to Yudhishthira, Shakuni to Sahadeva, and Bhima breaks Duryodhana's thigh at the lake, as vowed and against the rules." },
-  { "number": 10, "id": "sauptika", "name": "Sauptika Parva", "deva": "सौप्तिक पर्व", "meaning": "The Book of the Sleeping Warriors", "summary": "Ashwatthama walks into the sleeping Pandava camp at night. By dawn the victors have no sons left. The brahmastra is turned on the unborn." },
-  { "number": 11, "id": "stri", "name": "Stri Parva", "deva": "स्त्री पर्व", "meaning": "The Book of the Women", "summary": "The women walk the field among the dead. Gandhari, who bore a hundred sons and lost them all, curses Krishna and his entire race." },
-  { "number": 12, "id": "shanti", "name": "Shanti Parva", "deva": "शान्ति पर्व", "meaning": "The Book of Peace", "summary": "Yudhishthira, crowned and inconsolable, sits at the feet of the dying Bhishma, who teaches the dharma of kings from his bed of arrows." },
-  { "number": 13, "id": "anushasana", "name": "Anushasana Parva", "deva": "अनुशासन पर्व", "meaning": "The Book of Instructions", "summary": "Bhishma's final teachings: on giving, on conduct, on the thousand names of the divine. Then, with the sun turning north, he lets go of his life." },
-  { "number": 14, "id": "ashvamedhika", "name": "Ashvamedhika Parva", "deva": "अश्वमेधिक पर्व", "meaning": "The Book of the Horse Sacrifice", "summary": "The empire is re-consecrated with the horse sacrifice. Krishna revives the stillborn Parikshit, the last hope of the line." },
-  { "number": 15, "id": "ashramavasika", "name": "Ashramavasika Parva", "deva": "आश्रमवासिक पर्व", "meaning": "The Book of the Hermitage", "summary": "Dhritarashtra, Gandhari and Kunti retire to the forest, and are taken at last by a forest fire, a quiet end for those the war spared." },
-  { "number": 16, "id": "mausala", "name": "Mausala Parva", "deva": "मौसल पर्व", "meaning": "The Book of the Clubs", "summary": "Gandhari's curse ripens. The Yadavas slaughter one another with reeds of iron, and Krishna, resting beneath a tree, is taken by a hunter's arrow." },
-  { "number": 17, "id": "mahaprasthanika", "name": "Mahaprasthanika Parva", "deva": "महाप्रस्थानिक पर्व", "meaning": "The Book of the Great Journey", "summary": "The Pandavas renounce the kingdom and walk north into the Himalaya. One by one they fall on the path, until only Yudhishthira and a dog remain." },
-  { "number": 18, "id": "svargarohana", "name": "Svargarohana Parva", "deva": "स्वर्गारोहण पर्व", "meaning": "The Book of the Ascent to Heaven", "summary": "Yudhishthira refuses heaven without the dog at his side, endures one final test of hell, and the wheel of the tale comes to rest." }
+  {
+    "number": 1,
+    "id": "adi",
+    "name": "Adi Parva",
+    "deva": "आदि पर्व",
+    "meaning": "The Book of the Beginning",
+    "summary": "The origins of the Kuru line: Shantanu and Ganga, Bhishma's terrible vow, the births of Dhritarashtra, Pandu and Vidura, the fire-born Draupadi, the boyhood rivalry of the cousins, and the house of lac.",
+    "synopsis": [
+      "The epic does not begin with its heroes; it begins with someone telling their story. At a great snake sacrifice held by King Janamejaya, the last descendant of the house this poem destroys, the sage Vaishampayana recites what his teacher Vyasa composed. Everything that follows is memory inside memory, a family listening to its own ruin.",
+      "The house begins with a river. King Shantanu of Hastinapura marries the goddess Ganga on her one condition, that he never question her, and watches her drown seven of their newborn sons. Stopped at the eighth, she reveals the children were cursed gods she was releasing, and leaves, taking the boy. Years later she returns him: Devavrata, the finest young warrior of the age.",
+      "Then Shantanu wants the fisher-girl Satyavati, and her father's price is the throne for her sons. Devavrata gives away his inheritance in a sentence, and then, so no son of his can ever claim it back, gives away marriage itself. The gods rain flowers and name him Bhishma, the terrible-vowed. His father grants him one gift in exchange: death only when he consents to it. Nearly everything that follows in this poem is the long bill for that afternoon.",
+      "Satyavati's line proves fragile: both her sons die without children, and the widows are given to her firstborn, the island-born sage Vyasa, to father heirs. Ambika shuts her eyes at his wildness and bears blind Dhritarashtra; Ambalika goes pale and bears pale Pandu; a serving girl, unafraid, bears Vidura, the wisest of the three, barred from the throne by her low birth. The author of the poem is thus the grandfather of all its combatants.",
+      "The next generation is born of gods and workarounds. Kunti, given a mantra that summons any deity to father a child, tests it on the sun as a girl and sets the resulting boy adrift; a charioteer raises him as Karna. Married to Pandu, who is cursed to die in any act of love, she uses the mantra lawfully: Yudhishthira of Dharma, Bhima of the wind, Arjuna of Indra, and, sharing the mantra with Madri, the twins Nakula and Sahadeva of the divine physicians. Gandhari, wed to blind Dhritarashtra, binds her own eyes for life and bears a hundred sons from one mass of flesh divided into jars, Duryodhana first, born to howling omens.",
+      "The princes grow up in one court under one teacher, and the poem plants every later grief in a schoolyard: Bhima and Duryodhana's poisoned rivalry, Drona's fee of half Drupada's kingdom and the humiliated king's fire-lit revenge to come, Ekalavya's thumb taken as tuition, and at the graduation tournament an unknown boy who matches Arjuna feat for feat and is mocked for his charioteer father until Duryodhana crowns him king of Anga on the spot. Karna's loyalty is purchased in the same hour his brothers laugh at him. None of the six know they are six.",
+      "Jealousy graduates with them. Duryodhana builds the Pandavas a palace of lac and wax at Varanavata and burns it; warned by Vidura, the five and Kunti escape by tunnel and let the world grieve them dead. In hiding they live as begging brahmins: Bhima marries the rakshasi Hidimba and fathers Ghatotkacha; a man-eating demon called Baka is beaten to death for a town's peace.",
+      "At Panchala, the fire-born princess Draupadi is offered to whoever can string an impossible bow and strike a turning target. Disguised, penniless, Arjuna does it. Kunti, unseeing, tells her sons to share whatever alms they brought home, and the poem takes the mother's word with complete seriousness: Draupadi becomes wife to all five, and the hidden Pandavas stand revealed as alive and now allied to Panchala's armies.",
+      "Dhritarashtra splits the kingdom to keep peace. On their waste half the Pandavas raise Indraprastha, and the poem lets them be briefly, brilliantly happy: Arjuna wins Krishna's sister Subhadra by elopement and fathers Abhimanyu; Agni, fed the Khandava forest by Arjuna and Krishna together, gives them Gandiva and the discus and a friendship the war will run on. The book ends with the house standing at its highest, one bad invitation away from the hall of dice."
+    ]
+  },
+  {
+    "number": 2,
+    "id": "sabha",
+    "name": "Sabha Parva",
+    "deva": "सभा पर्व",
+    "meaning": "The Book of the Assembly Hall",
+    "summary": "Yudhishthira's imperial sacrifice, Shishupala's death at Krishna's hand, and the dice game: Draupadi dragged into the hall, the vows of Bhima, and the exile of the Pandavas.",
+    "synopsis": [
+      "The asura architect Maya, spared from the Khandava fire, builds Yudhishthira a hall that has no equal on earth, floors like still water, water like polished floor. The hall is the book's title and its trap: everything that happens in this parva happens because of what men feel when they stand in it.",
+      "Yudhishthira reaches for the rite of universal sovereignty, the Rajasuya. It has one obstacle with a body: Jarasandha of Magadha, who keeps eighty-six captured kings penned for sacrifice. Krishna, Bhima and Arjuna enter his city as brahmins; offered single combat, Jarasandha chooses Bhima, and after fourteen days of wrestling Bhima tears him in half at Krishna's silent signal. The kings go free and owe their freedom to the new emperor.",
+      "At the consecration itself, the honor of first worship is given to Krishna, and Shishupala of Chedi, whose grudges against Krishna are old and personal, rises to protest. He has a curse's allowance: his mother won Krishna's promise to forgive him a hundred insults. The poem counts them out loud. At the hundred and first, the discus takes his head, and a column of light leaves the body and enters Krishna.",
+      "Duryodhana tours the finished hall, mistakes crystal for pool and pool for crystal, and falls in clothed. Draupadi and the servants laugh. The poem spends the rest of its length pricing that laughter.",
+      "Home in Hastinapura, sick with what he has seen, Duryodhana is offered the one weapon his uncle Shakuni never misses with: dice. Yudhishthira, invited by his blind uncle to a friendly game, cannot refuse a challenge and cannot win a throw. The poem lists the stakes as they escalate with the patience of a ledger: wealth, chariots, elephants, armies, the kingdom, his brothers one by one, himself, and then, at Shakuni's suggestion, Draupadi.",
+      "What follows in the hall is the epic's open wound. Draupadi, dragged in by her hair by Dushasana, does not weep first; she asks a question of law no man present can answer: if the king had already lost himself, whom did he stake next? Bhishma looks at the floor. Dushasana begins to strip her, and her sari does not end; the poem lets the miracle stand without explaining whose it is. Bhima swears to drink Dushasana's blood and break Duryodhana's thigh. Only when jackals howl does Dhritarashtra, terrified, give her boons that free her husbands.",
+      "It is all undone in an afternoon and staked again: one final throw, loser to the forest for twelve years and a thirteenth in disguise, discovery meaning the sentence begins again. Shakuni's hands have not changed. The Pandavas walk out of the book barefoot: Draupadi with her hair unbound and vowed to stay so until it is washed in Dushasana's blood, and the blind king listens to omens telling him what he has permitted."
+    ]
+  },
+  {
+    "number": 3,
+    "id": "vana",
+    "name": "Vana Parva",
+    "deva": "वन पर्व",
+    "meaning": "The Book of the Forest",
+    "summary": "Twelve years in the forest: Arjuna wins the Pashupatastra from Shiva, Yudhishthira answers the Yaksha's questions, and the seeds of the war are watered by grief.",
+    "synopsis": [
+      "The longest book of the epic is its great held breath: twelve years in the forest with everything lost and nothing yet permitted. The poem uses the stillness to arm its heroes and to tell, around exile campfires, half the stories India owns.",
+      "The exile begins with fury. Kirmira the rakshasa is torn apart by Bhima in the first dark; Krishna arrives to say that had he been at the dice game it would never have been played; Draupadi and Bhima demand war now and are refused by Yudhishthira, who will not break a sworn term. The argument between patience and rage runs the whole book like a fault line.",
+      "Arjuna leaves to earn the war's weapons. On a mountain he fights a wild hunter over a boar and is beaten for the first time in his life; the hunter is Shiva, testing him, and the prize is the Pashupata, the weapon that ends worlds. Five years follow in his father Indra's heaven, collecting the arms of the gods and refusing the nymph Urvashi, whose curse of unmanhood is bent by Indra into a disguise waiting for the thirteenth year.",
+      "The poem fills the waiting with mirrors. Nala and Damayanti, a king ruined by dice and restored by love, are told to Yudhishthira as consolation and rebuke. Hanuman, met in a grove, teaches his half-brother Bhima about the ages declining; Bhima also nearly dies picking flowers for Draupadi, which the poem finds tender and does not mock. Savitri, who argued her husband back from Death itself, is told for Draupadi. Rama's story is told entire.",
+      "Enemies use the years too. Duryodhana rides out to laugh at the exiles and is captured by gandharvas; Yudhishthira, unbearably, sends his brothers to free him, and Duryodhana goes home so shamed he must be talked out of suicide by his own demons. Jayadratha, the Kauravas' brother-in-law, tries to abduct Draupadi from an empty camp and is caught, shaved bald in patches, and released alive, a mercy with a boon-shaped hole in it: he prays to Shiva for one day's power against the brothers, and gets it, and Abhimanyu will die inside it.",
+      "In heaven's ledger the book's quietest scene may weigh most: Indra, disguised as a brahmin, begs from Karna the armor and earrings he was born inside, and Karna, knowing the beggar and the price, carves them off with a knife and hands over his invulnerability, taking a single-use spear in exchange. The poem calls him, from here on, by a new name: Vaikartana, the one who cut himself.",
+      "The book closes at a poisoned lake, where four brothers die one by one for drinking before answering a heron's questions. Yudhishthira answers them, the Yaksha Prashna, the epic's catechism: what is faster than wind, thought; what is the greatest wonder, that men die daily and the living plan forever. Offered one brother back, he chooses Nakula, his stepmother's son, so that each mother keeps a line alive, and the yaksha, who is Dharma his father, restores all four and grants the disguise-year's success. Thirteen years old at its start, the war is now one book away."
+    ]
+  },
+  {
+    "number": 4,
+    "id": "virata",
+    "name": "Virata Parva",
+    "deva": "विराट पर्व",
+    "meaning": "The Book of Virata",
+    "summary": "The thirteenth year in disguise at King Virata's court: Arjuna as the dance teacher Brihannala, Bhima in the kitchens, Draupadi as a maid, and the cattle raid that nearly unmasks them.",
+    "synopsis": [
+      "For the thirteenth year the five most famous men alive must become invisible, and the poem enjoys every irony of the disguise. In the court of old Virata, king of Matsya, Yudhishthira deals dice as a courtier, of all things; Bhima cooks, enormously; Draupadi dresses hair as a queen's maid; Nakula and Sahadeva keep horses and cattle; and Arjuna, wearing Urvashi's curse like a coat, teaches dance to the princess Uttaraa as Brihannala, bangled and braided, the Gandiva's hands correcting little girls' footwork.",
+      "The year almost passes. Then the queen's brother Kichaka, marshal of Matsya and the real power in the kingdom, sees Draupadi. Her five husbands must watch their wife harassed by a man the kingdom cannot afford to lose. It is Bhima she comes to at night, and the solution is arranged like a comedy and finished like a horror: Draupadi grants Kichaka a midnight meeting in the dance hall, and what waits on the couch in the dark is the cook. The marshal is beaten into a ball of flesh. His clan, blaming the maid, tries to burn her with his corpse, and Bhima rises out of the burning-ground and ends the clan.",
+      "Kichaka's death is heard in Hastinapura the way the poem's enemies always hear things: as information. Only Bhima could have done that, Duryodhana reasons, so Matsya is searched by invitation: the Trigartas raid Virata's cattle from the south as bait, and the whole Kuru army comes up from the north the next day. The timing matters desperately, and the poem plays it in hours: the year, by Bhishma's own astronomy, has just barely expired.",
+      "The southern raid empties the city of its fighting men. When the northern host appears there is no one left but the boy prince Uttara, who boasts he would scatter the Kurus if only he had a charioteer, and the maid suggests the dance teacher. What follows is the epic at its most fondly comic: the prince sees the enemy, jumps off the chariot and runs, and is chased down and consoled by his dance instructor, who then drives him to a certain tree where corpse-wrapped bundles hold five exiles' weapons, and asks the boy to hold the reins instead.",
+      "Arjuna against the entire Kuru army is not a battle; it is a recital. Bhishma, Drona, Kripa, Karna, Ashwatthama, Duryodhana: the poem gives each a courteous drubbing, and ends the affair with the sammohana weapon that lays the whole host asleep, after which the dance teacher has the prince strip the sleeping heroes of their upper garments for the palace ladies, as souvenirs. Bhishma, who alone stayed awake out of respect, notes to Duryodhana that the exile term is complete, and the army walks home to prepare the real war.",
+      "The book ends with recognition and a wedding that is really a treaty. Virata, mortified at having employed his emperors, offers Arjuna his daughter Uttaraa; Arjuna, who has been her teacher, takes her instead for his son Abhimanyu, and the kings begin arriving for the wedding and staying for the war council. The last peace of the poem is a marriage feast with maps on every table."
+    ]
+  },
+  {
+    "number": 5,
+    "id": "udyoga",
+    "name": "Udyoga Parva",
+    "deva": "उद्योग पर्व",
+    "meaning": "The Book of the Effort",
+    "summary": "The last attempts at peace. Krishna rides as envoy to Hastinapura and shows his cosmic form to the blind court. Karna learns whose son he truly is, and keeps the secret.",
+    "synopsis": [
+      "The book of the effort is the epic's longest argument: eighteen chapters of embassies, councils and prophecies, all failing in slow motion, while both sides count spears. The Pandavas' claim is simple: the term is served, return the kingdom, or even five villages. Duryodhana's answer becomes the war's epitaph: not so much land as fits under a needle's point.",
+      "The muster happens early and cynically. Both cousins race to Dwaraka for Krishna and arrive while he sleeps: Duryodhana takes the chair at his head, Arjuna stands at his feet, and Krishna, waking to a choice, offers one side his entire Narayani army and the other himself alone, unarmed. Arjuna, asked first as the younger, chooses the man. Duryodhana leaves delighted with the legions. The poem does not even pause to say who won.",
+      "Embassies shuttle and fail. Sanjaya comes from the blind king with words like fog, asking peace while conceding nothing; Vidura spends a sleepless night teaching his brother statecraft and morals, the Vidura-niti, wisdom the king praises and ignores; the seer Sanat-sujata lectures the old man on death itself. Every speech in Hastinapura circles one silent fact: the king will not command his son.",
+      "Then Krishna himself carries the last offer, and the book finds its center. In open council he asks for peace with the patience of someone reading the future aloud; Duryodhana orders his arrest, and the poem opens the sky: Krishna shows the court the Vishvarupa, the universal form, gods in his body and fires in his mouths, and the blind king is granted sight for the length of the vision and begs it away again after. Even this changes no vote.",
+      "The failed embassy leaves two private wounds. Krishna, departing, takes Karna aside and tells him plainly what the reader has known for four books: he is Kunti's firstborn, the eldest Pandava, and may claim the throne and Draupadi and the war's other side entire. Karna refuses in the epic's most quietly devastating speech: the charioteer who found him is his father; the brothers who mocked him have his loyalty's debt; a lifetime of insult cannot be unpaid by an origin. Then Kunti herself comes to him at his riverside prayers, and the son grants his mother one arithmetic mercy: he will kill none of her five but Arjuna. You will keep five sons, he tells her; the fifth will be either him or me.",
+      "The armies close on Kurukshetra like weather fronts, seven akshauhinis against eleven. Commands are distributed; Bhishma will lead the Kauravas, with one condition spoken aloud: he will not fight Shikhandi, and he explains why by telling the war's oldest backstory, the princess Amba, ruined by his vow decades ago, who burned herself alive swearing to be his death and was reborn as Drupada's child. The book ends with the grandsire commanding an army against the shape of his own past, and ten armies deep behind him, no one able to stop what everyone can see."
+    ]
+  },
+  {
+    "number": 6,
+    "id": "bhishma",
+    "name": "Bhishma Parva",
+    "deva": "भीष्म पर्व",
+    "meaning": "The Book of Bhishma",
+    "summary": "The armies meet at Kurukshetra. Arjuna's bow slips from his hand, and Krishna sings the Bhagavad Gita. Ten days of Bhishma's command, until he falls on a bed of arrows.",
+    "synopsis": [
+      "The armies stand arrayed at last, and the poem does the unforgivable, perfect thing: it stops. Arjuna asks his charioteer to drive out between the hosts, sees both his families waiting to kill each other, and sits down in the chariot with the bow slipping from his hand. What Krishna says to him there, seven hundred verses of it, is the Bhagavad Gita: act without claim to the fruit of action; the soul is never born and never dies; and when words end, the vision of the universal form, time itself with the armies already broken in its jaws. Arjuna picks up the bow. The conches sound.",
+      "The battle books then keep a promise the Gita made: everyone Arjuna grieved for dies, mostly at his family's hands. This one belongs to the grandsire. For ten days Bhishma commands the Kaurava host, and the poem builds its days like weather: formations named for eagles and cranes and sea monsters, single combats embedded in oceanic slaughter, each dusk counted in fires.",
+      "The first days trade sons. Virata's boys Uttara and Shweta die on day one; Arjuna answers on the second with a fury that stops both armies; on the third Krishna, watching Arjuna go gentle against his grandfather, leaps down with a chariot wheel raised before Arjuna talks him back to the reins; on the fourth Bhima ruins the Magadha elephants and eight of Duryodhana's brothers in an afternoon.",
+      "The middle days grind: the fifth is anonymous slaughter and Satyaki's ten sons dead at Bhurishravas' hands; on the sixth Bhima and Dhrishtadyumna walk out of an enemy army through a corridor of men enchanted asleep; the seventh and eighth belong to grief in both directions, Iravan, Arjuna's naga son, dying under a rakshasa's sword while Bhima keeps subtracting Kauravas.",
+      "On the ninth day Bhishma stops withholding, and an army learns what his vow had been protecting them all from. Krishna breaks; he leaps from the chariot a second time with the discus itself raised, and the old man opens his arms to it gladly, and it is Arjuna again who drags the god back to the reins with a promise: tomorrow, I will do it.",
+      "That night the Pandavas walk to the enemy commander's tent and ask him how to kill him, and he tells them, because he promised on the first morning and because he is tired in a way older than the war. Shikhandi, he says: born Amba, reborn for this, a woman once and therefore no target his bow will accept. Stand him in front, and let Arjuna work from behind that shield.",
+      "The tenth day does it exactly. Shikhandi shoots and is not answered; Arjuna's arrows come through the same air and are named as they land, the grandsire counting his grandson's shafts with something like pride. Bhishma falls at the day's last hour and does not reach the ground: the arrows hold him, head to the east, and both armies drop their weapons and gather. Arjuna makes his pillow of three shafts and calls water for him out of the earth, Ganga rising to her son's mouth.",
+      "He will not die for months. The boon of his father waits on his consent, and he will keep his life on the arrow bed until the sun turns north, the poem's great fixed point around which the rest of the war revolves. That night Karna, who refused to fight while Bhishma lived, comes to the bed alone in the dark and kneels, and the old man calls him son of Kunti, and blesses the enemy he honored most. The palmyra banner does not rise again; the book of the grandsire ends with its army looking for a new head, and finding a teacher."
+    ]
+  },
+  {
+    "number": 7,
+    "id": "drona",
+    "name": "Drona Parva",
+    "deva": "द्रोण पर्व",
+    "meaning": "The Book of Drona",
+    "summary": "Five days of slaughter under the teacher's command: the boy Abhimanyu trapped alone inside the wheel formation, Arjuna's terrible vow against Jayadratha, and a lie that fells Drona himself.",
+    "synopsis": [
+      "Drona takes the command Bhishma's fall leaves empty, and the war curdles into its cruelest five days. The teacher's book is the one where the rules die: children ganged upon, weapons of last resort loosed at midnight, and a lie told by the one man whose truth held the world's floor up.",
+      "Duryodhana asks his new commander not for victory but for a capture: bring Yudhishthira alive, for a second game of dice to steal what arms cannot win. The request splits every day that follows in two: the Trigarta samsaptakas, sworn to die drawing Arjuna to the field's far edge, and Drona's arrays driving daily at the king. Twice on the eleventh day the plan grazes success; on the twelfth it costs the life of old Bhagadatta on his great elephant, and Arjuna, blinding silk cut from his eyes, does not let the plan survive him.",
+      "The thirteenth day is the epic's darkest hinge. With Arjuna drawn south, Drona turns the army as the chakravyuha, the wheel of ranks within ranks, and the only man present who knows the way in is sixteen. Abhimanyu opens it like a door, fights inside it like the age's last great morning, kills Duryodhana's son Lakshmana, and is closed upon by six of the greatest warriors alive at once: bow cut from behind, wheel raised as his last weapon, mace against mace until the son of Dushasana rises first. Jayadratha's boon holds the rescuing army at the gate the whole hour. The convention that heroes die singly, facing forward, dies with the boy.",
+      "Arjuna's answer is a vow with a deadline: Jayadratha dead by tomorrow's sunset, or Arjuna into the fire. The fourteenth day is the longest in the poem, a twelve-mile fortress of armies built around one terrified king, and Arjuna crossing it like a road: Drona apologized to and bypassed, kings ground under wheel, Krishna grooming arrow-stuck horses mid-battle while Arjuna holds a circle of the world's arrows off them, standing alone on the ground. When the sun's fall would break the vow, the light thickens early, the Kauravas uncover, and the sun returns like a drawn blade; Arjuna's arrow carries Jayadratha's head miles beyond the field into his praying father's lap, so that the old man's own boon bursts his own head. The gods themselves, the poem implies, have begun cheating.",
+      "That night no one stops fighting. Torches come out, and the dark belongs to Bhima's giant son: Ghatotkacha devours the Kaurava host with the night's own strength, until Karna, cornered, throws the single-use spear of Indra he had hoarded sixteen days for Arjuna. The giant dies making his fall a weapon, crushing an army beneath, and Krishna, alone in the grieving camp, dances: the spear is spent; Arjuna cannot now die by it.",
+      "On the fifteenth day the teacher becomes the storm, and Drupada and Virata, two grandfathers of the alliance, die under his arrows before noon. The counsel Krishna gives is the poem's ethical cliff: this man cannot be beaten while he believes he has a son to live for. Bhima kills an elephant named Ashwatthama; Yudhishthira, whose chariot rides above the earth on the strength of his truth, says the sentence, Ashwatthama is dead, and lets the elephant drown under a conch blast; his wheels touch the ground, and Drona lays his weapons down and leaves his body in yoga before Dhrishtadyumna's blade takes the head of a man already gone.",
+      "The book will not let the lie be small: Ashwatthama, over his father's body, unleashes the Narayanastra, the sky itself descending as ordnance, and an entire army survives only by Krishna's command to drop every weapon and all pride and stand down under it, Bhima alone resisting and nearly burning for it. The weapon passes; the grief does not. The son it leaves alive has one book of patience and one night of horror left in him, and the command passes at last to Karna."
+    ]
+  },
+  {
+    "number": 8,
+    "id": "karna",
+    "name": "Karna Parva",
+    "deva": "कर्ण पर्व",
+    "meaning": "The Book of Karna",
+    "summary": "Two days of Karna's command, ending in the duel the whole epic has waited for: a chariot wheel sunk in the earth, a forgotten mantra, and brother slaying brother.",
+    "synopsis": [
+      "Two days, one duel, and the poem's oldest secret paid out in full: the book of Karna is short the way a held breath is short. The sun's son takes the command he waited sixteen years and one dead grandsire for, and the broken Kaurava host, loving him, fights young again for a morning.",
+      "The sixteenth day is his tournament: the makara array driving the Pandava lines back, Bhima and Ashwatthama dueling to a standstill armies pause to watch, and Nakula disarmed, touched with the bow-tip, and sent home alive with a lesson about fighting his betters. The mercy has a shape Nakula cannot see: a riverside promise to Kunti that four of her five sons are safe from him.",
+      "That night Karna asks Duryodhana for the only advantage he has ever requested: Shalya, king of Madra, for his charioteer, the one pair of hands fit to answer Krishna's. Shalya accepts royalty demoted to the reins on one condition, license to say whatever he pleases, and spends the seventeenth morning spending it: mile after mile of praise for Arjuna and inventory of Karna's humiliations, a duel inside the chariot before the duel outside it.",
+      "The day itself keeps two ledgers. Yudhishthira is beaten bloody and spared aloud for the promise's sake, which hurts him worse than shafts; back in camp, his shame turns on Arjuna, give your Gandiva to a better man, and touches a secret vow, and Arjuna draws on his own brother until Krishna builds the exit: insult an elder and it is his death, praise yourself and it is your own. The brothers weep in each other's arms while the war waits outside.",
+      "Bhima's dice-hall arithmetic comes due the same afternoon. He finds Dushasana, the hand in Draupadi's hair, breaks him with the mace, tears his chest, and drinks, in the sight of both hosts, exactly as vowed thirteen years before. Men who had survived seventeen days looked away, the poem says. A queen's hair can be bound again.",
+      "Then the field clears for the only duel the whole epic has actually promised. Karna and Arjuna are equal; the poem insists on it, gods crowding the sky to take sides, a snake-souled arrow aimed at the throat that takes the crown instead because Krishna presses the chariot into the earth by a hand's breadth, and Karna refusing to loose the same arrow twice even to win. Then the ground takes his wheel, as a brahmin's curse said it would; the great mantra leaves his memory, as his teacher's curse said it would; and he calls for the dharma of duels while wrestling the sunken wheel.",
+      "Krishna's answer is the poem's harshest accounting: where was dharma when the dice were poisoned, when a woman was dragged by her hair, when six men killed a boy? Karna lowers his head, and takes up the wheel, and the Anjalika arrow takes his head above it. The light of him climbs into the falling sun in the sight of both armies. He dies unclaimed, the eldest of the Pandavas killed by the brother who never knew, and the two people who could have said so said nothing, and the sun goes down the color of the field."
+    ]
+  },
+  {
+    "number": 9,
+    "id": "shalya",
+    "name": "Shalya Parva",
+    "deva": "शल्य पर्व",
+    "meaning": "The Book of Shalya",
+    "summary": "The eighteenth day. Shalya falls to Yudhishthira, Shakuni to Sahadeva, and Bhima breaks Duryodhana's thigh at the lake, as vowed and against the rules.",
+    "synopsis": [
+      "The eighteenth morning belongs to Shalya, king of Madra, tricked long ago into the wrong side by good hospitality and now handed its last command. The book named for him spends him quickly: by noon the gentlest Pandava, Yudhishthira himself, kills him with a thrown spear the poem describes like a comet, and the Kaurava army stops being an army.",
+      "The morning's other debts close like doors. Sahadeva, who swore it the night the dice fell, beheads Shakuni after his son Uluka dies within his sight; of the hundred sons of Dhritarashtra, Bhima's mace has left exactly one, and no one can find him. The poem counts what is left of eleven akshauhinis and arrives at hundreds where there had been millions.",
+      "Duryodhana is found at the bottom of a lake, the water solidified over him by sorcery, sitting in the cold dark with his mace, the war's author gone to ground inside his own defeat. It is mockery, not mercy, that raises him: taunted by Yudhishthira, offered single combat against any one brother with the kingdom itself as stake, terms that make Krishna despair of the king's honesty, he chooses the mace and Bhima, and the last duel of the war is arranged like its first tournament.",
+      "Balarama, teacher of both maces, arrives from pilgrimage in time to judge it at Samantapanchaka, and judges it lost: thirteen years of practice against a stone Bhima have made Duryodhana the finer fighter, and the fight goes his way until Krishna catches Bhima's eye and slaps his own thigh once. The blow that follows breaks both of Duryodhana's thighs and every law of the mace, and Balarama has to be restrained from killing Bhima over it.",
+      "The poem then does an extraordinary thing: it gives the dying villain the last word and lets it land. Name one of your victories that was clean, Duryodhana says to Krishna: Bhishma behind a woman, Drona behind a lie, Karna behind a sunken wheel, me below the belt. The sky rains flowers on him. Krishna's answer is not a denial: men like you make wars in which this is what winning costs. The victors leave him breathing by the lake at dusk.",
+      "In the dark, three men find him: Kripa, Kritavarma, and Ashwatthama, whose grief for his father has finished becoming something else. Over the broken king, with lake water for the rite, Duryodhana makes Ashwatthama commander of an army of three, and the book hands its ending to the most terrible night in the poem. The camp of the victors sleeps unarmed; what enters it belongs to the next parva, and the Pandavas will win it in the same hour they lose almost everything it was fought for."
+    ]
+  },
+  {
+    "number": 10,
+    "id": "sauptika",
+    "name": "Sauptika Parva",
+    "deva": "सौप्तिक पर्व",
+    "meaning": "The Book of the Sleeping Warriors",
+    "summary": "Ashwatthama walks into the sleeping Pandava camp at night. By dawn the victors have no sons left. The brahmastra is turned on the unborn.",
+    "synopsis": [
+      "The shortest horror in the epic. Three men are all that remain of eleven armies: Kripa the immortal teacher, Kritavarma of the Bhojas, and Ashwatthama, whose father died behind a lie and whose grief has stopped being grief. They sit in the dark at the field's edge while the victors sleep, and Ashwatthama watches an owl fall on a tree of sleeping crows and take them all.",
+      "He wakes the other two and names the owl his teacher. Kripa argues law: night slaughter of the sleeping is closed to kshatriyas by every code that still has meaning. Ashwatthama answers that the codes died with his father, behind a woman, behind a lie, behind a sunken wheel, and that he will do this alone if he must. They go with him. At the camp gate something enormous and dark bars the way until Ashwatthama worships Shiva and is handed a sword and, the poem implies, permission: the god enters him.",
+      "What happens inside the sleeping camp the poem narrates with the lights off. Dhrishtadyumna, his father's killer, is woken and trampled to death like an animal, denied steel on purpose; Shikhandi dies without a second duel; the five young sons of Draupadi are beheaded in their beds, in the dark, in their fathers' places. Kripa and Kritavarma hold the gates and fire the tents. By the time the camp understands, it is ash.",
+      "The five brothers and Krishna were sleeping elsewhere, on Krishna's quiet insistence, the last of his interventions no one questioned at the time. Dawn shows them the arithmetic: the war is won and the line is dead, every son, every ally's son, the whole next generation of the alliance in one night. Draupadi sits down by the bodies of her children and will not rise until the killer's head is brought, then gentles it herself: he is a brahmin and their teacher's son; take the gem he was born with instead.",
+      "The pursuit catches Ashwatthama at Vyasa's hermitage, where he does the last forbidden thing: he looses the Brahmashira itself, the weapon of the head of Brahma, with the words 'for the destruction of the Pandavas', and, when made to withdraw it, cannot, and turns it instead into the wombs of the Pandava women. Arjuna answers with the same weapon and, ordered by the sages, recalls his; Ashwatthama cannot or will not, and the unborn Parikshit, the line's whole future, takes the blast inside Uttaraa's body.",
+      "Krishna's sentence on him is the poem's longest punishment: the gem cut from his forehead, the wound left open, and three thousand years of wandering, alone, avoided, stinking of pus and blood, unable to die. And a promise over the burned womb: this child the weapon has killed, I will bring back. The book ends with the victors holding a jewel and a curse, which is close to the poem's whole accounting of the war."
+    ]
+  },
+  {
+    "number": 11,
+    "id": "stri",
+    "name": "Stri Parva",
+    "deva": "स्त्री पर्व",
+    "meaning": "The Book of the Women",
+    "summary": "The women walk the field among the dead. Gandhari, who bore a hundred sons and lost them all, curses Krishna and his entire race.",
+    "synopsis": [
+      "The book of the women is the war's bill, presented. Dhritarashtra and Gandhari, Kunti and the widowed queens of two armies walk out to Kurukshetra, and the poem, which spent ten books on the men killing, gives the field one book to be seen as the women find it: jackals and vultures, husbands identified by ornaments, the great heroes of every previous parva lying in configurations of ruin their wives must be talked through.",
+      "It opens with the poem's most dangerous embrace. Dhritarashtra, blind and bereaved of a hundred sons, asks to embrace Bhima; Krishna, reading the old man's arms, slides an iron statue of Bhima forward instead, and the king crushes it to powder and collapses, half in grief for his sons and half in horror at himself. It is forgiveness after that, of a kind: what else is left for two families with one survivor pool between them?",
+      "Gandhari's grief is the book's center of gravity. Granted divine sight of the whole field at once, she walks Krishna through it body by body, narrating her sons, her sons' wives, the boy Abhimanyu, the whole priced inventory of the poem, and at the end of it she does what no warrior managed: she wounds Krishna. You could have stopped this, she says, and did not; therefore your own house will fall on itself, and you will die alone, meanly, in a wood. Krishna accepts the curse smiling, as a thing already known and even arranged. The Mausala Parva is now loaded.",
+      "The last grief is the quietest. As the pyres are counted, Kunti stops her sons at one particular body and tells them, over the ashes of the man they hated all their lives, whose son he was. Yudhishthira's cry is for all of it at once: the brother unclaimed, the mother silent, the war unnecessary at one more level than anyone had counted. He curses all women, gently and terribly, that they may never keep a secret again, and the books of teaching must begin, because how does a man rule after this?"
+    ]
+  },
+  {
+    "number": 12,
+    "id": "shanti",
+    "name": "Shanti Parva",
+    "deva": "शान्ति पर्व",
+    "meaning": "The Book of Peace",
+    "summary": "Yudhishthira, crowned and inconsolable, sits at the feet of the dying Bhishma, who teaches the dharma of kings from his bed of arrows.",
+    "synopsis": [
+      "The longest book of the epic is the sound of a kingdom refusing to be ruled by a man refusing to be king. Yudhishthira, counting the dead he won with, wants the forest and a beggar's bowl; his brothers, his wife and Vyasa argue him back by stages toward the throne, and the poem turns from war to the harder subject of what power is for.",
+      "The healing has one strange hinge: the best teacher alive is still dying by consent on a bed of arrows, waiting for the sun to turn north. Krishna leads the new king to Bhishma, and the grandsire, propped on shafts between worlds, delivers the education of the age: the duties of kings, the staff of punishment and when to lower it, taxation like a bee taking nectar, spies and envoys and treasuries, the permitted lies and the unforgivable ones.",
+      "Then, past kingship, the book climbs: emergencies and their ethics, when famine unmakes law; and finally moksha, release itself, the self and its sheaths, renunciation inside action, told in parables the rest of India has been quoting since: the snake and the string, the ungrateful crane, the deer who lectures a king.",
+      "It is the epic deliberately becoming an encyclopedia, and it knows why: the poem has just spent ten books showing what men with power do when no one has taught them anything. The answer to Kurukshetra, it argues, is not a better war but a taught king. Whether Yudhishthira is consoled the poem honestly does not claim; he takes the throne the way a man takes a vow."
+    ]
+  },
+  {
+    "number": 13,
+    "id": "anushasana",
+    "name": "Anushasana Parva",
+    "deva": "अनुशासन पर्व",
+    "meaning": "The Book of Instructions",
+    "summary": "Bhishma's final teachings: on giving, on conduct, on the thousand names of the divine. Then, with the sun turning north, he lets go of his life.",
+    "synopsis": [
+      "The teaching continues, and softens. Where the Shanti Parva armed a king, the book of instructions furnishes a civilization: gifts and when giving purifies, food and fasting, cows and brahmins, marriage and inheritance, the karma that travels between births, answered by the dying Bhishma at leisure, as if the arrow bed had become a schoolroom veranda.",
+      "Inside its lists the book keeps some of the epic's tenderest metals: the dialogue on whether destiny or effort rules a life; the courtesan Pingala's verse on hope as the sharpest fetter; and the thousand names of Vishnu, recited on the arrow bed while the god they name stands listening in a charioteer's body. The poem lets Bhishma bless his own killer's household with its most-repeated prayer.",
+      "Then the sun turns north. Bhishma, who chose this hour across fifty-eight nights on the arrows, gathers his breath upward through the body the way the yogis describe, and lets the vow finally set him down. The wound the first book opened, the boy who gave up everything so his father could marry, closes across the whole arc of the epic. Ganga rises for her son, and is consoled by Krishna: he was a Vasu, and has gone home.",
+      "The Kuru line at this point holds its breath: the only heir in existence is a burned seed in Uttaraa's womb, under a god's promise. The remaining books are the epic exhaling: a sacrifice, a retirement, a massacre, a walk into the sky."
+    ]
+  },
+  {
+    "number": 14,
+    "id": "ashvamedhika",
+    "name": "Ashvamedhika Parva",
+    "deva": "अश्वमेधिक पर्व",
+    "meaning": "The Book of the Horse Sacrifice",
+    "summary": "The empire is re-consecrated with the horse sacrifice. Krishna revives the stillborn Parikshit, the last hope of the line.",
+    "synopsis": [
+      "The empire is won, taught, and broke. The treasury the war emptied must be refilled before the great horse sacrifice can re-consecrate the kingdom, so the book opens, wonderfully, with the victors of the world war digging: a mountain of gold left buried by an ancient king, hauled south in caravans.",
+      "Krishna spends the interval on the book's real gift. Arjuna admits he has forgotten the Gita, war-noise having taken it, and asks for it again, and Krishna, unable to summon that exact yoga twice, gives the Anugita, the after-song: the same freedom taught lower to the ground, through tales and lineages of teachers rather than a blazing theophany. The poem quietly concedes something enormous: even revelation does not stay heard.",
+      "The promise from the Sauptika Parva is kept on schedule. Parikshit is born dead, as the weapon in the womb decreed, and Krishna, in front of the assembled women daring him with their grief, walks into the birthing room and speaks a truth-act over the body, staking every rite he has ever kept, and the child breathes. The dynasty of the entire poem, from Shantanu to the boy listening to this recitation, passes through that one restarted heart.",
+      "Then the horse is loosed, and Arjuna follows it around India for a year of aftermath diplomacy, refighting the war's embers politely: sons of dead enemies met, spared, re-allied. At Manipura the horse is challenged by a young king who turns out to be Babruvahana, Arjuna's own son by Chitrangada, and the poem does its last great irony straight-faced: the boy kills his father in battle, and Arjuna is revived by the naga gem of his other wife Ulupi, the whole episode a mercy engineered, she explains, to pay off a curse owed for Bhishma's unfair death.",
+      "The sacrifice itself is magnificent, and the book will not let it be sufficient: a half-golden mongoose rolls in the ritual ground and laughs at the whole imperial rite, telling of a starving brahmin family whose gift of their last flour outweighed everything the emperors burned. Given honestly, a handful of barley beats a world-sacrifice; the poem lets the mongoose have the last word in the book of the kingdom's greatest ceremony."
+    ]
+  },
+  {
+    "number": 15,
+    "id": "ashramavasika",
+    "name": "Ashramavasika Parva",
+    "deva": "आश्रमवासिक पर्व",
+    "meaning": "The Book of the Hermitage",
+    "summary": "Dhritarashtra, Gandhari and Kunti retire to the forest, and are taken at last by a forest fire, a quiet end for those the war spared.",
+    "synopsis": [
+      "Fifteen years the old blind king lives on in the palace of the nephews who killed his hundred sons, honored by Yudhishthira like a father, needled daily, quietly, by Bhima within earshot: these arms, that mace. The poem is unsparing about how mixed households of grief actually work. At last Dhritarashtra asks for the forest, and the going-forth empties the palace of a generation: Gandhari bound-eyed at his side, Vidura ahead of them, and, to her sons' bewilderment, Kunti, who chose her sons' victory over every comfort and now chooses austerity over its rewards.",
+      "The book's strangest, most numinous scene belongs to Vidura: found in the woods emaciated, wandering, past speech, he stands against a tree at Yudhishthira's approach and dies upright, and something visible passes from his body into the king's, limb into limb, sight into sight. Dharma returning to Dharma, the poem says: the two of them were always the same god twice.",
+      "Two years on, Vyasa grants the hermitage the epic's most merciful miracle. At the Ganga by night he calls the dead of Kurukshetra up out of the water: Bhishma and Drona, Karna crowned and reconciled, the hundred sons whole and unangry, every husband the widows counted on the field, one night of the war reversed. The bereaved walk into the river to embrace them, and those widows who wish it are permitted to follow their husbands home into the water and not return. The blind king is even given eyes for the night.",
+      "The end, when it comes, is fire without battle: a forest blaze overtakes the hermitage, and Dhritarashtra, Gandhari and Kunti, too far gone in austerity to flee and past wanting to, sit down in yoga and let it take them, a quiet, chosen burning for those the war's fires spared. Only Sanjaya, the narrator of the whole war, walks out of the book alive, headed for the Himalaya."
+    ]
+  },
+  {
+    "number": 16,
+    "id": "mausala",
+    "name": "Mausala Parva",
+    "deva": "मौसल पर्व",
+    "meaning": "The Book of the Clubs",
+    "summary": "Gandhari's curse ripens. The Yadavas slaughter one another with reeds of iron, and Krishna, resting beneath a tree, is taken by a hunter's arrow.",
+    "synopsis": [
+      "Thirty-six years after the war, Gandhari's curse comes due with the tidiness of a ledger closing. The book of the iron bolt is the epic's coldest miracle: no enemy, no cause, just the Yadava clans, rich and idle and unkillable by anyone but themselves, pranking a sage with a boy dressed as a pregnant woman. What will she bear? An iron bolt, the sage says, that will erase your race.",
+      "They grind the bolt to powder and throw it in the sea, and the sea, patient as prophecy, grows it back as a reed-grass along the shore at Prabhasa. There, at a festival, with drink in them, the old veterans of the poem begin to itemize each other's war crimes, Kritavarma taunted for the sleeping camp, Satyaki for Bhurishravas, and swords come out, and when the swords are gone they pull the reed-grass, which comes up iron in their hands. Krishna's own people beat each other to death with the crop of the bolt while he watches, knowing the schedule.",
+      "The departures are laid side by side, enormous and small: Balarama sits by the ocean in yoga and the white serpent Shesha leaves his mouth for the sea; Krishna lies down in the wood, and the hunter Jara, mistaking the sole of his foot for a deer's ear, puts an arrow through the one mortal inch of him. The hunter's horror is met with the poem's gentlest absolution: this was owed, and arranged, and is well. The dark age, the Kali Yuga, begins at that arrow.",
+      "Arjuna comes for the survivors and learns the book's last lesson in person: escorting the Yadava women and children to safety, he is set upon by common herdsmen with sticks, and the Gandiva will not answer, the weapons will not come, the arms that carried Kurukshetra cannot protect a wagon train. Grown old in one afternoon, he watches Dwaraka's towers go under the sea behind them. Vyasa tells him plainly: what you were lent has been recalled. It is time you all left too."
+    ]
+  },
+  {
+    "number": 17,
+    "id": "mahaprasthanika",
+    "name": "Mahaprasthanika Parva",
+    "deva": "महाप्रस्थानिक पर्व",
+    "meaning": "The Book of the Great Journey",
+    "summary": "The Pandavas renounce the kingdom and walk north into the Himalaya. One by one they fall on the path, until only Yudhishthira and a dog remain.",
+    "synopsis": [
+      "The kingdom is handed to Parikshit, the restarted heart now grown, and the five brothers and Draupadi put off everything, thrones, sandals, names, and walk out of the poem the way pilgrims leave a town at dawn. A dog joins them at the gate. They walk east, then south, then west past drowned Dwaraka, then north, into the mountains, toward the door of heaven, and the poem walks them in single file.",
+      "One by one the walkers fall, and Yudhishthira, walking ahead, is made to name each one's flaw without breaking stride: Draupadi first, who loved Arjuna above her other husbands; Sahadeva, proud of his wisdom; Nakula, proud of his face; Arjuna, who boasted one boast he could not keep; and Bhima, who ate without measuring his neighbor's hunger. He does not look back, not from coldness, the poem is careful to say, but because the vow of the great departure is forward only.",
+      "At the end of the walkable world Indra's chariot stands blazing, and the king of dharma is invited up bodily, alone of mortals. He sets one condition: the dog comes. Heaven does not take dogs, the god explains, and the whole poem gathers into one exchange: then keep heaven, Yudhishthira says; this creature has walked with me and I will not put him down at the door for a reward. The dog stands up out of its shape: Dharma himself, testing his son a second time, and the mountain ends the book with the only unbroken hero it has, riding to heaven in his body for a mercy he showed an animal."
+    ]
+  },
+  {
+    "number": 18,
+    "id": "svargarohana",
+    "name": "Svargarohana Parva",
+    "deva": "स्वर्गारोहण पर्व",
+    "meaning": "The Book of the Ascent to Heaven",
+    "summary": "Yudhishthira refuses heaven without the dog at his side, endures one final test of hell, and the wheel of the tale comes to rest.",
+    "synopsis": [
+      "Heaven, when Yudhishthira reaches it, contains Duryodhana, enthroned and shining. It does not appear to contain his brothers. The poem saves its cruelest test for after death: shown around a heaven of enemies, the king of dharma asks for his family and is led down, by a messenger, into a stinking dark of torn bodies and boiling rivers, where the voices of Karna and Bhima and Arjuna and Draupadi cry out from the shadows that his presence eases them. Told he may return to heaven whenever he likes, Yudhishthira gives heaven his final answer: I stay here, with them.",
+      "The hell dissolves on the word. It was maya, a shown thing, the last unfairness, explained two ways at once: every king must glimpse hell, and Yudhishthira owed one moment of it for one lie about an elephant. The Ganga of heaven washes the mortal grief off him, and the poem opens its last door: everyone is here, and everyone is home, and the masks come off in order, Karna into the sun, Bhishma among the Vasus, Drona into Brihaspati, Krishna revealed as Narayana with Arjuna beside him as Nara, the hundred sons of Dhritarashtra seated shining among the gentle gods, every rage of eighteen books resolved into its origin.",
+      "The frame closes from inside: Janamejaya, the great-grandson at whose snake sacrifice all this was recited, hears the end of his family's story and lets his vengeance-rite be stopped; Vaishampayana falls silent; and the poem spends its last verses praising itself with the confidence of something that knows it has earned it: what is here may be found elsewhere, but what is not here is nowhere. Holding fast to dharma, which is greater than victory, the epic sets down its burden by the same door where it picked it up."
+    ]
+  }
 ]

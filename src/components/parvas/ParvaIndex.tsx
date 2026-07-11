@@ -68,9 +68,23 @@ export default function ParvaIndex() {
                 </h2>
                 <p className="font-display mt-1 text-lg italic text-ash">{p.meaning}</p>
                 {known ? (
-                  <p className="font-display mt-4 max-w-xl text-xl leading-relaxed text-bone/85">
-                    {p.summary}
-                  </p>
+                  <>
+                    <p className="font-display mt-4 max-w-xl text-xl leading-relaxed text-bone/85">
+                      {p.summary}
+                    </p>
+                    {p.synopsis && p.synopsis.length > 0 && (
+                      <div className="mt-6 flex max-w-xl flex-col gap-4 border-l border-dotted border-ash/25 pl-6">
+                        {p.synopsis.map((para, j) => (
+                          <p
+                            key={j}
+                            className="font-display text-lg leading-relaxed text-bone/70"
+                          >
+                            {para}
+                          </p>
+                        ))}
+                      </div>
+                    )}
+                  </>
                 ) : (
                   <p className="ui-label mt-4 !normal-case italic !text-ash/50">
                     · the wheel has not yet turned this far ·{" "}
