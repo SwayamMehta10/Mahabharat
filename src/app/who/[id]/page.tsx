@@ -1,8 +1,19 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { characters, charactersById, parvas, warDays, getArt } from "@/lib/kb";
+import { characters, charactersById, parvas, warDays, getArt, getJourney, getJourneyArt } from "@/lib/kb";
 import SpoilerGuard from "@/components/ui/SpoilerGuard";
 import PortraitDirector from "@/components/who/PortraitDirector";
+import CharacterJourney, { type JourneyImage } from "@/components/who/CharacterJourney";
+
+/** CSS object-position string ("50% 20%") to 0..1 focal coordinates. */
+function toImage(
+  file: string,
+  position: string,
+  credit?: { title?: string; artist?: string; year?: string; source?: string }
+): JourneyImage {
+  const [fx, fy] = position.split(" ").map((p) => (parseFloat(p) || 50) / 100);
+  return { url: file, focalX: fx ?? 0.5, focalY: fy ?? 0.3, ...credit };
+}
 
 export function generateStaticParams() {
   return characters.map((c) => ({ id: c.id }));
@@ -55,24 +66,54 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
   const fallDay = c.deathDay ? warDays[c.deathDay - 1] : undefined;
   const painting = getArt(c.id);
 
+  // the journey, if authored: chapters + their paintings, focal-parsed
+  // server-side so the client component receives plain serializable props
+  const journey = getJourney(c.id);
+  const hasJourney = journey.length > 0;
+  const defaultImage = painting
+    ? toImage(painting.file, painting.position, {
+        title: painting.title,
+        artist: "Raja Ravi Varma",
+        year: painting.year,
+        source: painting.source,
+      })
+    : undefined;
+  const journeyImages = journey.map((ch) => {
+    if (!ch.image) return undefined;
+    const a = getJourneyArt(ch.image);
+    if (!a) return undefined;
+    return toImage(a.file, a.position, {
+      title: a.title,
+      artist: a.artist,
+      year: a.year,
+      source: a.source,
+    });
+  });
+
   return (
-    <div className="relative min-h-dvh overflow-hidden">
+    <div className="relative overflow-hidden">
       {painting ? (
         /* the painting, graded into the void: rendered live in the WebGL
            canvas (breathing displacement + parallax); the DOM <img> below is
-           the reduced-motion fallback with the same grade in CSS */
+           the reduced-motion fallback with the same grade in CSS.
+           On journey pages CharacterJourney owns the portrait channel, so
+           the director only mounts for bio-only pages. */
         <div aria-hidden className="pointer-events-none absolute inset-0">
-          <PortraitDirector url={painting.file} position={painting.position} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={painting.file}
-            alt=""
-            className="absolute inset-y-0 right-0 hidden h-full w-full object-cover motion-reduce:block sm:w-3/5"
-            style={{
-              objectPosition: painting.position,
-              filter: "grayscale(0.15) sepia(0.10) contrast(1.04) brightness(0.80) saturate(0.92)",
-            }}
-          />
+          {!hasJourney && (
+            <PortraitDirector url={painting.file} position={painting.position} />
+          )}
+          {!hasJourney && (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={painting.file}
+              alt=""
+              className="absolute inset-y-0 right-0 hidden h-full w-full object-cover motion-reduce:block sm:w-3/5"
+              style={{
+                objectPosition: painting.position,
+                filter: "grayscale(0.15) sepia(0.10) contrast(1.04) brightness(0.80) saturate(0.92)",
+              }}
+            />
+          )}
           {/* full-width fade, no container edge: the painting simply emerges */}
           <div className="absolute inset-0 bg-gradient-to-r from-void from-22% via-void/55 via-52% to-void/5" />
           <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-void/45" />
@@ -167,7 +208,23 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
             ← The Kuru Line
           </Link>
         </div>
+
+        {hasJourney && (
+          <p className="ui-label mt-6 self-center !text-gold-dim">
+            The journey · scroll
+          </p>
+        )}
       </div>
+
+      {hasJourney && (
+        <div className="relative z-10">
+          <CharacterJourney
+            chapters={journey}
+            images={journeyImages}
+            defaultImage={defaultImage}
+          />
+        </div>
+      )}
     </div>
   );
 }

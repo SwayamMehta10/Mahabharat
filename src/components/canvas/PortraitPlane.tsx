@@ -96,6 +96,12 @@ const fragmentShader = /* glsl */ `
 const textureCache = new Map<string, THREE.Texture>();
 const loader = new THREE.TextureLoader();
 
+/** Warm the texture cache ahead of a crossfade (journey pages preload
+ *  every chapter's painting on mount so scroll swaps never stall). */
+export function preloadPortrait(url: string): void {
+  loadTexture(url, () => {});
+}
+
 function loadTexture(url: string, onLoad: (t: THREE.Texture) => void): void {
   const cached = textureCache.get(url);
   if (cached) {
