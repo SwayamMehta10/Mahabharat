@@ -1,20 +1,442 @@
 [
-  { "day": 1, "title": "The Conches Sound", "commanderKaurava": "bhishma", "commanderPandava": "dhrishtadyumna", "events": ["Arjuna despairs between the armies; Krishna speaks the Bhagavad Gita", "Yudhishthira walks unarmed to the enemy elders for blessing", "Uttar Kumar, Virata's son, among the first to fall"], "falls": [], "citations": ["Bhishma Parva §25–45"] },
-  { "day": 2, "title": "Arjuna Answers", "commanderKaurava": "bhishma", "events": ["Arjuna checks Bhishma's advance", "Bhima scatters the Kalinga host"], "falls": [], "citations": ["Bhishma Parva §52–54"] },
-  { "day": 3, "title": "The Eagle and the Crescent", "commanderKaurava": "bhishma", "events": ["Krishna, enraged at Arjuna's softness toward Bhishma, leaps down wheel in hand, his vow of non-combat nearly broken", "Arjuna pledges to fight without restraint"], "falls": [], "citations": ["Bhishma Parva §59"] },
-  { "day": 4, "title": "Bhima's Day", "commanderKaurava": "bhishma", "events": ["Bhima slays eight of Dhritarashtra's sons", "Duryodhana weeps before Bhishma, who counsels peace in vain"], "falls": [], "citations": ["Bhishma Parva §64–68"] },
-  { "day": 5, "title": "Grinding of Hosts", "commanderKaurava": "bhishma", "events": ["Slaughter without decision; tens of thousands fall on each side"], "falls": [], "citations": ["Bhishma Parva §69–74"] },
-  { "day": 6, "title": "Formations Broken", "commanderKaurava": "bhishma", "events": ["Bhima cuts deep into the Kaurava array and is surrounded", "Dhrishtadyumna rescues him with the crocodile formation"], "falls": [], "citations": ["Bhishma Parva §75–80"] },
-  { "day": 7, "title": "The Grandsire Unstoppable", "commanderKaurava": "bhishma", "events": ["Bhishma scatters the Pandava divisions one by one"], "falls": [], "citations": ["Bhishma Parva §81–86"] },
-  { "day": 8, "title": "Sons Fall", "commanderKaurava": "bhishma", "events": ["Bhima slays more of the hundred", "Iravan, Arjuna's son by Ulupi, is killed"], "falls": [], "citations": ["Bhishma Parva §87–96"] },
-  { "day": 9, "title": "The Vow Nearly Broken", "commanderKaurava": "bhishma", "events": ["Bhishma fights as never before; Krishna again seizes his discus and must be talked back into the chariot", "The Pandavas resolve at night to ask Bhishma himself how he may be felled"], "falls": [], "citations": ["Bhishma Parva §99–107"] },
-  { "day": 10, "title": "The Bed of Arrows", "commanderKaurava": "bhishma", "events": ["Shikhandi stands at Arjuna's chariot-front; Bhishma will not raise his bow at Amba reborn", "Pierced by countless shafts, the grandsire falls, his body never touching the earth", "He will watch the rest of the war from the bed of arrows, choosing his own hour of death"], "falls": ["bhishma"], "citations": ["Bhishma Parva §108–120"] },
-  { "day": 11, "title": "The Teacher Takes Command", "commanderKaurava": "drona", "events": ["Karna enters the war at last", "Drona vows to capture Yudhishthira alive"], "falls": [], "citations": ["Drona Parva §1–16"] },
-  { "day": 12, "title": "The Elephant King", "commanderKaurava": "drona", "events": ["The Samsaptakas swear to kill Arjuna or die, drawing him away", "Arjuna fells Bhagadatta and his great elephant Supratika"], "falls": [], "citations": ["Drona Parva §17–32"] },
-  { "day": 13, "title": "The Wheel Closes", "commanderKaurava": "drona", "events": ["Drona forms the chakravyuha; only the absent Arjuna knows its exit", "Abhimanyu, sixteen, enters alone and is trapped", "Six maharathis strike him at once, against every law of war", "Arjuna vows: Jayadratha dies before tomorrow's sunset, or I burn myself alive"], "falls": ["abhimanyu"], "citations": ["Drona Parva §33–73"] },
-  { "day": 14, "title": "The Darkened Sun", "commanderKaurava": "drona", "events": ["The Kaurava host walls Jayadratha behind three formations", "Krishna veils the sun; the Kauravas exult; then the light returns, and Arjuna's arrow carries Jayadratha's head into his father's lap", "Battle rages into the night; Ghatotkacha owns the dark until Karna spends Indra's spear, the one saved for Arjuna"], "falls": ["jayadratha", "ghatotkacha"], "citations": ["Drona Parva §85–180"] },
-  { "day": 15, "title": "A Truth That Was a Lie", "commanderKaurava": "drona", "events": ["Drona, unstoppable, slays Drupada and Virata", "Bhima kills an elephant named Ashwatthama; Yudhishthira, who cannot lie, says 'Ashwatthama is dead', then mutters 'the elephant' under the war-din", "Drona lays down his weapons in grief; Dhrishtadyumna fulfills his birth"], "falls": ["drona", "drupada", "virata"], "citations": ["Drona Parva §186–193"] },
-  { "day": 16, "title": "The Sun's Son Commands", "commanderKaurava": "karna", "events": ["Karna leads the host and drives the Pandava lines back", "Bhima and Karna duel; Karna spares him, bound by his word to Kunti to kill none of her sons but Arjuna"], "falls": [], "citations": ["Karna Parva §1–50"] },
-  { "day": 17, "title": "The Wheel Sinks", "commanderKaurava": "karna", "events": ["Bhima tears open Dushasana's chest and keeps the vow made in the dice hall", "Karna and Arjuna meet at last; the earth swallows Karna's chariot wheel and the mantra flees his memory", "As Karna lifts the wheel, pleading the law of duels, Krishna asks where dharma slept these thirteen years, and Arjuna releases"], "falls": ["karna", "dushasana"], "citations": ["Karna Parva §83, §90–91"] },
-  { "day": 18, "title": "Thigh and Mace", "commanderKaurava": "shalya", "events": ["Yudhishthira, gentlest of the five, slays Shalya with the spear", "Sahadeva takes Shakuni's head, as vowed", "Duryodhana hides in a lake; challenged, he duels Bhima with maces, and Bhima strikes below the belt, as vowed, breaking the thigh once bared at Draupadi", "That night Ashwatthama enters the sleeping camp; by dawn the Pandavas have won everything and lost their sons"], "falls": ["shalya", "shakuni", "duryodhana", "dhrishtadyumna", "shikhandi"], "citations": ["Shalya Parva §5–61", "Sauptika Parva §1–9"] }
+  {
+    "day": 1,
+    "title": "The Conches Sound",
+    "commanderKaurava": "bhishma",
+    "commanderPandava": "dhrishtadyumna",
+    "events": [
+      "Arjuna despairs between the armies; Krishna speaks the Bhagavad Gita",
+      "Yudhishthira walks unarmed to the enemy elders for blessing",
+      "Uttar Kumar, Virata's son, among the first to fall"
+    ],
+    "falls": [],
+    "citations": [
+      "Bhishma Parva §25–49"
+    ],
+    "narrative": [
+      "Before a single arrow flies, the war almost ends. Arjuna asks Krishna to drive his chariot into the open ground between the two hosts, and there, seeing grandfathers and teachers and cousins arrayed for slaughter, he lowers the Gandiva and refuses to fight. What Krishna answers him, verse by verse, is the Bhagavad Gita. Time itself is said to have held its breath to listen.",
+      "When the song ends, a stranger thing happens. Yudhishthira takes off his armor, lays down his weapons, and walks on foot across the empty field toward the enemy line. The Kaurava ranks jeer at what looks like surrender. He is not surrendering. He kneels before Bhishma, then Drona, then Kripa, then Shalya, and asks each elder for permission to fight against him, and for his blessing.",
+      "Each of them gives the same terrible answer. A man is the slave of wealth, they tell him; we are bound to Duryodhana's salt and cannot leave him. But each blesses Yudhishthira and promises him victory, and each, asked how he himself might be defeated, agrees to reveal it when the time comes. The war's outcome is settled in these four conversations before it begins.",
+      "One man crosses the field in the other direction. Yuyutsu, son of Dhritarashtra by a vaishya woman, steps out of the Kaurava host and joins the brothers his hundred half-brothers mean to kill. Of all Dhritarashtra's sons, he alone will see the war's end.",
+      "Then the conches sound. Bhishma's lion-roar opens the field, Panchajanya and Devadatta answer, and the two oceans of men close on each other with a noise the poem says was heard in every world at once.",
+      "The grandsire sets the day's tone immediately. Wherever his silver standard with the golden palmyra moves, the Pandava ranks thin. Young Abhimanyu, sixteen years old, is the first to check him, cutting down his standard and striking his chariot again and again until the elders murmur at the boy's impossibility.",
+      "The day's grief belongs to Virata. His son Uttara, the boy prince who once fled from a cattle raid until Arjuna steadied him, drives his war elephant into Shalya's chariot and crushes its horses. Shalya answers with an iron dart that takes the boy through the chest. Uttara falls with the goad still in his hand.",
+      "His brother Shweta goes mad with grief. He drives through the Kaurava wing like wind through standing grain, breaks Bhishma's standard, and for one hour of the afternoon it seems the war might end on its first evening. It takes the grandsire himself, and a shaft the poem calls fatal as time, to stop him. Shweta falls as the sun does.",
+      "That night the lamps burn uneven. In Duryodhana's camp there is music; in Yudhishthira's, silence. The king of dharma stares at the first day's dead and asks Krishna what victory could be worth this. Krishna answers that the field has only begun to teach."
+    ]
+  },
+  {
+    "day": 2,
+    "title": "Arjuna Answers",
+    "commanderKaurava": "bhishma",
+    "events": [
+      "Arjuna checks Bhishma's advance",
+      "Bhima scatters the Kalinga host"
+    ],
+    "falls": [],
+    "citations": [
+      "Bhishma Parva §52–54"
+    ],
+    "narrative": [
+      "Yudhishthira wakes cold with the memory of Shweta's fall and orders the krauncha, the crane formation, its beak aimed at Bhishma's heart. Dawn shows the Kaurava host arrayed in answer, vast and patient, the grandsire's palmyra banner at its center like a still point in a turning wheel.",
+      "This is the day Arjuna stops holding back. Where yesterday he traded courtesies with his grandfather, today he comes at Bhishma with such sustained fury that the Kaurava kings watching from their wings simply stop fighting to stare. The two chariots weave and blur; the poem says no eye could follow the hands of either archer, only the unbroken line of light between them.",
+      "Duryodhana, watching his commander merely equal the enemy, tastes the first real fear of the war. He goes to Bhishma between charges and accuses him of loving the enemy better than the throne he serves. The grandsire answers only that he will do what a man of his word can do, and returns to the storm.",
+      "Elsewhere on the field, Drona and Dhrishtadyumna meet for the first time since the fire-born prince was made for the sole purpose of killing him. The teacher disarms his destined death twice, breaks his bows, kills his horses and his charioteer, and lets him live. It will not be the last time courtesy postpones fate.",
+      "The butchery of the day belongs to Bhima. Sent against the Kalinga division on the southern wing, he leaves his chariot and goes among their elephants on foot, mace in hand. The poem numbers the Kalinga host in the tens of thousands and then, by evening, numbers it nothing. Shakradeva the prince, Bhanumat of the great elephant, the Kalinga king himself: the wing ceases to exist as a fighting force.",
+      "Satyaki, the Vrishni bull, marks the day's turning by killing Bhishma's charioteer with a single long shot; the grandsire's horses bolt and carry him from the field, and where the palmyra banner goes the Kaurava line goes with it, backward.",
+      "The second evening belongs to the Pandavas as clearly as the first belonged to their enemies. Duryodhana sits late with Bhishma, who tells him, not for the last time, that this war cannot be won and should be ended. It is already too late for both truths."
+    ]
+  },
+  {
+    "day": 3,
+    "title": "The Eagle and the Crescent",
+    "commanderKaurava": "bhishma",
+    "events": [
+      "Krishna, enraged at Arjuna's softness toward Bhishma, leaps down wheel in hand, his vow of non-combat nearly broken",
+      "Arjuna pledges to fight without restraint"
+    ],
+    "falls": [],
+    "citations": [
+      "Bhishma Parva §59"
+    ],
+    "narrative": [
+      "Bhishma answers yesterday's humiliation with geometry. He arrays the Kaurava host as Garuda, the great eagle: himself at the beak, Drona and Kritavarma for its eyes, the kings of the east and south spread as its vast wings. Against it Arjuna and Dhrishtadyumna raise the ardhachandra, the crescent moon, horns forward like a thing meant to catch and crush a diving bird.",
+      "All morning the eagle and the moon grind against each other without giving. Ghatotkacha and his rakshasas hold the crescent's northern horn; Bhima anchors its heart. The slaughter is even, patient, enormous.",
+      "At midday Duryodhana comes to Bhishma a second time with the same poisoned question: does the grandsire fight the Pandavas or shelter them? Bhishma, who has spent every morning of his long life on a vow that ate his whole happiness, hears his honor doubted by the boy he raised. He tells Duryodhana to watch the afternoon.",
+      "What follows is remembered as the first true glimpse of what Bhishma withheld. The old man stops measuring his strokes. Divisions dissolve where his chariot passes; the crescent bends and begins to break; and Arjuna, who alone can stop him, fights with a strange softness, striking horses and bows and banners, never the man.",
+      "Krishna sees it. The charioteer who swore to touch no weapon in this war watches Arjuna spare the one warrior who can destroy them, and his patience, which outlasts ages, runs out in an afternoon. He drops the reins, leaps from the chariot, and goes at Bhishma on foot with a chariot wheel snatched from the wreckage raised overhead, his yellow robes streaming, so terrible that both armies stop.",
+      "Bhishma lowers his bow and opens his arms. Come, lord of the gods, he calls across the din; death from your hand is the fairest end this body could ask. It is Arjuna who prevents it, running behind Krishna, catching his arms, swearing on his sons and his brothers that he will hold nothing back if only Krishna will keep his vow and return to the reins.",
+      "Krishna allows himself to be led back, wheel cast down, wrath banked but not spent. What Arjuna promised, he now pays. The last hours of the third day are the Gandiva's alone: the eagle's wings fold, the eastern kings flee their posts, and the field is left to the crows and the mourners.",
+      "In the Kaurava camp that night no one asks Bhishma about his loyalty. In the Pandava camp no one asks Arjuna what his softness nearly cost. Both questions will be asked again; neither has been answered, only postponed."
+    ]
+  },
+  {
+    "day": 4,
+    "title": "Bhima's Day",
+    "commanderKaurava": "bhishma",
+    "events": [
+      "Bhima slays eight of Dhritarashtra's sons",
+      "Duryodhana weeps before Bhishma, who counsels peace in vain"
+    ],
+    "falls": [],
+    "citations": [
+      "Bhishma Parva §64–68"
+    ],
+    "narrative": [
+      "The fourth morning belongs to iron. Bhishma brings the host up in a formation bristling at every point, and the Pandavas answer without subtlety: Bhima at the front, mace on his shoulder, like a door being carried toward a house that does not yet know it will burn.",
+      "The Kauravas send their answer early: the elephant division of Magadha, beasts the size of hills in mail, trained to trample chariots into the earth. Bhima gets down from his chariot to meet them the way he prefers to meet everything, on foot and grinning.",
+      "The poem lingers here the way it lingers nowhere else. Bhima among the elephants is weather, not war: trunks cut away, drivers plucked from their necks, one beast turned and driven as a weapon through its own herd. The Magadha division breaks on him and streams away, and the mace never stops moving.",
+      "Duryodhana, watching his elephants ruined, sends fourteen of his own brothers at Bhima at once. It is the mistake the dice hall vowed him toward. Senapati, Jalasandha, Sushena, Ugra: eight of the fourteen die in the space the poem gives a single breathless sentence, and the remaining six flee with the sound of the mace behind them.",
+      "Ghatotkacha, fighting beside his father, ends the day's argument. When the rakshasa's illusions join Bhima's iron, the Kaurava line simply refuses the ground, and Bhishma himself, assessing what no commander wants to assess, orders the withdrawal an hour before sunset.",
+      "That evening Duryodhana weeps openly in front of his grandfather and asks how the sons of Pandu, outnumbered, can keep winning. Bhishma gives him the only answer he has ever given: because Krishna is with them, and Krishna is not what Duryodhana thinks he is. He speaks a long hour on the glory of Vasudeva, and counsels peace while eight funeral fires burn.",
+      "Duryodhana listens the way he has always listened. The war continues in the morning."
+    ]
+  },
+  {
+    "day": 5,
+    "title": "Grinding of Hosts",
+    "commanderKaurava": "bhishma",
+    "events": [
+      "Slaughter without decision; tens of thousands fall on each side"
+    ],
+    "falls": [],
+    "citations": [
+      "Bhishma Parva §69–74"
+    ],
+    "narrative": [
+      "By the fifth dawn both hosts have learned each other, and the day settles into the war's true face: no single hero's morning, no swing of fortune, only the vast machinery of two nations grinding against each other from conch to sunset.",
+      "Bhishma arrays the makara, the sea monster; the Pandavas rise as the shyena, the hawk, Bhima at its beak and Arjuna at its neck. The formations interlock and lose their shapes within an hour, as they always do, and the field becomes ten thousand private wars.",
+      "Bhishma burns through the morning like a slow fire. Arjuna checks him; they trade a duel that the watching gods are said to have crowded the sky for, and it ends the way their duels keep ending, with neither yielding and both armies bleeding around them.",
+      "The day's deepest wound is Satyaki's. Bhurishravas of the sacrificial-stake banner, an old grudge of the Vrishni house behind him, cuts his way to Satyaki's ten sons, who stand together against him. He kills all ten, one after another, in their father's sight. Satyaki fights on with a mind the poem says had gone to ash; his answer will come on the fourteenth day, and it will cost him his honor.",
+      "Elsewhere the ledger fills without names: the poem counts horsemen by the thousand and elephants by the hundred, and gives them one sentence each or none.",
+      "When the conches sound the day's end, no ground has changed hands and no vow has been kept or broken. The fires that night are simply more numerous, on both sides of the dark."
+    ]
+  },
+  {
+    "day": 6,
+    "title": "Formations Broken",
+    "commanderKaurava": "bhishma",
+    "events": [
+      "Bhima cuts deep into the Kaurava array and is surrounded",
+      "Dhrishtadyumna rescues him with the crocodile formation"
+    ],
+    "falls": [],
+    "citations": [
+      "Bhishma Parva §75–80"
+    ],
+    "narrative": [
+      "Yudhishthira raises the makara this morning and Bhishma answers with the krauncha, the same crane the Pandavas flew on the second day, as if the war has begun trading its shapes back and forth like the dice that started it.",
+      "Bhima is done with formations. He drives his chariot into the crane's body until the press of men stops his wheels, then steps down with the mace and continues alone, on foot, into the center of the Kaurava host, hunting Duryodhana through his own army the way a fire hunts through a forest, by eating everything between.",
+      "The crane closes behind him. From the Pandava line he simply disappears, one man swallowed by eleven divisions, and Yudhishthira, fearing the worst, sends Dhrishtadyumna after him with the whole left wing behind.",
+      "Dhrishtadyumna finds him at the heart of the enemy, on foot, laughing, ringed by dead. What follows is the day's strangest passage: the fire-born prince looses the pramohana, the bewildering weapon, and the Kaurava ranks around them drop their bows and stand like sleepwalkers while the two heroes walk out of the trap through a corridor of dreaming men.",
+      "Drona, arriving too late, burns the enchantment off his king's troops with a counter-weapon; Duryodhana, humiliated twice in one afternoon, throws his brothers and the Trigarta chariots at the escaping pair and loses more of both.",
+      "Bhima does not leave quietly. Duryodhana himself bars the way, and the cousins meet, bow against bow. Bhima breaks the king's bow, then his standard, then beats him senseless onto the floor of his chariot, and is dragged back from finishing it only by the arriving beak of the crane, Bhishma and three divisions wide.",
+      "The sixth evening's arithmetic is Kaurava grief again. Duryodhana sits bandaged in his tent while Bhishma sends him honeyed words and a promise to fight tomorrow like the end of the world. Somewhere in the dark between the camps, the war is quietly becoming what it will be remembered as: the story of one family killing itself with increasing skill."
+    ]
+  },
+  {
+    "day": 7,
+    "title": "The Grandsire Unstoppable",
+    "commanderKaurava": "bhishma",
+    "events": [
+      "Bhishma scatters the Pandava divisions one by one"
+    ],
+    "falls": [],
+    "citations": [
+      "Bhishma Parva §81–86"
+    ],
+    "narrative": [
+      "Bhishma keeps his promise to Duryodhana. The seventh day opens with the Kaurava host wheeled into the mandala, the circle, rank within rank of chariots and elephants turning slowly around the grandsire like a millstone around its pin. The Pandavas answer with the vajra, the thunderbolt, a narrow hammer of an array built to crack it.",
+      "The circle does not crack. This is Bhishma's day from its first hour, and the poem spends it moving from wing to wing recording what his passage costs: divisions scattered, kings unhorsed, the vajra's point blunted and blunted again wherever the palmyra banner appears.",
+      "The great duels of the day end without endings. Drona and Virata trade horses and bows; Shikhandi comes at Bhishma and the grandsire simply turns his chariot away, refusing the fight for reasons only he and one dead princess know; Arjuna and Susharma's Trigartas maul each other on the southern wing.",
+      "Virata's grief deepens by one more son. Shankha, who watched Uttara die on the first day, falls in the crush of the mandala's turning, and the old king of Matsya fights on that evening with two sons burned and one left.",
+      "Yudhishthira has a rare hour of iron. Shrutayush of Kalinga, one of the circle's anchors, comes at the king of dharma expecting gentleness and is beaten from the field instead, his horses dead, his bow cut twice in his hands.",
+      "By dusk the ledgers even out to nothing again: the circle holds, the thunderbolt withdraws, and the seventh night is spent by both camps re-counting the same arithmetic with fewer men. The grandsire has scattered the Pandava divisions one by one, and still the war stands exactly where it stood.",
+      "Only one thing has changed, and no one on the field can see it yet. Every day Bhishma commands and does not end the war, Duryodhana's questions get quieter and colder. The grandsire has three days of trust remaining."
+    ]
+  },
+  {
+    "day": 8,
+    "title": "Sons Fall",
+    "commanderKaurava": "bhishma",
+    "events": [
+      "Bhima slays more of the hundred",
+      "Iravan, Arjuna's son by Ulupi, is killed"
+    ],
+    "falls": [],
+    "citations": [
+      "Bhishma Parva §87–96"
+    ],
+    "narrative": [
+      "The eighth morning the Pandavas rise as the shringataka, the horned array, and the day that follows is remembered in both camps as the day of sons.",
+      "Bhima resumes the work the dice hall assigned him. In the morning's first hours he reaches the sons of Dhritarashtra where they cluster behind the vanguard, and eight more of the hundred die before midday, one after another, each fall recorded by the poem with the same terrible brevity. Duryodhana's brothers begin to look at each other and count.",
+      "The Pandavas' own grief arrives by afternoon. Iravan, Arjuna's son by the naga princess Ulupi, has carried the left wing all week with his serpent cavalry. Today he breaks five of Shakuni's brothers in a single charge, and Duryodhana, enraged, sends the rakshasa Alambusha against him with sorcery for a weapon.",
+      "The two shape-shifting lines meet in a fight the ordinary soldiers around them cannot even see clearly: illusion against venom, a nagini's son against a demon of the old blood. It ends with Alambusha's sword and Iravan's head, and the serpent cavalry leaderless on the wing.",
+      "Word reaches Arjuna in the far south of the field, hours late, the way news travels through a hundred thousand men. He does not stop fighting. The poem gives him one sentence of grief and the Gandiva the rest of the day, and the Kaurava ranks in front of him pay for a death they had nothing to do with.",
+      "Ghatotkacha answers for his cousin in the rakshasa way. As the light thickens he rises over the Kaurava host with his retinue, raining illusions, and Duryodhana himself stands in the panic and refuses to run, trading shafts with the giant until Bhishma orders the king bodily escorted from the field. The eighth day ends with the Kaurava line intact and shaking.",
+      "In the tents that night Duryodhana sits with Shakuni and Karna, who still refuses to fight while Bhishma commands, and says aloud for the first time what he has been circling for a week: the grandsire will never kill the sons of Pandu. The three of them look at the lamp for a long time."
+    ]
+  },
+  {
+    "day": 9,
+    "title": "The Vow Nearly Broken",
+    "commanderKaurava": "bhishma",
+    "events": [
+      "Bhishma fights as never before; Krishna again seizes his discus and must be talked back into the chariot",
+      "The Pandavas resolve at night to ask Bhishma himself how he may be felled"
+    ],
+    "falls": [],
+    "citations": [
+      "Bhishma Parva §99–107"
+    ],
+    "narrative": [
+      "Duryodhana comes to Bhishma before dawn with an accusation shaped like a plea: fight today with everything, or step aside and let Karna command. The grandsire's answer is the ninth day, and the ninth day is why, three thousand years later, the poem still pauses here.",
+      "Bhishma arrays the sarvatobhadra, auspicious-on-every-side, and when the conches finish he stops being a commander and becomes what the epithets always claimed: the son of a goddess with fifty years of withheld war finally let off the leash. The poem stops naming his victims and starts naming the divisions that ceased to exist.",
+      "The Pandava counterattacks are fed into him wing by wing and come apart. Satyaki, Bhima, Dhrishtadyumna, the twins: each takes a turn and is beaten back burning. By afternoon the army of dharma is not fighting a man; it is enduring an event, the way a coast endures weather.",
+      "Arjuna alone can stand in it, and Arjuna will not strike to kill. Krishna watches the third arrow in an hour cut a bowstring instead of a throat, and the vow he made at Sabha breaks its banks a second time. He drops the reins and is off the chariot before Arjuna understands, Sudarshana raised, wading toward Bhishma through the wreckage with the sea's own patience gone from his face.",
+      "And Bhishma, as on the third day, opens his arms to the discus. Slay me, hurler of the wheel, he calls; ended by you, I am made greater in all the worlds. Whatever else the old man has hidden all his life, his weariness is naked now, and every warrior within a bowshot sees it.",
+      "Arjuna catches Krishna's legs and is dragged three strides through the mud before his weight tells. He swears by his brothers, by his sons, by the Gandiva itself: tomorrow the grandsire dies, and it will not need the wheel. Krishna stops. He does not agree; he simply returns to the horses, and the day ends with the vow hanging over both camps like the smell of rain.",
+      "That night five brothers and Krishna walk unarmed through the dark to Bhishma's tent, and Yudhishthira asks the question the first day promised: grandfather, how do we kill you? And Bhishma, who blessed him for asking it, tells them, gently, precisely, the way he once taught them to hold a bow. Put Shikhandi in front. I will not loose at one who was born a woman. Behind that shield, let Arjuna do what must be done.",
+      "They touch his feet and walk back. The poem does not say who slept."
+    ]
+  },
+  {
+    "day": 10,
+    "title": "The Bed of Arrows",
+    "commanderKaurava": "bhishma",
+    "events": [
+      "Shikhandi stands at Arjuna's chariot-front; Bhishma will not raise his bow at Amba reborn",
+      "Pierced by countless shafts, the grandsire falls, his body never touching the earth",
+      "He will watch the rest of the war from the bed of arrows, choosing his own hour of death"
+    ],
+    "falls": [
+      "bhishma"
+    ],
+    "citations": [
+      "Bhishma Parva §108–124"
+    ],
+    "narrative": [
+      "The tenth morning the Pandava host forms around a single idea. Shikhandi rides at the point of the array, Arjuna's chariot a length behind, and every warrior on both sides who hears the order understands: the war has stopped pretending it can be won by armies.",
+      "Bhishma sees the formation coming and knows his own counsel when it is aimed at him. He spends the morning as if to leave a last signature on the age: ten thousand of the army in front of him, the poem counts, before the sun reaches its height, and the Pandava divisions simply detour around the storm to keep pressing toward it.",
+      "Shikhandi's arrows strike him and he does not answer. Amba reborn looses shaft after shaft into the grandsire's mail, shouting the old accusation across the closing distance, and Bhishma turns his face and lets the wheel of it come around. Behind that unanswerable shield, Arjuna bends the Gandiva.",
+      "The old man knows whose arrows are whose. These bite like the touch of Brahma's staff, he says to Dushasana beside him; these are Arjuna's, not Shikhandi's. He says it almost with pride. He fights one-handed, then not at all, and the shafts stand so thick in him that when he finally leans from the chariot there is no room for his body to find the ground.",
+      "He falls at the day's last hour, head to the east, and hangs upon the arrows as on a bed, and both armies stop as if a bell had been struck. Kings who were killing each other an hour ago stand side by side around him with their helmets off.",
+      "His head hangs unsupported and he asks for a pillow. Princes bring silk; he refuses them and looks at Arjuna. Three shafts pass under his skull, fletching-deep in the earth, and the grandsire says: this is the pillow a kshatriya's grandson owes him. He asks for water, and Arjuna's arrow opens the ground where Ganga runs beneath it, and the river rises to her son's mouth.",
+      "He will not die today. The boon his father gave him waits on his own consent, and the sun is running south, the dying half of the year. He announces to the field, mildly, as if excusing himself from a meal, that he will keep his life upon the arrows until the sun turns north, and dismisses the war from around his bed.",
+      "That night, alone, a man comes to the bed of arrows and kneels: Karna, who would not fight while Bhishma lived to scorn him. The grandsire looks at the sun's son a long time and calls him by his mother's name, and tells him what Kunti's silence cost them both. Fight, then, he says at last, since you will not be persuaded; you were the enemy I honored most. It is the only blessing Karna will accept all war.",
+      "The palmyra banner does not rise on the eleventh morning. Nothing that follows on this field will be innocent of what fell with it."
+    ]
+  },
+  {
+    "day": 11,
+    "title": "The Teacher Takes Command",
+    "commanderKaurava": "drona",
+    "events": [
+      "Karna enters the war at last",
+      "Drona vows to capture Yudhishthira alive"
+    ],
+    "falls": [],
+    "citations": [
+      "Drona Parva §1–16"
+    ],
+    "narrative": [
+      "The war wakes to a different shape. Bhishma lies on his arrows between the camps like a border stone, and past him, at first light, rides the man who refused eleven days of war: Karna, armed, ablaze, taking the field at last at Duryodhana's right hand. The Kaurava host, which spent last night grieving, spends this morning roaring.",
+      "It is Karna who names the new commander. The army must have a single head, he tells Duryodhana, and of all these kings only the teacher of every archer alive can hold the rank without quarrel. Drona is consecrated under white umbrellas, and the brahmin who came to Hastinapura too poor to buy his son milk now commands eleven armies.",
+      "Duryodhana asks his new commander for a gift, and it is not a death. Bring me Yudhishthira alive, he says. Drona, relieved to be asked for anything but murder, promises it, and the poem lets us hear Duryodhana's true plan only in council: another game of dice, another exile, the war won by cheating twice.",
+      "Yudhishthira hears of the vow by his spies before the morning conches, and the knowledge reorders the entire Pandava day: Arjuna must never be far from the king. The Trigartas exist from now on for exactly one purpose, to make that impossible.",
+      "Drona comes for the king of dharma twice before dusk. The first rush breaks on Arjuna's return from the southern wing; the second reaches so close that Yudhishthira's guards are fighting with broken chariot poles before Panchala reinforcements wall the teacher off. Twice the white horses of the Gandiva arrive with the light failing, and twice Drona withdraws rather than duel his best student to no purpose.",
+      "The day closes with the vow unkept and the pattern of the next four days set: an army built around capturing one man, an army built around one man's protection, and between them a teacher who wanted to be asked for anything else."
+    ]
+  },
+  {
+    "day": 12,
+    "title": "The Elephant King",
+    "commanderKaurava": "drona",
+    "events": [
+      "The Samsaptakas swear to kill Arjuna or die, drawing him away",
+      "Arjuna fells Bhagadatta and his great elephant Supratika"
+    ],
+    "falls": [],
+    "citations": [
+      "Drona Parva §17–32"
+    ],
+    "narrative": [
+      "In the night the Trigartas swear an oath with fire and kusha grass: they will kill Arjuna or die under his arrows, and they take the name samsaptakas, the sworn ones. There are those in both camps who understand the truth of it at once. They have not sworn to win; they have sworn to be somewhere else, dying slowly, all day, so that Drona may hunt Yudhishthira in Arjuna's absence.",
+      "At dawn they call Arjuna out by name to the southern edge of the field, and Arjuna, who cannot refuse a sworn challenge, goes. The day divides in two like a cut fruit: in the south, one chariot against an army of the self-condemned; in the north, Drona's garuda array driving at the king.",
+      "In the north the day belongs to Bhagadatta, the old king of Pragjyotisha, Indra's friend, on the elephant Supratika whom the poem ranks among the four great elephants of the compass. Where Supratika treads, the Pandava center simply is not. Bhima, who fears nothing born, is seized in the beast's trunk and lives only because rage makes him slippery; a dozen chariots are wood and meat in an hour.",
+      "Arjuna hears Supratika's roar across four miles of battle and makes the day's hard choice: he turns from the samsaptakas half-destroyed and drives north, breaking his own engagement, because the army's heart is being trampled out.",
+      "Bhagadatta greets him with the weapon no one else alive may throw: the Vaishnava astra, given to his line by Vishnu himself, unstoppable by anything except its own source. Krishna does what he came to the war to do and takes it on his breast, where it becomes a garland of flowers. The one absolutely fatal thing on the field that day dies on the chest of the man holding the reins.",
+      "Then Arjuna does what the poem has been postponing for a hundred verses. The old king's eyes have failed with age; he fights with his eyelids tied up with a strip of silk. Arjuna cuts the silk, and Bhagadatta, blind, still throwing, dies with an arrow in the fold of his closed eye. Supratika stands over the body like a hill deciding to grieve.",
+      "The ledger of the day fills out with Shakuni's blood: his brothers Vrishaka and Achala, holding the wing beside the fallen king, die under the same bow within a bowshot of each other. The dice-master watches from a distance and revises his mathematics.",
+      "At dusk the samsaptakas are still alive in the south, technically unbeaten, entirely spent. Drona has not come within a mile of Yudhishthira. Duryodhana asks his commander what went wrong, and Drona, looking at the ruin of the day, gives the answer that will shape tomorrow: nothing can be done while Arjuna is on the field. Tomorrow, draw him further."
+    ]
+  },
+  {
+    "day": 13,
+    "title": "The Wheel Closes",
+    "commanderKaurava": "drona",
+    "events": [
+      "Drona forms the chakravyuha; only the absent Arjuna knows its exit",
+      "Abhimanyu, sixteen, enters alone and is trapped",
+      "Six maharathis strike him at once, against every law of war",
+      "Arjuna vows: Jayadratha dies before tomorrow's sunset, or I burn myself alive"
+    ],
+    "falls": [
+      "abhimanyu"
+    ],
+    "citations": [
+      "Drona Parva §33–73"
+    ],
+    "narrative": [
+      "The samsaptakas call Arjuna south again at dawn, and this time Drona builds the day's true weapon in his absence: the chakravyuha, the wheel of armies, rank curling within rank like a galaxy of iron, Jayadratha and the house's greatest warriors stationed at its turning gates. Two men on the Pandava side know how to break into it. One is in the south. The other is sixteen years old.",
+      "Abhimanyu learned the entering of the wheel in his mother's womb, listening while Arjuna spoke; the tale says Subhadra fell asleep before the coming out was told. Yudhishthira, watching the wheel grind his divisions, asks the boy for the impossible half of his knowledge and promises the whole army will follow through the breach behind him.",
+      "The boy opens the wheel like a door. Inside, for one impossible hour, the poem gives him the war's most terrible beauty: kings scatter before a child, Shalya is beaten senseless, Duryodhana himself is saved only by a wall of teachers, and Lakshmana, Duryodhana's own beloved son, is killed cleanly and completely in front of his father. Duryodhana stops asking for the boy's defeat and starts screaming for his death.",
+      "The door has closed behind him. At the gate, Jayadratha holds the entire pursuing Pandava army, and holds it, and holds it: the boon he begged from Shiva after his humiliation in the forest was exactly this, one day on which he could stop the four lesser Pandavas alone. Bhima, Satyaki, the twins, the Panchala host: none of them pass. The wheel turns with the boy inside.",
+      "What happens next the poem refuses to soften. Six of the greatest warriors alive, Drona, Karna, Kripa, Ashwatthama, Kritavarma, Brihadbala, surround one exhausted sixteen-year-old and strike at once, against every convention that governs even this war. Karna, at Drona's word, cuts the boy's bowstring from behind.",
+      "Bowless, he takes up a chariot wheel, the poem placing the whole cosmos in the image: Vishnu's own weapon in the hands of Krishna's nephew, rimmed with mud, raised against six chariots. They break the wheel. He takes a mace. The son of Duhshasana meets him mace to mace, both fall, and it is the Kaurava who rises first.",
+      "The wheel of armies keeps turning over the place where he lies, and the day spends its remaining hours as ordinary war, as if the field itself does not yet understand what has happened in its center.",
+      "Word goes south with the sunset. Arjuna, returning bloodied from the sworn ones, hears no drums and sees no lamps and knows the shape of grief before its name. When Yudhishthira tells him how his son died, and behind whose gate, the mourning turns to something with edges: by tomorrow's sunset Jayadratha dies, Arjuna swears, or I enter the fire myself.",
+      "The vow crosses the field faster than a horse. In the Kaurava camp Jayadratha begs leave to simply go home, and is refused; Duryodhana has finally been handed the war he understands, one day, one man, one impossible promise. Break the vow, and the Gandiva enters the fire with its owner. Drona begins, that night, to design the deepest defensive formation of the age."
+    ]
+  },
+  {
+    "day": 14,
+    "title": "The Darkened Sun",
+    "commanderKaurava": "drona",
+    "events": [
+      "The Kaurava host walls Jayadratha behind three formations",
+      "Krishna veils the sun; the Kauravas exult; then the light returns, and Arjuna's arrow carries Jayadratha's head into his father's lap",
+      "Battle rages into the night; Ghatotkacha owns the dark until Karna spends Indra's spear, the one saved for Arjuna"
+    ],
+    "falls": [
+      "jayadratha",
+      "ghatotkacha"
+    ],
+    "citations": [
+      "Drona Parva §85–180"
+    ],
+    "narrative": [
+      "Drona spends the night building a fortress with Jayadratha for its treasure: a cart formation twelve miles deep, a lotus within the cart, a needle within the lotus, and the terrified king of Sindhu at the needle's eye with six armies between him and the sunrise. Drona himself holds the gate. The sun has one day to fall, and Arjuna has one day to cross the world.",
+      "Arjuna does not fight through Drona; he apologizes to his teacher and drives around him, and the day becomes a road. The poem measures it division by division: the Bhoja wall, the samsaptaka rearguard flung in his path again, kings whose names exist in the epic only because the Gandiva's road passed over them, and always Krishna's running commentary of where the sun stands.",
+      "The day's small marvels crowd each other. Shrutayudha strikes Krishna with the mace that must never touch a non-combatant, and the mace returns and kills its owner. The horses founder from wounds and thirst, and Krishna, in the middle of the enemy army, unyokes them, draws the arrows from their flanks, and grooms them while Arjuna holds a circle of the world's arrows off all four of them, standing on the ground, alone.",
+      "Behind him, the army he left uses itself up trying to follow. Satyaki carves through to guard the king's conscience, and meets Bhurishravas, who killed his ten sons on the fifth day; the duel ends with Satyaki senseless and the Kuru raising his sword for the beheading, and Arjuna, warned by Krishna, cuts the raised arm off from across the field. Bhurishravas sits down on the spot in praya, renouncing life, and rebukes the archer for striking a man engaged with another; the field takes his side, mostly. Satyaki, waking, beheads the seated man over every protest including Krishna's. His ten sons are the only ones who do not call it a stain.",
+      "The sun leans west with three armies still between the vow and its object, and Krishna does the thing the field will argue about for the rest of the age: the light thickens, dusk arrives an hour early, and the Kaurava host erupts in joy. The vow is broken; the fire waits for Arjuna in the morning; Jayadratha himself comes up out of the needle's eye to see the failure with his own eyes and laugh at it.",
+      "The sun returns. Whether it was the Sudarshana held over it, or yoga, or an eclipse the astronomers still hunt, the poem does not settle; it says only that the light came back like a blade being drawn, and Jayadratha was looking up at it, in the open, when Krishna said: there. Cut off his head, and do not let it touch the earth.",
+      "The boon of Jayadratha's father now serves the poem's irony: Vriddhakshatra was promised that whoever caused his son's head to fall to the ground would have his own head burst apart. So Arjuna's arrow does not merely behead the king of Sindhu; it carries the head out of the battle entire, mile over mile, to the forest hermitage where the old father sits at his evening prayers, and drops it in his lap. Vriddhakshatra rises, the head falls from his lap to the earth, and both prophecies close over each other like water.",
+      "Night falls on a war too angry to stop. For the first time the armies fight on by torchlight, and the dark belongs to the one warrior built for it: Ghatotkacha grows with the night's own strength, and the Kaurava host begins, simply, to be devoured. Duryodhana turns to Karna, and Karna reaches for the thing he has hoarded since the day Indra begged his armor from him: the Shakti, the spear that cannot miss, and can be thrown once.",
+      "It was saved, all sixteen days of it, for Arjuna. Karna throws it into the sky at the growing giant, and Ghatotkacha, dying, makes his death a weapon, swelling monstrous and falling on a full akshauhini of the army beneath. And in the Pandava camp, over the boy's enormous ruin, Krishna dances. The others stare at him. The spear is spent, he says; Arjuna cannot now die. Only Krishna is glad, and only Krishna is counting.",
+      "The armies sleep at last where they stand, at midnight, among the dead, and half the poem's readers have never forgiven this day, and the other half call it the epic's summit. Both camps wake before dawn knowing the teacher is still undefeated. That is tomorrow's problem, and its name is a lie."
+    ]
+  },
+  {
+    "day": 15,
+    "title": "A Truth That Was a Lie",
+    "commanderKaurava": "drona",
+    "events": [
+      "Drona, unstoppable, slays Drupada and Virata",
+      "Bhima kills an elephant named Ashwatthama; Yudhishthira, who cannot lie, says 'Ashwatthama is dead', then mutters 'the elephant' under the war-din",
+      "Drona lays down his weapons in grief; Dhrishtadyumna fulfills his birth"
+    ],
+    "falls": [
+      "drona",
+      "drupada",
+      "virata"
+    ],
+    "citations": [
+      "Drona Parva §186–201"
+    ],
+    "narrative": [
+      "The fifteenth day opens with the teacher in despair and therefore at his most terrible. Drona knows now that Jayadratha died because his formation failed, that the night cost the king an army, and that every eye in the Kaurava council says the same thing: the brahmin's heart is with his student. He answers the way he has always answered doubt, with fire.",
+      "By midmorning he has done what fifteen days of war could not. Drupada, the friend of his boyhood whose insult built his whole life's grudge, and old Virata, who sheltered the Pandavas through the hidden year, die under his arrows within the same hour, two kings, two grandfathers of the Pandava line, gone before noon. The Panchala and Matsya divisions begin to break, and where they break the whole army leans.",
+      "Krishna says aloud what the council of the virtuous cannot: this man cannot be defeated while he holds a bow, and he will not stop holding it while his heart believes there is anything left to protect. His son's life is that belief. Untruth, Krishna says, may be higher than truth when truth serves slaughter. The brothers stand in the din and argue ethics while the army dies around them, and it is Bhima who ends the seminar in his own way: he finds an elephant named Ashwatthama in the Malava train, kills it with one blow of his fist, and roars the useful sentence across the field.",
+      "Drona hears it from the mouth he could dismiss and turns to the mouth he cannot. Yudhishthira, who has never lied, whose chariot in token of it has always ridden four finger-widths above the earth, is asked directly: is my son dead? And the king of dharma says, aloud, Ashwatthama is dead, and then, into the blare of Krishna's conch, unheard: the elephant. The poem marks the exact price without comment: the wheels of his chariot, for the first time, touch the ground.",
+      "What happens to Drona is not defeat but abdication. The bow goes down; the weapons are named and renounced one by one; the teacher of every archer alive sits down on the floor of his chariot in yoga, and the poem, alone of all its witnesses, follows his spirit up out of the body like a spark going home. Five men on the field, it says, saw that light leave.",
+      "Dhrishtadyumna, born from fire with this one appointment, reaches the chariot and beheads a man already gone. Arjuna is screaming across the field to take him alive; the army of dharma looks away; the fire-born prince holds up the head of the age's greatest teacher, and the Kaurava host does not rally, it dissolves.",
+      "It is Ashwatthama, arriving at the rumor of his own death, who nearly ends the Pandava cause on the spot. Over his father's headless body he calls the Narayanastra, the one weapon in Drona's teaching he alone received, and the sky itself becomes ordnance: fire descending in sheets on the entire Pandava host at once.",
+      "Krishna's voice carries over the burning: down. Off the chariots, weapons on the ground, all pride surrendered, and the weapon will pass over you; it does not slay the unresisting. An army learns in one minute to do the hardest thing it has ever been asked. Bhima alone refuses, roaring under the fire's whole weight until Krishna and Arjuna drag him down and disarm him by force, and the great weapon, finding no one standing against it, folds back into the sky.",
+      "Ashwatthama, spent, meets Vyasa on the field's edge and asks why his father's weapon failed him. He is told, in effect, that he was fighting the order of the world. He does not stop grieving, and the grief has ten days of the poem left to do its worst. The Kaurava command passes at last to the man the dead Bhishma kept waiting sixteen years: tomorrow, Karna."
+    ]
+  },
+  {
+    "day": 16,
+    "title": "The Sun's Son Commands",
+    "commanderKaurava": "karna",
+    "events": [
+      "Karna leads the host and drives the Pandava lines back",
+      "Bhima and Karna duel; Karna spares him, bound by his word to Kunti to kill none of her sons but Arjuna"
+    ],
+    "falls": [],
+    "citations": [
+      "Karna Parva §1–50"
+    ],
+    "narrative": [
+      "Karna is consecrated at dawn in the commander's rite his whole life has aimed at, and the army that follows the sun's son onto the field on the sixteenth morning fights, the poem admits, as if the war were young again. He arrays the host as a makara and drives the Pandava lines backward through the morning by plain shock of will.",
+      "The day fills with paired duels like a tournament grown fatal: Bhima against Ashwatthama, so evenly matched the armies pause to watch; Nakula against Karna himself, the young twin proud and furious and completely outmatched. Karna cuts his bow, kills his horses, touches him with the bow-tip almost gently, and tells him not to fight his betters, and lets him live. He has made a promise about Kunti's sons, though Nakula cannot know he is inside it.",
+      "Where Karna spares, Bhima does not: the ledger of Dhritarashtra's hundred loses more names to the mace before dusk, and the vow made in the dice hall walks steadily toward its arithmetic.",
+      "Arjuna, released at day's end from another samsaptaka holding-action, sweeps the field's southern half clean in an hour, and the sixteenth night finds the Kaurava host smaller, unbroken, and strangely calm: it has a commander it loves and one day's faith left to spend on him.",
+      "In the commander's tent, Karna makes his one request of Duryodhana: give me Shalya for a charioteer. Krishna's hands on the reins are half of Arjuna, he argues, and the king of Madra is the only match those hands have. Shalya, a king asked to serve a charioteer's son, must be flattered into it by Duryodhana himself and accepts on a condition: he will say whatever he pleases. It is agreed. No one in the tent imagines what the words will cost."
+    ]
+  },
+  {
+    "day": 17,
+    "title": "The Wheel Sinks",
+    "commanderKaurava": "karna",
+    "events": [
+      "Bhima tears open Dushasana's chest and keeps the vow made in the dice hall",
+      "Karna and Arjuna meet at last; the earth swallows Karna's chariot wheel and the mantra flees his memory",
+      "As Karna lifts the wheel, pleading the law of duels, Krishna asks where dharma slept these thirteen years, and Arjuna releases"
+    ],
+    "falls": [
+      "karna",
+      "dushasana"
+    ],
+    "citations": [
+      "Karna Parva §66–91"
+    ],
+    "narrative": [
+      "The seventeenth morning begins with the strangest duel of the war, fought inside one chariot. Shalya uses his licensed tongue with a surgeon's cruelty: every mile toward the battle he praises Arjuna, recounts Karna's humiliations, needles the pride that is the sun-child's whole armor. Karna answers in kind, and the two men ride to the war insulting each other so bitterly the poem gives the exchange more sections than some entire days. Underneath it, unspoken, both know why Krishna is feared: not the reins, the counsel. Shalya has agreed to be counsel, and is spending it all on wounds.",
+      "Karna fights that day like a man settling accounts with heaven: Yudhishthira is beaten bloody and driven from the field, spared aloud, for the promise's sake, in words that hurt worse than shafts; the Pandava center holds only where Bhima stands.",
+      "Then the war stops for its most dangerous hour, and no Kaurava is involved at all. Arjuna, leaving the field to see his wounded brother, is met not with relief but with Yudhishthira's shame turned outward: give your Gandiva to a better man, the king says. It touches a vow no one knew: Arjuna has sworn to behead any man who says those words. He draws on his own brother. Krishna talks the sword down through the oldest loophole in dharma: to speak with contempt to an elder is his death, so insult him, and the vow is fed. Arjuna savages his brother with words, then turns the blade on himself, for a warrior's self-praise is his own death too, and is made to praise himself aloud instead. The two brothers hold each other and weep, and the war resumes as if the poem had not just shown where every vow in it leads.",
+      "Bhima's account comes due first. He finds Dushasana, the hand that dragged Draupadi by her hair, and the mace-duel is short and its ending is the epic's most deliberate horror: the chest torn open, the blood drunk in sight of both armies, the dice-hall vow kept to its exact, unbearable letter. Men who have fought seventeen days look away. Somewhere behind the lines, a queen's unbound hair can finally be washed.",
+      "And then the field clears, as if by consent, for the duel the whole epic has been aiming since two boys glared at each other across a tournament ring: Karna and Arjuna, the sun's son and Indra's, the two halves of the poem's one question, bow to bow at last with nothing between them.",
+      "They are equal. The poem does not pretend otherwise; it spends its similes on how equal, gods crowding the sky and taking sides, the snake Ashvasena sliding into Karna's quiver to avenge his mother burned at Khandava, the arrow aimed at Arjuna's throat that Krishna answers by pressing the chariot a hand's-breadth into the earth so that it takes the crown instead. Karna refuses the snake's second flight on principle: I do not loose the same arrow twice. Even his enemies, the poem notes, heard that.",
+      "Then the earth, which has been keeping a brahmin's curse for years, reaches up and takes the chariot wheel. The mantra for the Brahmastra, cursed away by Parashurama on the day his student's lie was discovered, chooses the same moment to leave Karna's memory. The whole day narrows to one man wrestling a sunken wheel, calling across the field for the dharma of duels: wait until I am mounted; strike no man disadvantaged.",
+      "Krishna answers before Arjuna can. Where was this dharma, he asks, when a boy was murdered by six; when a woman was dragged by her hair into an assembly of the brave; when poisoned dice did a sword's work? Each sentence lands on Karna like a shaft, and the poem says he lowered his head, and had no answer, and took up the wheel again.",
+      "The Anjalika arrow takes his head while his hands are on the wheel. And the light that leaves the body climbs, in the sight of both armies, into the falling sun. Whatever the war has left to do, the poem's oldest wound closes here: the eldest Pandava dies at the hands of the brother who never knew him, and the only two people who could have said so chose silence, and the sun goes down red as the field."
+    ]
+  },
+  {
+    "day": 18,
+    "title": "Thigh and Mace",
+    "commanderKaurava": "shalya",
+    "events": [
+      "Yudhishthira, gentlest of the five, slays Shalya with the spear",
+      "Sahadeva takes Shakuni's head, as vowed",
+      "Duryodhana hides in a lake; challenged, he duels Bhima with maces, and Bhima strikes below the belt, as vowed, breaking the thigh once bared at Draupadi",
+      "That night Ashwatthama enters the sleeping camp; by dawn the Pandavas have won everything and lost their sons"
+    ],
+    "falls": [
+      "shalya",
+      "shakuni",
+      "duryodhana",
+      "dhrishtadyumna",
+      "shikhandi"
+    ],
+    "citations": [
+      "Shalya Parva §5–61",
+      "Sauptika Parva §1–9"
+    ],
+    "narrative": [
+      "What is left of eleven armies wakes on the eighteenth morning under a king of Madra. Shalya, whose tongue helped kill the last commander, accepts the office no sane man now wants and holds the broken host together by pure royal habit for one final morning.",
+      "It is Yudhishthira, of all the brothers, who ends him. The king of dharma, the poem's gentlest instrument, takes up a spear the text describes with the language it reserves for ultimate weapons, and puts it through the man who was his mother's brother's rival and his enemy's last hope. Even the Kauravas' grief is brief; there is so little army left to grieve.",
+      "The morning's other account is Sahadeva's. Shakuni, the dice-master, the war's quiet author, tries the field's edges with his Gandhara cavalry, and the youngest Pandava, who swore this death the night the dice fell wrong, takes his head with an arrow and says one word over it: vowed. Uluka, the son who carried Shakuni's taunts to the Pandava camp, has already fallen. The hands that threw the game are gone from the board.",
+      "By noon there is no Kaurava army, only survivors, and the poem counts with terrible plainness: of the hundred sons of Dhritarashtra, one is left alive, and no one can find him. Duryodhana has walked off the field with his mace, alone, and entered the lake called Dvaipayana, solidifying the water over himself with sorcery, sitting in the cold dark at the bottom of his own war.",
+      "They find him. Hunters betray the place; the brothers gather at the shore, and Yudhishthira calls into the lake the one thing that can raise Duryodhana: mockery. The king who never refused a challenge comes up out of the water and is offered terms that scandalize Krishna: single combat, any weapon, any single brother, and if he wins, the kingdom. He chooses the mace, and of course he chooses Bhima; the two of them have been aimed at each other since childhood.",
+      "Balarama arrives from pilgrimage in time to judge his two mace-students, and the duel at Samantapanchaka is even, and long, and going to Duryodhana. Thirteen years of mace practice against a stone image of Bhima have made the king the better fighter, and everyone watching knows it. Krishna catches Bhima's eye and slaps his own thigh, once. The vow from the dice hall does the rest: Bhima's mace comes in low, against every law of the duel, and breaks the thighs that were once bared at a queen.",
+      "Balarama has to be restrained from killing Bhima where he stands. Duryodhana, broken on the ground, spends his last strength on an indictment of Krishna that the poem honors by recording entire: every rule bent, Bhishma by a shield of gender, Drona by a lie, Karna by a wheel, himself by a low blow, name one Pandava victory that was clean. And the sky, the poem says, rained flowers on him, and Krishna answered only: you were never going to be beaten any other way, and men like you make wars in which this is what victory costs.",
+      "The victors ride to the Kaurava camp and, on Krishna's quiet insistence, sleep elsewhere that night. It is the last of his interventions no one understands at the time. Duryodhana, dying by the lake, is found by three men: Kripa, Kritavarma, and Ashwatthama, who kneels and swears an oath over the broken king, and is made, with water from the lake, the war's final commander, commander of an army of three.",
+      "What Ashwatthama does with the rank belongs to the night and the Sauptika Parva: an owl striking sleeping crows shows him his stratagem, and the camp of the victors, asleep, unarmed, is put entirely to the sword. Dhrishtadyumna, his father's killer, is trampled to death like an animal, denied the dignity of steel; Shikhandi dies without his second duel; the five sons of Draupadi are beheaded in their beds in the dark, mistaken or not mistaken for their fathers. The camp burns behind the three riders.",
+      "Dawn on the nineteenth day has no war left in it. Of the millions the poem marched onto this field, it counts the walking survivors on two hands: the five brothers, Krishna, Satyaki; Kripa, Kritavarma, Ashwatthama. The Pandavas have won the earth entire, and in the space of one night, almost no one to inherit it. Yudhishthira, told of his children, says the thing the whole poem has been walking toward: we have conquered, and we are conquered."
+    ]
+  }
 ]

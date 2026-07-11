@@ -106,7 +106,7 @@ export default function WarTimeline() {
       </section>
 
       {/* the days */}
-      <div data-days className="relative mx-auto max-w-3xl px-6 pb-40">
+      <div data-days className="relative mx-auto max-w-4xl px-6 pb-40">
         {/* dotted spine */}
         <div
           data-spine
@@ -168,6 +168,27 @@ export default function WarTimeline() {
                     {d.falls.map((id) => (
                       <FallChip key={id} id={id} />
                     ))}
+                  </div>
+                )}
+                {d.narrative && d.narrative.length > 0 && (
+                  <div
+                    className={`mt-10 flex max-w-md flex-col gap-5 border-t border-dotted border-ash/25 pt-8 ${
+                      left ? "sm:ml-auto" : ""
+                    }`}
+                  >
+                    {d.narrative.map((para, j) => (
+                      <p
+                        key={j}
+                        className={`font-display text-lg leading-relaxed text-bone/75 ${
+                          left ? "sm:text-right" : "text-left"
+                        }`}
+                      >
+                        {para}
+                      </p>
+                    ))}
+                    <p className="ui-label mt-2 !normal-case !text-ash/60">
+                      {d.citations.join(" · ")} · K.M. Ganguli tr.
+                    </p>
                   </div>
                 )}
                 {d.day === 1 && (
