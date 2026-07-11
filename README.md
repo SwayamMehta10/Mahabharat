@@ -14,11 +14,11 @@ where every fact carries a citation into the source text.
 | `/` | Entry gate — WebGL ink-smoke void, synthesized conch (Web Audio, zero assets), staggered type |
 | `/saga` | **The Kalachakra gate** — an interactive wheel of 18 parvas; you declare how far you know the story, and the entire site reveals only up to that point |
 | `/family-tree` | **The Kuru Line** — drag/zoom node graph; Kaurava wing in vermillion, Pandava wing in gold, Karna alone between the worlds, joined to Kunti by a line that crosses the whole tree |
-| `/who/[id]` | 39 statically generated character pages — epithets, relationships, arms, divine parentage, and fates veiled behind the spoiler wheel |
-| `/war` | **The Eighteen Days** — a scroll-driven descent through Kurukshetra; the smoke itself bruises from indigo to ash and ember as the war deepens |
+| `/who/[id]` | 39 statically generated character pages — epithets, relationships, arms, divine parentage, fates veiled behind the spoiler wheel; Arjuna, Bhishma and Draupadi now carry **DARK-style journeys**: their lives scroll parva by parva while the background painting crossfades per chapter, with a Devanagari chapter rail |
+| `/war` | **The Eighteen Days** — a scroll-driven descent through Kurukshetra; the smoke bruises from indigo to ash as the war deepens, and every day now carries a full chronicle (141 paragraphs, cited to Ganguli) |
 | `/gita` | **The Song of the Lord** — time freezes mid-battlefield (the ever-moving smoke stops), six ślokas in Devanagari + IAST + English, and the Vishvarupa: a 16,000-particle wheel of fire, the only thing that moves in a frozen world |
 | `/who` | Character index grouped by allegiance — paintings, epithets, and `?` cards beyond your wheel |
-| `/parvas` | The eighteen books, summaries veiled beyond your wheel |
+| `/parvas` | The eighteen books, each with a full multi-paragraph synopsis, veiled beyond your wheel |
 | — | Global overlay menu with **spoiler-aware search** (characters, parvas, war days) on every page |
 
 ## Stack
