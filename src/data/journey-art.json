@@ -1,1 +1,26 @@
-{}
+{
+  "arjuna-subhadra": {
+    "title": "Arjuna and Subhadra",
+    "artist": "Raja Ravi Varma",
+    "year": "1890",
+    "source": "https://commons.wikimedia.org/wiki/File:Ravi_Varma-Arjuna_and_Subhadra.jpg",
+    "license": "public-domain",
+    "position": "50% 30%"
+  },
+  "bhishma-arrow-bed": {
+    "title": "Bhishma on the Bed of Arrows",
+    "artist": "unknown, chromolithograph",
+    "year": "c. 1895",
+    "source": "https://commons.wikimedia.org/wiki/File:Bhisma_is_lying_on_a_bed_of_arrows_with_Arjuna_standing_above_him_with_bow_drawn_and_pointed..jpg",
+    "license": "public-domain",
+    "position": "50% 45%"
+  },
+  "kichaka-sairandhri": {
+    "title": "Keechaka and Sairandhri",
+    "artist": "Raja Ravi Varma",
+    "year": "1890",
+    "source": "https://commons.wikimedia.org/wiki/File:Raja_Ravi_Varma,_Keechaka_and_Sairandhri,_1890.jpg",
+    "license": "public-domain",
+    "position": "50% 25%"
+  }
+}
