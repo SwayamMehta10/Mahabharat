@@ -7,6 +7,7 @@ import SmoothScroll from "@/components/providers/SmoothScroll";
 import SiteChrome from "@/components/chrome/SiteChrome";
 import KarnaSecret from "@/components/chrome/KarnaSecret";
 import SoundscapeProvider from "@/components/providers/SoundscapeProvider";
+import { Analytics } from "@vercel/analytics/next"
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -60,6 +61,7 @@ export default function RootLayout({
         <SiteChrome />
         <KarnaSecret />
         <div className="relative z-10 flex min-h-dvh flex-col">{children}</div>
+        <Analytics />
       </body>
     </html>
   );
