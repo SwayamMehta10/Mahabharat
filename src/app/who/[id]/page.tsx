@@ -20,6 +20,7 @@ function toImage(
   file: string,
   position: string,
   credit?: {
+    exposure?: number;
     title?: string;
     creator?: string;
     year?: string;
@@ -90,6 +91,7 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
   const hasJourney = journey.length > 0;
   const defaultImage = painting
     ? toImage(painting.file, painting.position, {
+        exposure: painting.exposure,
         title: painting.title,
         creator: painting.creator,
         year: painting.year,
@@ -103,6 +105,7 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
     const a = getJourneyArt(ch.image);
     if (!a) return undefined;
     return toImage(a.file, a.position, {
+      exposure: a.exposure,
       title: a.title,
       creator: a.creator,
       year: a.year,
@@ -122,7 +125,11 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
            the director only mounts for bio-only pages. */
         <div aria-hidden className="pointer-events-none absolute inset-0">
           {!hasJourney && (
-            <PortraitDirector url={painting.file} position={painting.position} />
+            <PortraitDirector
+              url={painting.file}
+              position={painting.position}
+              exposure={painting.exposure}
+            />
           )}
           {!hasJourney && (
             /* eslint-disable-next-line @next/next/no-img-element */
@@ -132,14 +139,15 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
               className="absolute inset-0 hidden h-full w-full object-cover motion-reduce:block"
               style={{
                 objectPosition: painting.position,
-                filter: "grayscale(0.15) sepia(0.10) contrast(1.04) brightness(0.80) saturate(0.92)",
+                filter: `grayscale(0.15) sepia(0.10) contrast(1.04) brightness(${(0.9 * (painting.exposure ?? 1)).toFixed(2)}) saturate(0.92)`,
               }}
             />
           )}
-          {/* full-width fade, no container edge: the painting simply emerges */}
-          <div className="absolute inset-0 bg-gradient-to-r from-void from-22% via-void/55 via-52% to-void/5" />
-          <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-void/45" />
-          <div className="absolute inset-0 bg-indigo-deep/12 mix-blend-multiply" />
+          {/* a localized scrim carries text legibility; the painting itself
+             stays present to the top and right edges of the frame */}
+          <div className="absolute inset-0 bg-gradient-to-r from-void from-8% via-void/70 via-50% to-transparent to-82%" />
+          <div className="absolute inset-0 bg-gradient-to-t from-void/85 to-45% to-transparent" />
+          <div className="absolute inset-0 bg-indigo-deep/8 mix-blend-multiply" />
         </div>
       ) : (
         /* no painting yet - the Devanagari watermark stands in */
@@ -151,12 +159,18 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
         </div>
       )}
 
-      <div className="relative z-10 mx-auto flex min-h-dvh max-w-3xl flex-col justify-center gap-10 px-6 py-24">
+      <div className="relative z-10 mx-auto flex min-h-dvh max-w-4xl flex-col justify-center gap-10 px-6 py-24">
         <div>
+          <Link
+            href="/who"
+            className="ui-label mb-6 block w-fit transition-colors hover:text-bone focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-gold/70"
+          >
+            ← All the figures of the epic
+          </Link>
           <p className="ui-label mb-4">
             First appears · {firstParva.name}
           </p>
-          <h1 className="font-display text-5xl font-light text-bone sm:text-6xl" style={{ letterSpacing: "0.18em" }}>
+          <h1 className="font-display text-[clamp(2rem,7.5vw,3.75rem)] font-light text-bone" style={{ letterSpacing: "0.18em" }}>
             {c.name.toUpperCase()}
           </h1>
           <p className="font-deva mt-3 text-2xl text-gold/80">{c.deva}</p>
@@ -167,11 +181,11 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
           )}
         </div>
 
-        <p className="font-display max-w-xl text-xl leading-relaxed text-bone/90">
+        <p className="font-display max-w-2xl text-xl leading-relaxed text-bone/90">
           {c.bio}
         </p>
 
-        <div className="grid max-w-xl grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2">
           <RelationList label="Parents" ids={c.parents} />
           <RelationList label="Consorts" ids={c.spouses} />
           <RelationList label="Children" ids={c.children} />
@@ -205,7 +219,7 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
         </div>
 
         {sharedEvents.length > 0 && (
-          <div className="max-w-xl border-l border-gold/35 pl-5">
+          <div className="max-w-2xl border-l border-gold/35 pl-5">
             <span className="ui-label !text-gold-dim">Drishti · shared moments</span>
             {sharedEvents.map((event) => (
               <p key={event.id} className="font-display mt-2 text-xl text-bone">
@@ -248,7 +262,7 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
           </div>
           <Link
             href="/family-tree"
-            className="ui-label shrink-0 transition-colors hover:text-bone"
+            className="ui-label shrink-0 transition-colors hover:text-bone [text-shadow:0_1px_10px_rgba(5,6,10,0.95),0_0_3px_rgba(5,6,10,0.9)]"
           >
             ← The Kuru Line
           </Link>

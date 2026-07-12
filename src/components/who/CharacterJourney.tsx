@@ -24,6 +24,8 @@ export interface JourneyImage {
   url: string;
   focalX: number;
   focalY: number;
+  /** presentation-only exposure multiplier from the manifest (default 1) */
+  exposure?: number;
   /** credit line data for the footer of the chapter */
   title?: string;
   creator?: string;
@@ -61,7 +63,7 @@ export default function CharacterJourney({ chapters, images, defaultImage }: Cha
     const setPortrait = (img: JourneyImage | undefined) => {
       const want = img ?? defaultImage;
       atmosphere.portrait = want
-        ? { url: want.url, focalX: want.focalX, focalY: want.focalY }
+        ? { url: want.url, focalX: want.focalX, focalY: want.focalY, exposure: want.exposure }
         : null;
     };
     setPortrait(undefined);
@@ -163,7 +165,7 @@ export default function CharacterJourney({ chapters, images, defaultImage }: Cha
             data-chapter={i}
             className="relative flex min-h-dvh flex-col justify-center px-6 py-24"
           >
-            <div data-chapter-body className="mx-auto w-full max-w-2xl">
+            <div data-chapter-body className="mx-auto w-full max-w-3xl">
               <p className="ui-label mb-4 !text-gold-dim">
                 {parva.name} · <span className="font-deva">{toDevanagariNumeral(ch.parva)}</span>
               </p>
@@ -179,11 +181,11 @@ export default function CharacterJourney({ chapters, images, defaultImage }: Cha
                   className="mb-8 hidden max-h-72 w-full rounded-sm object-cover motion-reduce:block"
                   style={{
                     objectPosition: `${img.focalX * 100}% ${img.focalY * 100}%`,
-                    filter: "grayscale(0.15) sepia(0.10) contrast(1.04) brightness(0.85)",
+                    filter: `grayscale(0.15) sepia(0.10) contrast(1.04) brightness(${(0.9 * (img.exposure ?? 1)).toFixed(2)})`,
                   }}
                 />
               )}
-              <div className="flex max-w-xl flex-col gap-5">
+              <div className="flex max-w-2xl flex-col gap-5">
                 {ch.text.map((para, j) => (
                   <p key={j} className="font-display text-lg leading-relaxed text-bone/80">
                     {para}

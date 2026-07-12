@@ -63,6 +63,8 @@ export interface PrimaryArtEntry extends ArtworkProvenance {
   title: string;
   year: string;
   position: string;
+  /** Presentation-only exposure multiplier over the shader grade (default 1). */
+  exposure?: number;
 }
 
 /**
@@ -128,6 +130,8 @@ export interface WarDay {
   citations: string[];
   /** Book-like narrative of the day, one string per paragraph */
   narrative?: string[];
+  /** Approved artwork id from journey-art.json for the day's visual tableau. */
+  art?: string;
 }
 
 export type RelationshipKind = "parent" | "marriage" | "mentor" | "allegiance";
@@ -175,6 +179,7 @@ export interface StrategicDay {
   pattern: "lines" | "crescent" | "wheel" | "duel" | "encirclement";
   phases: string[];
   focus: string;
+  citations: string[];
 }
 
 /**
@@ -189,6 +194,8 @@ export interface JourneyArtEntry extends ArtworkProvenance {
   year: string;
   /** CSS object-position focal hint */
   position: string;
+  /** Presentation-only exposure multiplier over the shader grade (default 1). */
+  exposure?: number;
 }
 
 /** A recorded audio layer blended over (or replacing) the synth bed. */

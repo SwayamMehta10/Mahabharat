@@ -36,6 +36,7 @@ const fragmentShader = /* glsl */ `
   uniform float uTexAspect;
   uniform vec2 uFocal;        // 0..1, like object-position
   uniform float uFadeX;       // where the left dissolve finishes (0..1)
+  uniform float uExposure;    // presentation multiplier over the base grade
 
   float hash(vec2 p) {
     p = fract(p * vec2(123.34, 456.21));
@@ -86,7 +87,7 @@ const fragmentShader = /* glsl */ `
     float g = dot(c, vec3(0.299, 0.587, 0.114));
     c = mix(vec3(g), c, 0.85);            // desaturate, gently
     c *= vec3(1.05, 0.99, 0.90);          // lean warm
-    c *= 0.80;                            // into the dusk, not the dark
+    c *= 0.90 * uExposure;                // into the dusk, not the dark
     vec3 indigo = vec3(0.075, 0.102, 0.200);
     c = mix(c, c * indigo * 4.2, 0.10);   // indigo wash in the shadows
 
@@ -137,6 +138,7 @@ export default function PortraitPlane() {
       uTexAspect: { value: 1 },
       uFocal: { value: new THREE.Vector2(0.5, 0.3) },
       uFadeX: { value: 0.45 },
+      uExposure: { value: 1 },
     }),
     []
   );
@@ -158,11 +160,17 @@ export default function PortraitPlane() {
     const wantUrl = want?.url ?? null;
 
     // crossfade logic: fade toward 0 when the wanted texture differs,
-    // swap at the bottom, then fade back up
+    // swap at the bottom, then fade back up. `strength` caps the reveal so
+    // a page can hold the painting at atmosphere level rather than subject
+    // level; both it and exposure follow the channel per-frame so
+    // presentation changes apply even when the URL stays the same.
     const showing = shownUrl.current;
-    const target = wantUrl === showing && wantUrl !== null ? 1 : 0;
+    const target = wantUrl === showing && wantUrl !== null ? (want?.strength ?? 1) : 0;
     const r = THREE.MathUtils.damp(mat.uniforms.uReveal.value, target, 3.2, delta);
     mat.uniforms.uReveal.value = r;
+    if (wantUrl === showing && want) {
+      mat.uniforms.uExposure.value = want.exposure ?? 1;
+    }
 
     if (wantUrl !== showing && r < 0.02 && !swapping.current) {
       if (wantUrl) {
@@ -173,6 +181,7 @@ export default function PortraitPlane() {
           mat.uniforms.uTexAspect.value = img.width / img.height;
           if (want) {
             mat.uniforms.uFocal.value.set(want.focalX, 1 - want.focalY);
+            mat.uniforms.uExposure.value = want.exposure ?? 1;
           }
           shownUrl.current = wantUrl;
           swapping.current = false;
@@ -190,8 +199,10 @@ export default function PortraitPlane() {
     const h = viewport.height;
     mesh.scale.set(w, h, 1);
     mesh.position.set(0, 0, 0);
-    // on small screens the text runs full width, so fade less territory
-    mat.uniforms.uFadeX.value = size.width < 640 ? 0.3 : 0.45;
+    // on small screens the text runs full width, so fade less territory;
+    // legibility over the text column is the DOM scrim's job, not the
+    // shader's, so the dissolve stays short and the painting stays present
+    mat.uniforms.uFadeX.value = size.width < 640 ? 0.3 : 0.34;
     // world units scale linearly with pixels, so world w/h IS the pixel aspect
     mat.uniforms.uPlaneAspect.value = w / h;
 

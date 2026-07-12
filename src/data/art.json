@@ -209,6 +209,7 @@
     "role": "portrait",
     "generation": {"promptId": "ashwatthama-portrait", "model": "gpt-image-2", "created": "2026-07-11", "referencePolicy": "text-only"},
     "files": {"full": "/art/generated/ashwatthama-generated-portrait.webp", "thumb": "/art/generated/ashwatthama-generated-portrait-thumb.webp"},
-    "position": "50% 14%"
+    "position": "50% 14%",
+    "exposure": 1.35
   }
 }
