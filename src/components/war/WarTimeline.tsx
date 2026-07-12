@@ -4,10 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { warDays, charactersById, parvaOfWarDay, toDevanagariNumeral } from "@/lib/kb";
+import { warDays, charactersById, getJourneyArt, parvaOfWarDay, toDevanagariNumeral } from "@/lib/kb";
 import { selectAccessibleParva, useEpicStore } from "@/lib/store";
 import { atmosphere } from "@/lib/atmosphere";
 import { lenisRef } from "@/lib/lenis";
+import { preloadPortrait } from "@/components/canvas/PortraitPlane";
+import { TABLEAU_STRENGTH, toPortraitRequest } from "@/lib/tableau";
 import WordReveal from "@/components/ui/WordReveal";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -49,6 +51,26 @@ export default function WarTimeline() {
     const root = rootRef.current;
     if (!root) return;
 
+    // hold-until-next-anchor: each visible day resolves to the nearest
+    // art-bearing day at or above it, so the charioteer carries days 1-9,
+    // the arrow bed days 10-12, and so on; days before any anchor get null
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const portraitForDay = new Map<number, ReturnType<typeof toPortraitRequest>>();
+    let current: ReturnType<typeof toPortraitRequest> = null;
+    for (const d of visibleDays) {
+      if (d.art) current = toPortraitRequest(d.art, TABLEAU_STRENGTH);
+      portraitForDay.set(d.day, current);
+    }
+    if (!reduced) {
+      const seen = new Set<string>();
+      for (const p of portraitForDay.values()) {
+        if (p && !seen.has(p.url)) {
+          seen.add(p.url);
+          preloadPortrait(p.url);
+        }
+      }
+    }
+
     const ctx = gsap.context(() => {
       // the spine draws itself as you descend
       gsap.fromTo(
@@ -84,12 +106,40 @@ export default function WarTimeline() {
         );
         const day = Number(el.id.replace("day-", ""));
         if (!Number.isFinite(day) || !el.id) return;
+        const arrive = () => {
+          setActiveDay(day);
+          if (!reduced) atmosphere.portrait = portraitForDay.get(day) ?? null;
+        };
         ScrollTrigger.create({
           trigger: el,
           start: "top 60%",
           end: "bottom 60%",
-          onEnter: () => setActiveDay(day),
-          onEnterBack: () => setActiveDay(day),
+          onEnter: arrive,
+          onEnterBack: arrive,
+        });
+      });
+
+      // above the first day (the hero) and below the last (aftermath or the
+      // gate), the field returns to smoke
+      ScrollTrigger.create({
+        trigger: "[data-days]",
+        start: "top 60%",
+        end: "bottom 60%",
+        onLeaveBack: () => {
+          if (!reduced) atmosphere.portrait = null;
+        },
+      });
+      gsap.utils.toArray<HTMLElement>("[data-day-end]").forEach((el) => {
+        ScrollTrigger.create({
+          trigger: el,
+          start: "top 60%",
+          end: "bottom 60%",
+          onEnter: () => {
+            if (!reduced) atmosphere.portrait = null;
+          },
+          onEnterBack: () => {
+            if (!reduced) atmosphere.portrait = null;
+          },
         });
       });
 
@@ -122,7 +172,9 @@ export default function WarTimeline() {
     return () => {
       ctx.revert();
       atmosphere.war = 0;
+      atmosphere.portrait = null;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visibleDays.length]);
 
   return (
@@ -190,6 +242,7 @@ export default function WarTimeline() {
         {visibleDays.map((d, i) => {
           const heavy = d.falls.length > 0;
           const left = i % 2 === 0;
+          const tableau = d.art ? getJourneyArt(d.art) : undefined;
           return (
             <section
               key={d.day}
@@ -224,6 +277,21 @@ export default function WarTimeline() {
                 <p className="ui-label mb-6 !text-gold-dim">
                   Kaurava command · {charactersById.get(d.commanderKaurava)?.name ?? d.commanderKaurava}
                 </p>
+                {tableau && (
+                  /* reduced-motion sessions skip the WebGL crossfade and get
+                     the day's tableau inline, the journey-chapter pattern */
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img
+                    src={tableau.file}
+                    alt=""
+                    loading="lazy"
+                    className="mb-6 hidden max-h-64 w-full rounded-sm object-cover motion-reduce:block"
+                    style={{
+                      objectPosition: tableau.position,
+                      filter: `grayscale(0.15) sepia(0.10) contrast(1.04) brightness(${(0.9 * (tableau.exposure ?? 1)).toFixed(2)})`,
+                    }}
+                  />
+                )}
                 <ul className={`flex flex-col gap-3 ${left ? "sm:items-end" : ""}`}>
                   {d.events.map((ev, j) => (
                     <li key={j} className="font-display max-w-md text-lg leading-relaxed text-bone/80">
@@ -285,7 +353,7 @@ export default function WarTimeline() {
 
         {/* the veil when guided depth has not reached the remaining days */}
         {gated && (
-          <section className="relative flex min-h-[50vh] flex-col items-center justify-center gap-6 text-center">
+          <section data-day-end className="relative flex min-h-[50vh] flex-col items-center justify-center gap-6 text-center">
             <p className="font-display max-w-sm text-xl italic text-ash">
               {visibleDays.length === 0
                 ? "The field waits. What happens here is not yet yours to know."
@@ -299,7 +367,7 @@ export default function WarTimeline() {
 
         {/* aftermath */}
         {!gated && (
-          <section data-day className="relative flex min-h-[60vh] flex-col items-center justify-center gap-8 text-center">
+          <section data-day data-day-end className="relative flex min-h-[60vh] flex-col items-center justify-center gap-8 text-center">
             <p className="font-deva text-lg text-ash/80">अष्टादश दिनानि</p>
             <WordReveal
               text="Of eleven armies and seven, ten men walked away."

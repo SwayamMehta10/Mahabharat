@@ -2,6 +2,7 @@
   {
     "day": 1,
     "title": "The Conches Sound",
+    "art": "krishna-charioteer",
     "commanderKaurava": "bhishma",
     "commanderPandava": "dhrishtadyumna",
     "events": [
@@ -203,6 +204,7 @@
   {
     "day": 10,
     "title": "The Bed of Arrows",
+    "art": "bhishma-arrow-bed",
     "commanderKaurava": "bhishma",
     "events": [
       "Shikhandi stands at Arjuna's chariot-front; Bhishma will not raise his bow at Amba reborn",
@@ -274,6 +276,7 @@
   {
     "day": 13,
     "title": "The Wheel Closes",
+    "art": "abhimanyu-chakravyuha",
     "commanderKaurava": "drona",
     "events": [
       "Drona forms the chakravyuha; only the absent Arjuna knows its exit",
@@ -380,6 +383,7 @@
   {
     "day": 17,
     "title": "The Wheel Sinks",
+    "art": "karna-final-wheel",
     "commanderKaurava": "karna",
     "events": [
       "Bhima tears open Dushasana's chest and keeps the vow made in the dice hall",
@@ -408,6 +412,7 @@
   {
     "day": 18,
     "title": "Thigh and Mace",
+    "art": "duryodhana-mace-duel",
     "commanderKaurava": "shalya",
     "events": [
       "Yudhishthira, gentlest of the five, slays Shalya with the spear",

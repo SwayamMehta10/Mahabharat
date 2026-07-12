@@ -117,6 +117,8 @@ export interface Parva {
   summary: string;
   /** Full narrative synopsis, one string per paragraph */
   synopsis?: string[];
+  /** Approved artwork id from journey-art.json for the book's visual anchor. */
+  art?: string;
 }
 
 export interface WarDay {
