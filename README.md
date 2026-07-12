@@ -15,13 +15,13 @@ where every fact carries a citation into the source text.
 | `/saga` | **The Kalachakra gate** — choose your path: *Experience the Telling* (guided, the site reveals parva by parva) or *Open the Epic* (all eighteen books at once); the wheel of 18 parvas measures your depth |
 | `/family-tree` | **The Kuru Line** — drag/zoom node graph; Kaurava wing in vermillion, Pandava wing in gold, Karna alone between the worlds, joined to Kunti by a line that crosses the whole tree |
 | `/who/[id]` | 39 statically generated character pages — full-bleed portraits dissolving into the void (shader-side veil, no hard edges), epithets, relationships, arms, divine parentage, and guided-depth fates; nine characters (Arjuna, Bhishma, Draupadi, Karna, Krishna, Duryodhana, Kunti, Abhimanyu, Ashwatthama) carry **DARK-style journeys**: their lives scroll parva by parva while the background painting crossfades per chapter, with a Devanagari chapter rail |
-| `/war` | **The Eighteen Days** — a scroll-driven descent through Kurukshetra; the smoke bruises from indigo to ash as the war deepens, and every day now carries a full chronicle (141 paragraphs, cited to Ganguli) |
+| `/war` | **The Eighteen Days** — a scroll-driven descent through Kurukshetra; the smoke bruises from indigo to ash as the war deepens, five days carry full-bleed painting tableaux that hold until the next turning point, a fixed Devanagari day rail jumps to any morning, and every day's full chronicle (141 paragraphs, cited to Ganguli) folds open behind *Read the day in full* |
 | `/gita` | **The Song of the Lord** — time freezes mid-battlefield (the ever-moving smoke stops), six ślokas in Devanagari + IAST + English, and the Vishvarupa: a 16,000-particle wheel of fire, the only thing that moves in a frozen world |
 | `/who` | Character index grouped by allegiance — paintings, epithets, and `?` cards beyond your wheel |
-| `/parvas` | The eighteen books, each with a full multi-paragraph synopsis, veiled beyond your wheel |
+| `/parvas` | The eighteen books, each with a full multi-paragraph synopsis, veiled beyond your wheel — with a jump rail, watermark numerals, and painting tableaux at eight of the books' turning points |
 | `/drishti/[id]` | **Drishti — one event, many truths**: Karna's final duel retold through five pairs of eyes (Karna, Arjuna, Krishna, Shalya, Kunti), each perspective swapping the portrait, citations, and the causal threads it pulls on |
 | `/threads` | **The Web of Vows** — nine vows, curses, secrets, and debts mapped to the characters, events, and parvas they bind; each thread veiled until its last consequence is within your depth |
-| `/war/strategy` | **Sanjaya's Eye** — five decisive war days as procedural canvas formations (lines, crescent, chakravyuha wheel, duel, encirclement) beside the prose chronicle |
+| `/war/strategy` | **Sanjaya's Eye** — the war days as procedural canvas formations (lines, crescent, chakravyuha wheel, duel, encirclement) beside the prose chronicle, with a legend naming the two hosts and the day's citations |
 | `/credits` | Every artwork's provenance — creator, source link, license, and AI-origin disclosure for the six-character generated pilot, kept off the immersive pages |
 | — | Global overlay menu with **narrative-depth-aware search** (characters, weapons, kin, vows, events, parvas, war days) on every page |
 

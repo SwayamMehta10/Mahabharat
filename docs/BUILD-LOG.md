@@ -575,6 +575,75 @@ parva by parva. Verified in the browser: Karna's rail runs Adi to Stri,
 the tournament-crown and final-wheel scenes crossfade, credits carry
 the project-generated disclosure inline.
 
+## Session 13 - The design-remediation pass (2026-07-12)
+
+The user browsed the live deploy and came back with five screenshots:
+portraits too dark and seemingly partial, Sanjaya's dots unexplained,
+/war a punishing scroll, Ashwatthama's page near-black, and a menu you
+couldn't scroll. One session, five fixes, five commits. (The five
+product backlog items below were *not* part of this session; a parallel
+workstream expanded the KB to 75 characters while this ran.)
+
+1. **Exposure, not brightness** (`08f233e`): the shader grade rises
+   0.80 → 0.90 and gains a per-artwork `exposure` multiplier threaded
+   art.json → `atmosphere.portrait` → a `uExposure` uniform. The subtle
+   part: uReveal-matched uniforms update **per-frame from the channel**,
+   not in the texture-swap callback, so presentation changes land even
+   when the URL doesn't change — but only while the shown texture is the
+   wanted one, so an outgoing painting never retints mid-crossfade.
+   Ashwatthama's intrinsically dark generated portrait gets 1.35 and
+   finally reads. The three-layer DOM veil became a localized text
+   scrim (`from-void from-8% via-void/70 via-50% to-transparent`);
+   first attempt over-lightened and bright oils like *Bheeshma's Oath*
+   washed the labels out — brightening images and keeping 4.5:1 text
+   are the same knob turned opposite ways, so the scrim carries
+   legibility and the shader veil (`uFadeX` 0.45 → **0.34**) stops
+   hiding the painting. Wider measures, fluid-clamp headings
+   (ASHWATTHAMA clipped at 390px — session 8's lesson, new victim),
+   and a back link to /who on every character page.
+2. **Sanjaya's Eye legend** (`078937f`): gold = Pandava host,
+   vermillion = Kaurava host, one line saying the points draw the day's
+   battle array, the same facts in the canvas aria-label (allegiance
+   never rides on color alone), and the day's Ganguli citations under
+   the phases.
+3. **The menu scrolls** (`1cdef89`): body `overflow: hidden` never
+   stopped Lenis because Lenis doesn't scroll natively — it eats wheel
+   events and writes scroll positions every frame. The instance now
+   lives in a `lib/lenis.ts` singleton (the atmosphere pattern); the
+   menu calls `stop()`/`start()` and the overlay carries
+   `data-lenis-prevent` so its own list scrolls natively.
+4. **/war compacted** (`c52e43b`): the real length culprit was
+   `min-h-[55vh]` on every day, not just the 141 always-open
+   paragraphs. Sections are content-sized now, chronicles fold behind
+   "Read the day in full +" (the /parvas accordion), and the page went
+   from ~30 viewports to ~13. A Devanagari day rail tracks the active
+   day; the biggest catch: **native smooth `scrollIntoView` silently
+   loses to Lenis** (it rewrites scroll every frame), which had been
+   quietly breaking the journey rail on character pages too — both now
+   jump through `lenis.scrollTo`. Details toggles refresh ScrollTrigger
+   inside rAF so the spine scrub survives height changes; `/war#day-N`
+   cold loads replay the hash jump after the fail-closed store lets the
+   days render.
+5. **The paintings enter the war** (`838603f`): `WarDay.art` and
+   `Parva.art` reference approved journey art, crossfaded through the
+   existing portrait channel at `strength: 0.45` — a reveal *ceiling*
+   added to the channel rather than a flipped veil, because /war text
+   alternates sides and the shader only dissolves the left edge; at
+   half strength the tableaux read as atmosphere under either column.
+   Hold-until-next-anchor semantics (the charioteer carries days 1–9,
+   the arrow bed 10–12; /parvas fades to smoke after Sauptika) avoid
+   fade-to-black churn on unillustrated entries. Anchor maps are built
+   from spoiler-visible entries only — verified in the network log:
+   guided depth 3 requests exactly one painting. Reduced motion gets
+   inline tableaux, the journey-chapter pattern. /parvas also gained
+   the rail, watermark numerals, and a wider synopsis measure.
+
+Verified per fix in a real browser (Playwright): before/after
+screenshots at matched viewports, both experience modes, network-log
+spoiler checks, reduced-motion fallbacks, mobile at 390px. tsc, eslint,
+check-prose, validate-kb (now also range-checking `exposure` and
+resolving art anchors), and a production build all green.
+
 ## Backlog
 
 1. Journeys for the remaining ~30 characters (next tier: Bhima,
