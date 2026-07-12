@@ -533,15 +533,52 @@ Decisions taken with the user: journeys for ALL characters eventually,
 near-book prose depth, TV stills permitted case-by-case (pipeline flags
 them `unverified` so exposure stays auditable; none used yet).
 
+## Session 12 - Two plans converge (2026-07-11)
+
+A different agent (Codex) implemented two approved plans directly into
+the working tree while the full-bleed portrait work was in flight. This
+session reviewed, hardened, and landed all of it as three commits.
+
+1. **Art system + data foundation** (`a128bff`): every artwork now
+   carries machine-verified provenance (creator, source, provider,
+   origin, license + URL, subjects); generated work additionally needs
+   prompt records and an approval state, and getArt/getJourneyArt refuse
+   anything not approved. Six-character AI pilot: 4 portraits (Karna,
+   Kunti, Abhimanyu, Ashwatthama) + 12 journey scenes, each reviewed by
+   eye against canon before keeping its approval (Karna's kavacha, the
+   owl omen, the gem at dawn all check out). /credits centralizes
+   disclosure. New event/thread/strategic-day/relationship data, cited.
+2. **Dual-path experience mode + full-bleed portraits** (`0a67e2f`):
+   the Kalachakra now offers Experience the Telling (guided) or Open the
+   Epic; persist schema v2 migrates old visitors (full wheel -> open).
+   StoryDepthGuard replaces SpoilerGuard, same fail-closed hydration.
+   The portrait plane spans the whole viewport with a shader-side veil
+   (uFadeX smoothstep) dissolving its left edge under the text column;
+   answers "why is the painting only half the screen?" for good.
+3. **Signature experiences** (`5b971cb`): Drishti (Karna's final duel
+   through five pairs of eyes), the Web of Vows (nine causal threads),
+   Sanjaya's Eye (five war days as procedural canvas formations).
+   Review caught that none of the three gated by narrative depth; a
+   guided visitor at parva 1 could read Kunti's secret from the menu.
+   All three now veil exactly like the journeys do, verified headless
+   at depth 0 and in open mode (localStorage v0 -> v2 migration too).
+
+Verification: tsc, eslint, validate-kb (now a provenance engine),
+check-prose, production build (53 static pages), and a headless-browser
+pass over every new route in both modes with zero console errors.
+
 ## Backlog
 
-1. Journeys for the remaining 36 characters (dramatic core next: Karna,
-   Krishna, Duryodhana, Kunti, Abhimanyu, Ashwatthama); source per-chapter
-   art via scripts/fetch-art.mjs discovery mode.
+1. Journeys for the pilot six (Karna, Krishna, Duryodhana, Kunti,
+   Abhimanyu, Ashwatthama) - their 12 generated chapter scenes are
+   already approved and waiting in journey-art.json; attach as each
+   journey is authored. Then the remaining ~30 characters.
 2. Broaden the KB toward ~75 characters (Vichitravirya, Amba, Hidimbi,
    Ghatotkacha line, Satyaki, Yuyutsu, Uttara, Ekalavya kin, ...) via
    Sorensen's Index / Dowson (both PD, archive.org).
 3. Recorded audio layers: SampleBank on the existing AudioContext,
    Freesound CC0 conch (sound 439477) + tanpura loops, synth stays the
    fallback; audio.json schema already shipped.
-4. Custom domain, if the project earns one.
+4. More Drishti events (the dice hall, the night raid) and strategic
+   days; the data contracts are validated and waiting.
+5. Custom domain, if the project earns one.
