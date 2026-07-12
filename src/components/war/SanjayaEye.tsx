@@ -107,8 +107,23 @@ export default function SanjayaEye({ days }: { days: StrategicDay[] }) {
         )}
       </nav>
       <section className="mt-8 grid gap-8 lg:grid-cols-[1.4fr_.6fr]">
-        <div className="relative overflow-hidden border border-dotted border-ash/25 bg-void"><canvas ref={canvasRef} className="block h-[55vh] min-h-[420px] w-full" aria-label={`Procedural strategic diagram for day ${active.day}: ${active.formation}`} /><div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-void p-6 pt-24"><p className="ui-label !text-vermillion">Day {active.day}</p><h2 className="font-display mt-2 text-3xl text-bone">{active.formation}</h2></div></div>
-        <div className="flex flex-col justify-center"><p className="font-display text-2xl italic leading-relaxed text-bone/80">{active.focus}</p><ol className="mt-8 flex flex-col gap-5 border-l border-dotted border-ash/30 pl-5">{active.phases.map((phase, index) => <li key={phase} className="font-display text-lg text-ash"><span className="ui-label mr-3 !text-gold-dim">{index + 1}</span>{phase}</li>)}</ol><Link href={`/war#day-${active.day}`} className="ui-label mt-8 underline decoration-dotted underline-offset-4 hover:text-gold">Read the human chronicle →</Link></div>
+        <div>
+          <div className="relative overflow-hidden border border-dotted border-ash/25 bg-void"><canvas ref={canvasRef} className="block h-[55vh] min-h-[420px] w-full" aria-label={`Procedural strategic diagram for day ${active.day}: ${active.formation}. Gold points trace the Pandava host, vermillion points the Kaurava host, arranged as the day's battle array.`} /><div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-void p-6 pt-24"><p className="ui-label !text-vermillion">Day {active.day}</p><h2 className="font-display mt-2 text-3xl text-bone">{active.formation}</h2></div></div>
+          <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <span className="flex items-center gap-2">
+              <span aria-hidden className="h-2 w-2 rounded-full bg-gold/90" />
+              <span className="ui-label">Pandava host</span>
+            </span>
+            <span className="flex items-center gap-2">
+              <span aria-hidden className="h-2 w-2 rounded-full bg-vermillion/90" />
+              <span className="ui-label">Kaurava host</span>
+            </span>
+            <span className="ui-label !normal-case italic !text-ash/60">
+              The points draw the day&apos;s battle array as Sanjaya describes it.
+            </span>
+          </div>
+        </div>
+        <div className="flex flex-col justify-center"><p className="font-display text-2xl italic leading-relaxed text-bone/80">{active.focus}</p><ol className="mt-8 flex flex-col gap-5 border-l border-dotted border-ash/30 pl-5">{active.phases.map((phase, index) => <li key={phase} className="font-display text-lg text-ash"><span className="ui-label mr-3 !text-gold-dim">{index + 1}</span>{phase}</li>)}</ol>{active.citations?.length ? <p className="ui-label mt-8 !normal-case !text-ash/60">{active.citations.join(" · ")} · K.M. Ganguli tr.</p> : null}<Link href={`/war#day-${active.day}`} className="ui-label mt-4 underline decoration-dotted underline-offset-4 hover:text-gold">Read the human chronicle →</Link></div>
       </section>
     </div>
   );
