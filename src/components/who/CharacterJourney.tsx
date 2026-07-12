@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { JourneyChapter } from "@/data/schema";
 import { parvas, toDevanagariNumeral } from "@/lib/kb";
-import { useEpicStore } from "@/lib/store";
+import { selectAccessibleParva, useEpicStore } from "@/lib/store";
 import { atmosphere } from "@/lib/atmosphere";
 import { preloadPortrait } from "@/components/canvas/PortraitPlane";
 
@@ -26,9 +26,11 @@ export interface JourneyImage {
   focalY: number;
   /** credit line data for the footer of the chapter */
   title?: string;
-  artist?: string;
+  creator?: string;
   year?: string;
   source?: string;
+  licenseLabel?: string;
+  licenseUrl?: string;
 }
 
 interface CharacterJourneyProps {
@@ -41,7 +43,7 @@ interface CharacterJourneyProps {
 
 export default function CharacterJourney({ chapters, images, defaultImage }: CharacterJourneyProps) {
   const rootRef = useRef<HTMLDivElement>(null);
-  const knownParva = useEpicStore((s) => s.knownParva);
+  const knownParva = useEpicStore(selectAccessibleParva);
   const [active, setActive] = useState(0);
 
   const visible = chapters.filter((ch) => ch.parva <= knownParva);
@@ -206,8 +208,21 @@ export default function CharacterJourney({ chapters, images, defaultImage }: Cha
                     ) : (
                       <>&ldquo;{img.title}&rdquo;</>
                     )}
-                    {img.artist && <> · {img.artist}</>}
+                    {img.creator && <> · {img.creator}</>}
                     {img.year && <>, {img.year}</>}
+                    {img.licenseLabel && img.licenseUrl && (
+                      <>
+                        {" "}·{" "}
+                        <a
+                          href={img.licenseUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline decoration-dotted underline-offset-2 transition-colors hover:text-bone"
+                        >
+                          {img.licenseLabel}
+                        </a>
+                      </>
+                    )}
                   </p>
                 )}
               </div>
@@ -216,13 +231,13 @@ export default function CharacterJourney({ chapters, images, defaultImage }: Cha
         );
       })}
 
-      {/* chapters the wheel still hides */}
+      {/* chapters waiting beyond the visitor's chosen narrative depth */}
       {gatedCount > 0 && (
         <section className="relative flex min-h-[60vh] flex-col items-center justify-center gap-6 px-6 text-center">
           <p className="font-display max-w-sm text-xl italic text-ash">
             {visible.length === 0
               ? "This life is not yet yours to read."
-              : `${gatedCount} ${gatedCount === 1 ? "chapter waits" : "chapters wait"} beyond the wheel.`}
+              : `${gatedCount} ${gatedCount === 1 ? "chapter waits" : "chapters wait"} deeper in the telling.`}
           </p>
           <Link
             href="/saga"

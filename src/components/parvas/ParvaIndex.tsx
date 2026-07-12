@@ -4,14 +4,14 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { parvas, toDevanagariNumeral } from "@/lib/kb";
-import { useEpicStore } from "@/lib/store";
+import { characters, getThreadsForParva, parvas, toDevanagariNumeral } from "@/lib/kb";
+import { selectAccessibleParva, useEpicStore } from "@/lib/store";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ParvaIndex() {
   const rootRef = useRef<HTMLDivElement>(null);
-  const knownParva = useEpicStore((s) => s.knownParva);
+  const knownParva = useEpicStore(selectAccessibleParva);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -47,6 +47,8 @@ export default function ParvaIndex() {
       <ol className="flex flex-col">
         {parvas.map((p) => {
           const known = p.number <= knownParva;
+          const arrivals = characters.filter((character) => character.firstParva === p.number).slice(0, 6);
+          const threads = getThreadsForParva(p.number);
           return (
             <li
               key={p.id}
@@ -72,22 +74,24 @@ export default function ParvaIndex() {
                     <p className="font-display mt-4 max-w-xl text-xl leading-relaxed text-bone/85">
                       {p.summary}
                     </p>
-                    {p.synopsis && p.synopsis.length > 0 && (
-                      <div className="mt-6 flex max-w-xl flex-col gap-4 border-l border-dotted border-ash/25 pl-6">
-                        {p.synopsis.map((para, j) => (
-                          <p
-                            key={j}
-                            className="font-display text-lg leading-relaxed text-bone/70"
-                          >
-                            {para}
-                          </p>
-                        ))}
+                    {(arrivals.length > 0 || threads.length > 0) && (
+                      <div className="mt-5 flex flex-wrap gap-2">
+                        {arrivals.map((character) => <Link key={character.id} href={`/who/${character.id}`} className="ui-label border border-dotted border-ash/25 px-2.5 py-1.5 hover:border-gold/50 hover:text-bone">{character.name}</Link>)}
+                        {threads.slice(0, 3).map((thread) => <Link key={thread.id} href={`/threads#${thread.id}`} className="ui-label border border-dotted border-vermillion/30 px-2.5 py-1.5 !text-vermillion/80 hover:border-vermillion hover:!text-vermillion">{thread.title}</Link>)}
                       </div>
+                    )}
+                    {p.synopsis && p.synopsis.length > 0 && (
+                      <details className="group/details mt-6 max-w-xl border-l border-dotted border-ash/25 pl-6">
+                        <summary className="ui-label cursor-pointer list-none py-2 transition-colors hover:text-bone">Read the full parva <span aria-hidden>+</span></summary>
+                        <div className="mt-4 flex flex-col gap-4">
+                          {p.synopsis.map((para, j) => <p key={j} className="font-display text-lg leading-relaxed text-bone/70">{para}</p>)}
+                        </div>
+                      </details>
                     )}
                   </>
                 ) : (
                   <p className="ui-label mt-4 !normal-case italic !text-ash/50">
-                    · the wheel has not yet turned this far ·{" "}
+                    · waiting deeper in the telling ·{" "}
                     <Link
                       href="/saga"
                       className="underline decoration-dotted underline-offset-2 transition-colors hover:text-gold"

@@ -72,7 +72,7 @@ export default function EntryGate() {
       </main>
 
       <footer data-fade className="anim-hidden flex w-full items-center justify-between">
-        <p className="ui-label">The Official Guide</p>
+        <p className="ui-label">An Immersive Epic Atlas</p>
         <button
           onClick={() => setSoundOn(!soundOn)}
           className="ui-label -m-3 cursor-pointer p-3 transition-colors hover:text-bone"

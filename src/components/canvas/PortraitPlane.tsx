@@ -35,6 +35,7 @@ const fragmentShader = /* glsl */ `
   uniform float uPlaneAspect;
   uniform float uTexAspect;
   uniform vec2 uFocal;        // 0..1, like object-position
+  uniform float uFadeX;       // where the left dissolve finishes (0..1)
 
   float hash(vec2 p) {
     p = fract(p * vec2(123.34, 456.21));
@@ -89,7 +90,10 @@ const fragmentShader = /* glsl */ `
     vec3 indigo = vec3(0.075, 0.102, 0.200);
     c = mix(c, c * indigo * 4.2, 0.10);   // indigo wash in the shadows
 
-    gl_FragColor = vec4(c, uReveal);
+    // full-bleed dissolve: the painting never shows an edge; it fades
+    // into the void under the text column instead of stopping at one
+    float veil = smoothstep(0.02, uFadeX, vUv.x);
+    gl_FragColor = vec4(c, uReveal * veil);
   }
 `;
 
@@ -132,6 +136,7 @@ export default function PortraitPlane() {
       uPlaneAspect: { value: 1 },
       uTexAspect: { value: 1 },
       uFocal: { value: new THREE.Vector2(0.5, 0.3) },
+      uFadeX: { value: 0.45 },
     }),
     []
   );
@@ -178,13 +183,15 @@ export default function PortraitPlane() {
       }
     }
 
-    // occupy the right 60% of the viewport (full width on small screens),
-    // matching the DOM composition the gradients were designed for
-    const fraction = size.width < 640 ? 1 : 0.6;
-    const w = viewport.width * fraction;
+    // full-bleed: the plane spans the whole viewport and the shader
+    // dissolves its left side into the void, so the painting reads as
+    // atmosphere rather than a column with an edge
+    const w = viewport.width;
     const h = viewport.height;
     mesh.scale.set(w, h, 1);
-    mesh.position.set(viewport.width * (1 - fraction) * 0.5, 0, 0);
+    mesh.position.set(0, 0, 0);
+    // on small screens the text runs full width, so fade less territory
+    mat.uniforms.uFadeX.value = size.width < 640 ? 0.3 : 0.45;
     // world units scale linearly with pixels, so world w/h IS the pixel aspect
     mat.uniforms.uPlaneAspect.value = w / h;
 

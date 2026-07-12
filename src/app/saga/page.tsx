@@ -1,9 +1,8 @@
 import KalachakraGate from "@/components/chakra/KalachakraGate";
 
 /**
- * The Kalachakra gate - the spoiler boundary of the whole experience.
- * The visitor turns the wheel of eighteen parvas to declare how far they
- * know the story; every page beyond honors that boundary.
+ * The Kalachakra gate: choose a guided telling or open the entire epic,
+ * then use the wheel as narrative depth and orientation.
  */
 export default function SagaPage() {
   return <KalachakraGate />;

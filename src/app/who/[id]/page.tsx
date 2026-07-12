@@ -1,7 +1,17 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { characters, charactersById, parvas, warDays, getArt, getJourney, getJourneyArt } from "@/lib/kb";
-import SpoilerGuard from "@/components/ui/SpoilerGuard";
+import {
+  artworkLicenseLabel,
+  characters,
+  charactersById,
+  parvas,
+  warDays,
+  getArt,
+  getJourney,
+  getJourneyArt,
+  getEventsForCharacter,
+} from "@/lib/kb";
+import StoryDepthGuard from "@/components/ui/StoryDepthGuard";
 import PortraitDirector from "@/components/who/PortraitDirector";
 import CharacterJourney, { type JourneyImage } from "@/components/who/CharacterJourney";
 
@@ -9,7 +19,14 @@ import CharacterJourney, { type JourneyImage } from "@/components/who/CharacterJ
 function toImage(
   file: string,
   position: string,
-  credit?: { title?: string; artist?: string; year?: string; source?: string }
+  credit?: {
+    title?: string;
+    creator?: string;
+    year?: string;
+    source?: string;
+    licenseLabel?: string;
+    licenseUrl?: string;
+  }
 ): JourneyImage {
   const [fx, fy] = position.split(" ").map((p) => (parseFloat(p) || 50) / 100);
   return { url: file, focalX: fx ?? 0.5, focalY: fy ?? 0.3, ...credit };
@@ -69,13 +86,16 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
   // the journey, if authored: chapters + their paintings, focal-parsed
   // server-side so the client component receives plain serializable props
   const journey = getJourney(c.id);
+  const sharedEvents = getEventsForCharacter(c.id);
   const hasJourney = journey.length > 0;
   const defaultImage = painting
     ? toImage(painting.file, painting.position, {
         title: painting.title,
-        artist: "Raja Ravi Varma",
+        creator: painting.creator,
         year: painting.year,
         source: painting.source,
+        licenseLabel: artworkLicenseLabel(painting.license),
+        licenseUrl: painting.licenseUrl,
       })
     : undefined;
   const journeyImages = journey.map((ch) => {
@@ -84,9 +104,11 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
     if (!a) return undefined;
     return toImage(a.file, a.position, {
       title: a.title,
-      artist: a.artist,
+      creator: a.creator,
       year: a.year,
       source: a.source,
+      licenseLabel: artworkLicenseLabel(a.license),
+      licenseUrl: a.licenseUrl,
     });
   });
 
@@ -107,7 +129,7 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
             <img
               src={painting.file}
               alt=""
-              className="absolute inset-y-0 right-0 hidden h-full w-full object-cover motion-reduce:block sm:w-3/5"
+              className="absolute inset-0 hidden h-full w-full object-cover motion-reduce:block"
               style={{
                 objectPosition: painting.position,
                 filter: "grayscale(0.15) sepia(0.10) contrast(1.04) brightness(0.80) saturate(0.92)",
@@ -169,25 +191,40 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
             <div className="flex flex-col gap-1.5">
               <span className="ui-label">Falls</span>
               <p className="font-display text-lg text-vermillion/90">
-                <SpoilerGuard revealAtParva={5 + Math.ceil(c.deathDay! / 4)}>
+                <StoryDepthGuard revealAtParva={5 + Math.ceil(c.deathDay! / 4)}>
                   <Link
                     href={`/war#day-${c.deathDay}`}
                     className="transition-colors hover:text-vermillion"
                   >
                     Day {c.deathDay} · {fallDay.title}
                   </Link>
-                </SpoilerGuard>
+                </StoryDepthGuard>
               </p>
             </div>
           )}
         </div>
+
+        {sharedEvents.length > 0 && (
+          <div className="max-w-xl border-l border-gold/35 pl-5">
+            <span className="ui-label !text-gold-dim">Drishti · shared moments</span>
+            {sharedEvents.map((event) => (
+              <p key={event.id} className="font-display mt-2 text-xl text-bone">
+                <StoryDepthGuard revealAtParva={event.parva}>
+                  <Link href={`/drishti/${event.id}`} className="underline decoration-dotted underline-offset-4 transition-colors hover:text-gold-bright">
+                    {event.title} · enter another point of view →
+                  </Link>
+                </StoryDepthGuard>
+              </p>
+            ))}
+          </div>
+        )}
 
         <div className="mt-4 flex items-end justify-between gap-6 border-t border-dotted border-ash/25 pt-6">
           <div className="flex max-w-md flex-col gap-1.5">
             <p className="ui-label !normal-case">
               {c.citations.join(" · ")} · K.M. Ganguli tr.
             </p>
-            {painting && (
+            {painting?.origin === "historical" && (
               <p className="ui-label !normal-case !text-ash/70">
                 <a
                   href={painting.source}
@@ -197,7 +234,15 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
                 >
                   &ldquo;{painting.title}&rdquo;
                 </a>{" "}
-                · Raja Ravi Varma, {painting.year} · public domain
+                · {painting.creator}, {painting.year} ·{" "}
+                <a
+                  href={painting.licenseUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-dotted underline-offset-2 transition-colors hover:text-bone"
+                >
+                  {artworkLicenseLabel(painting.license)}
+                </a>
               </p>
             )}
           </div>

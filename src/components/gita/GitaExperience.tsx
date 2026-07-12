@@ -5,7 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gitaVerses from "@/data/gita.json";
-import { useEpicStore } from "@/lib/store";
+import { selectAccessibleParva, useEpicStore } from "@/lib/store";
 import { atmosphere } from "@/lib/atmosphere";
 import WordReveal from "@/components/ui/WordReveal";
 
@@ -45,7 +45,7 @@ export default function GitaExperience() {
   const rootRef = useRef<HTMLDivElement>(null);
   const thousandSunsRef = useRef<HTMLDivElement>(null);
   const kaloAsmiRef = useRef<HTMLDivElement>(null);
-  const knownParva = useEpicStore((s) => s.knownParva);
+  const knownParva = useEpicStore(selectAccessibleParva);
   const gated = knownParva < 6;
 
   useEffect(() => {

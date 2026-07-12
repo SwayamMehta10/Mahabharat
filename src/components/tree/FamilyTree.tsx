@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import { characters, buildTreeEdges, getArt } from "@/lib/kb";
 import { TREE_POSITIONS, CELL_X, CELL_Y } from "@/data/tree-layout";
-import { useEpicStore } from "@/lib/store";
-import type { Character } from "@/data/schema";
+import { selectAccessibleParva, useEpicStore } from "@/lib/store";
+import type { Character, RelationshipKind } from "@/data/schema";
 
 const CARD_W = 150;
 const CARD_H = 118;
@@ -26,9 +26,10 @@ export default function FamilyTree() {
   const viewportRef = useRef<HTMLDivElement>(null);
   const worldRef = useRef<HTMLDivElement>(null);
   const edgesRef = useRef<SVGSVGElement>(null);
-  const knownParva = useEpicStore((s) => s.knownParva);
+  const knownParva = useEpicStore(selectAccessibleParva);
+  const [lens, setLens] = useState<RelationshipKind>("parent");
 
-  const { nodes, edges, width, height, toPx } = useMemo(() => {
+  const { nodes, allEdges, width, height, toPx } = useMemo(() => {
     const placed = characters.filter((c) => TREE_POSITIONS[c.id]);
     const xs = placed.map((c) => TREE_POSITIONS[c.id].x);
     const ys = placed.map((c) => TREE_POSITIONS[c.id].y);
@@ -43,11 +44,12 @@ export default function FamilyTree() {
     };
     const width = (Math.max(...xs) - minX) * CELL_X + PAD * 2;
     const height = (Math.max(...ys) - minY) * CELL_Y + PAD * 2;
-    const edges = buildTreeEdges().filter(
+    const allEdges = buildTreeEdges().filter(
       (e) => TREE_POSITIONS[e.from] && TREE_POSITIONS[e.to]
     );
-    return { nodes: placed, edges, width, height, toPx };
+    return { nodes: placed, allEdges, width, height, toPx };
   }, []);
+  const edges = allEdges.filter((edge) => edge.kind === lens);
 
   // pan/zoom state lives in refs; gsap.set applies the transform
   const cam = useRef({ tx: 0, ty: 0, scale: 0.78 });
@@ -170,6 +172,13 @@ export default function FamilyTree() {
                 />
               );
             }
+            if (e.kind === "mentor" || e.kind === "allegiance") {
+              return (
+                <line key={i} x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke="currentColor" strokeDasharray={e.kind === "mentor" ? "1 8" : "5 7"} strokeLinecap="round" className={e.kind === "mentor" ? "text-gold-bright/55" : "text-vermillion/55"}>
+                  <title>{e.label}</title>
+                </line>
+              );
+            }
             // parent to child: gentle elbow through the space between rows
             const midY = a.y + (b.y - a.y) * 0.55;
             const d = `M ${a.x} ${a.y + CARD_H / 2} L ${a.x} ${midY} L ${b.x} ${midY} L ${b.x} ${b.y - CARD_H / 2}`;
@@ -254,6 +263,11 @@ export default function FamilyTree() {
             THE KURU LINE
           </h1>
           <p className="ui-label mt-1">One seed, two forests</p>
+          <div className="pointer-events-auto mt-3 flex flex-wrap gap-1.5" role="group" aria-label="Choose a relationship lens">
+            {([['parent', 'Bloodline'], ['marriage', 'Marriage'], ['mentor', 'Mentorship'], ['allegiance', 'Allegiance']] as [RelationshipKind, string][]).map(([kind, label]) => (
+              <button key={kind} type="button" onClick={() => setLens(kind)} aria-pressed={lens === kind} className={`ui-label border px-2 py-1.5 transition-colors ${lens === kind ? "border-gold/60 bg-gold/10 !text-bone" : "border-dotted border-ash/25 hover:border-gold/40 hover:!text-bone"}`}>{label}</button>
+            ))}
+          </div>
         </div>
         <div className="flex flex-col items-end gap-1.5 text-right">
           <span className="ui-label"><span className="text-gold">●</span> Pandava</span>

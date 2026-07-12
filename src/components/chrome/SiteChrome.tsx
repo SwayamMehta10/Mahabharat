@@ -4,23 +4,26 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
-import { characters, parvas, warDays, parvaOfWarDay } from "@/lib/kb";
-import { useEpicStore } from "@/lib/store";
+import { causalThreads, characters, epicEvents, parvas, warDays, parvaOfWarDay } from "@/lib/kb";
+import { selectAccessibleParva, useEpicStore } from "@/lib/store";
 
 const NAV_LINKS = [
   { href: "/family-tree", label: "The Kuru Line", hint: "Who begat whom" },
   { href: "/who", label: "Who", hint: "The figures of the epic" },
   { href: "/parvas", label: "The Eighteen Parvas", hint: "The books" },
   { href: "/war", label: "The Eighteen Days", hint: "Kurukshetra, day by day" },
+  { href: "/war/strategy", label: "Sanjaya's Eye", hint: "The field as formation" },
+  { href: "/threads", label: "The Web of Vows", hint: "What consequence remembers" },
   { href: "/gita", label: "The Song of the Lord", hint: "When time stood still" },
-  { href: "/saga", label: "Turn the Wheel", hint: "Set how much may be spoken" },
+  { href: "/saga", label: "Turn the Wheel", hint: "Choose your path and depth" },
+  { href: "/credits", label: "Credits", hint: "Sources and visual method" },
 ];
 
 interface Hit {
   href: string;
   primary: string;
   secondary: string;
-  group: "Who" | "Parvas" | "Days";
+  group: "Who" | "Parvas" | "Days" | "Events" | "Threads";
 }
 
 /**
@@ -69,7 +72,8 @@ export default function SiteChrome() {
   const open = openedAt === pathname;
   const [query, setQuery] = useState("");
   const overlayRef = useRef<HTMLDivElement>(null);
-  const knownParva = useEpicStore((s) => s.knownParva);
+  const knownParva = useEpicStore(selectAccessibleParva);
+  const experienceMode = useEpicStore((s) => s.experienceMode);
   const soundOn = useEpicStore((s) => s.soundOn);
   const setSoundOn = useEpicStore((s) => s.setSoundOn);
 
@@ -116,8 +120,8 @@ export default function SiteChrome() {
     const out: Hit[] = [];
 
     for (const c of characters) {
-      if (c.firstParva > knownParva) continue; // the wheel guards the index too
-      const hay = [c.name, c.deva, ...c.epithets].join(" ").toLowerCase();
+      if (c.firstParva > knownParva) continue;
+      const hay = [c.name, c.deva, ...c.epithets, ...(c.weapons ?? []), ...c.parents, ...c.spouses, ...c.children].join(" ").toLowerCase();
       if (hay.includes(q)) {
         out.push({
           href: `/who/${c.id}`,
@@ -148,6 +152,18 @@ export default function SiteChrome() {
         });
       }
     }
+    for (const event of epicEvents) {
+      if (event.parva > knownParva) continue;
+      if ([event.title, event.deva, event.summary].join(" ").toLowerCase().includes(q)) {
+        out.push({ href: `/drishti/${event.id}`, primary: event.title, secondary: "Drishti", group: "Events" });
+      }
+    }
+    for (const thread of causalThreads) {
+      if (!thread.parvas.some((parva) => parva <= knownParva)) continue;
+      if ([thread.title, thread.kind, thread.summary].join(" ").toLowerCase().includes(q)) {
+        out.push({ href: `/threads#${thread.id}`, primary: thread.title, secondary: thread.kind, group: "Threads" });
+      }
+    }
     return out.slice(0, 12);
   }, [query, knownParva]);
 
@@ -168,7 +184,7 @@ export default function SiteChrome() {
         </button>
         <Link
           href="/saga"
-          aria-label="Turn the wheel: spoiler settings"
+          aria-label="Turn the wheel: experience mode and narrative depth"
           className="pointer-events-auto p-2 text-bone/70 transition-colors hover:text-gold-bright"
         >
           <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden>
@@ -206,7 +222,7 @@ export default function SiteChrome() {
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Seek a name, a book, a day…"
+                placeholder="Seek a name, vow, weapon, book or day…"
                 autoFocus
                 className="font-display w-full border-b border-dotted border-ash/40 bg-transparent pb-3 text-2xl font-light text-bone placeholder:text-ash/50 focus:border-gold focus:outline-none"
               />
@@ -214,7 +230,7 @@ export default function SiteChrome() {
                 <ul className="mt-6 flex flex-col gap-1">
                   {hits.length === 0 && (
                     <li className="font-display italic text-ash">
-                      Nothing by that name, or the wheel forbids it.
+                      Nothing by that name at this depth of the telling.
                     </li>
                   )}
                   {hits.map((h) => (
@@ -264,7 +280,9 @@ export default function SiteChrome() {
                 Sound {soundOn ? "On" : "Off"}
               </button>
               <p className="ui-label text-center !text-ash/50">
-                Knowing parva {Math.max(knownParva, 0)} of 18 · every fact cited to the Ganguli translation
+                {experienceMode === "open"
+                  ? "Open epic · all eighteen parvas"
+                  : `Guided telling · parva ${Math.max(knownParva, 0)} of 18`} · every fact cited to the Ganguli translation
               </p>
               <p className="font-display text-sm italic !normal-case text-ash/50">
                 Some names, typed into the dark, answer back.

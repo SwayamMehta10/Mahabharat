@@ -12,6 +12,13 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Local coding-agent/browser tooling can contain protected caches.
+    ".agents/**",
+    ".claude/**",
+    ".codex/**",
+    ".gstack/**",
+    ".playwright-mcp/**",
+    ".vercel/**",
   ]),
 ]);
 

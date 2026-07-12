@@ -5,7 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { warDays, charactersById, parvaOfWarDay, toDevanagariNumeral } from "@/lib/kb";
-import { useEpicStore } from "@/lib/store";
+import { selectAccessibleParva, useEpicStore } from "@/lib/store";
 import { atmosphere } from "@/lib/atmosphere";
 import WordReveal from "@/components/ui/WordReveal";
 
@@ -26,9 +26,9 @@ function FallChip({ id }: { id: string }) {
 
 export default function WarTimeline() {
   const rootRef = useRef<HTMLDivElement>(null);
-  const knownParva = useEpicStore((s) => s.knownParva);
+  const knownParva = useEpicStore(selectAccessibleParva);
 
-  // the war lives in parvas 6–9; how many days may be spoken of?
+  // the war lives in parvas 6–9; guided depth controls how many days unfold
   const visibleDays = warDays.filter((d) => parvaOfWarDay(d.day) <= knownParva);
   const gated = visibleDays.length < warDays.length;
 
@@ -103,6 +103,9 @@ export default function WarTimeline() {
           className="max-w-md font-display text-xl italic text-ash"
           delay={0.8}
         />
+        <Link href="/war/strategy" className="ui-label underline decoration-dotted underline-offset-4 transition-colors hover:text-vermillion">
+          Open Sanjaya&apos;s Eye →
+        </Link>
       </section>
 
       {/* the days */}
@@ -204,13 +207,13 @@ export default function WarTimeline() {
           );
         })}
 
-        {/* the veil, if the wheel forbids the rest */}
+        {/* the veil when guided depth has not reached the remaining days */}
         {gated && (
           <section className="relative flex min-h-[50vh] flex-col items-center justify-center gap-6 text-center">
             <p className="font-display max-w-sm text-xl italic text-ash">
               {visibleDays.length === 0
                 ? "The field waits. What happens here is not yet yours to know."
-                : `${warDays.length - visibleDays.length} days remain beyond the wheel.`}
+                : `${warDays.length - visibleDays.length} days wait deeper in the telling.`}
             </p>
             <Link href="/saga" className="ui-label underline decoration-dotted underline-offset-4 transition-colors hover:text-gold">
               Turn the Kalachakra further

@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useEpicStore } from "@/lib/store";
 
-/** Rehydrates the persisted spoiler/audio state strictly after mount. */
+/** Rehydrates persisted narrative-depth/audio state strictly after mount. */
 export default function StoreHydrator() {
   useEffect(() => {
     void useEpicStore.persist.rehydrate();

@@ -38,8 +38,10 @@ export default function KalachakraGate() {
   const svgRef = useRef<SVGSVGElement>(null);
   // the store is the single source of truth; it rehydrates after mount
   // (StoreHydrator), so this re-renders to the visitor's saved position
-  const { knownParva, setKnownParva } = useEpicStore();
-  const selected = Math.max(1, knownParva);
+  const { experienceMode, knownParva, setExperienceMode, setKnownParva } = useEpicStore();
+  const [browsedParva, setBrowsedParva] = useState<number | null>(null);
+  const selected =
+    experienceMode === "open" ? (browsedParva ?? 18) : Math.max(1, knownParva);
   const [hovered, setHovered] = useState<number | null>(null);
 
   const shown = hovered ?? selected;
@@ -79,7 +81,13 @@ export default function KalachakraGate() {
   }, []);
 
   const choose = (n: number) => {
-    setKnownParva(n);
+    if (experienceMode === "open") setBrowsedParva(n);
+    else if (experienceMode === "guided") setKnownParva(n);
+  };
+
+  const chooseMode = (mode: "guided" | "open") => {
+    setExperienceMode(mode);
+    setBrowsedParva(mode === "open" ? 18 : null);
   };
 
   const continueOn = () => {
@@ -199,15 +207,45 @@ export default function KalachakraGate() {
         <p className="font-display text-lg italic text-ash">{parva.meaning}</p>
       </div>
 
-      <div data-fade className="anim-hidden flex flex-col items-center gap-3">
+      <div data-fade className="anim-hidden flex flex-col items-center gap-4">
         <WordReveal
-          text="Turn the wheel to how far you know the tale, and nothing beyond it shall be spoken."
+          text="Choose how the epic should unfold. The wheel becomes your measure of depth."
           className="max-w-md font-display text-lg italic text-ash"
           delay={1.6}
         />
-        <EllipseButton onClick={continueOn} ariaLabel="Continue to the family tree">
-          <span className="ui-label !text-bone">Continue</span>
-        </EllipseButton>
+        <div className="grid w-full max-w-xl grid-cols-2 gap-3" role="group" aria-label="Choose an experience mode">
+          <button
+            type="button"
+            onClick={() => chooseMode("guided")}
+            aria-pressed={experienceMode === "guided"}
+            className={`border px-4 py-3 text-left transition-colors ${
+              experienceMode === "guided"
+                ? "border-gold/70 bg-gold/10 text-bone"
+                : "border-bone/15 text-ash hover:border-gold/40 hover:text-bone"
+            }`}
+          >
+            <span className="ui-label block !text-current">Experience the Telling</span>
+            <span className="mt-1 block font-display text-sm italic">Enter parva by parva</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => chooseMode("open")}
+            aria-pressed={experienceMode === "open"}
+            className={`border px-4 py-3 text-left transition-colors ${
+              experienceMode === "open"
+                ? "border-gold/70 bg-gold/10 text-bone"
+                : "border-bone/15 text-ash hover:border-gold/40 hover:text-bone"
+            }`}
+          >
+            <span className="ui-label block !text-current">Open the Epic</span>
+            <span className="mt-1 block font-display text-sm italic">Traverse all eighteen books</span>
+          </button>
+        </div>
+        {experienceMode && (
+          <EllipseButton onClick={continueOn} ariaLabel="Continue to the family tree">
+            <span className="ui-label !text-bone">Continue</span>
+          </EllipseButton>
+        )}
       </div>
     </div>
   );
