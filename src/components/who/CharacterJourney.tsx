@@ -8,6 +8,7 @@ import type { JourneyChapter } from "@/data/schema";
 import { parvas, toDevanagariNumeral } from "@/lib/kb";
 import { selectAccessibleParva, useEpicStore } from "@/lib/store";
 import { atmosphere } from "@/lib/atmosphere";
+import { lenisRef } from "@/lib/lenis";
 import { preloadPortrait } from "@/components/canvas/PortraitPlane";
 
 /**
@@ -116,8 +117,12 @@ export default function CharacterJourney({ chapters, images, defaultImage }: Cha
   }, [knownParva]);
 
   const scrollToChapter = (idx: number) => {
-    const el = rootRef.current?.querySelector(`[data-chapter="${idx}"]`);
-    el?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const el = rootRef.current?.querySelector<HTMLElement>(`[data-chapter="${idx}"]`);
+    if (!el) return;
+    // native smooth scrolling loses to Lenis; route the jump through it
+    const lenis = lenisRef.current;
+    if (lenis) lenis.scrollTo(el);
+    else el.scrollIntoView({ block: "start" });
   };
 
   if (chapters.length === 0) return null;

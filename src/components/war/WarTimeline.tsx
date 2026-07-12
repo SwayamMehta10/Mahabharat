@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { warDays, charactersById, parvaOfWarDay, toDevanagariNumeral } from "@/lib/kb";
 import { selectAccessibleParva, useEpicStore } from "@/lib/store";
 import { atmosphere } from "@/lib/atmosphere";
+import { lenisRef } from "@/lib/lenis";
 import WordReveal from "@/components/ui/WordReveal";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -27,10 +28,22 @@ function FallChip({ id }: { id: string }) {
 export default function WarTimeline() {
   const rootRef = useRef<HTMLDivElement>(null);
   const knownParva = useEpicStore(selectAccessibleParva);
+  const [activeDay, setActiveDay] = useState<number | null>(null);
 
   // the war lives in parvas 6–9; guided depth controls how many days unfold
   const visibleDays = warDays.filter((d) => parvaOfWarDay(d.day) <= knownParva);
   const gated = visibleDays.length < warDays.length;
+
+  const jumpToDay = (day: number) => {
+    const el = document.getElementById(`day-${day}`);
+    if (!el) return;
+    // native smooth scrolling loses to Lenis (it rewrites the scroll
+    // position every frame), so the jump goes through Lenis when it exists;
+    // reduced-motion sessions have no Lenis and jump natively
+    const lenis = lenisRef.current;
+    if (lenis) lenis.scrollTo(el, { offset: -96 });
+    else el.scrollIntoView({ block: "start" });
+  };
 
   useEffect(() => {
     const root = rootRef.current;
@@ -54,7 +67,9 @@ export default function WarTimeline() {
         }
       );
 
-      // each day rises into view
+      // each day rises into view; days with an id also report themselves to
+      // the rail as they pass the reading line (discrete events, no per-frame
+      // state - the atmosphere convention holds)
       gsap.utils.toArray<HTMLElement>("[data-day]").forEach((el) => {
         gsap.fromTo(
           el,
@@ -67,6 +82,15 @@ export default function WarTimeline() {
             scrollTrigger: { trigger: el, start: "top 78%" },
           }
         );
+        const day = Number(el.id.replace("day-", ""));
+        if (!Number.isFinite(day) || !el.id) return;
+        ScrollTrigger.create({
+          trigger: el,
+          start: "top 60%",
+          end: "bottom 60%",
+          onEnter: () => setActiveDay(day),
+          onEnterBack: () => setActiveDay(day),
+        });
       });
 
       // the atmosphere bruises as the war deepens
@@ -79,6 +103,21 @@ export default function WarTimeline() {
         },
       });
     }, root);
+
+    // honor a #day-N deep link: on a cold load the browser's own hash jump
+    // fires before the store rehydrates and the gated days exist, so the
+    // jump has to be replayed once the target is actually in the document
+    const hash = window.location.hash.match(/^#day-(\d+)$/);
+    if (hash && window.scrollY < 10) {
+      const el = document.getElementById(`day-${hash[1]}`);
+      if (el) {
+        requestAnimationFrame(() => {
+          const lenis = lenisRef.current;
+          if (lenis) lenis.scrollTo(el, { offset: -96, immediate: true });
+          else el.scrollIntoView({ block: "start" });
+        });
+      }
+    }
 
     return () => {
       ctx.revert();
@@ -108,8 +147,35 @@ export default function WarTimeline() {
         </Link>
       </section>
 
+      {/* the day rail: jump to any morning of the war */}
+      {visibleDays.length > 1 && (
+        <nav
+          aria-label="War days"
+          className="fixed right-4 top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-2 md:flex"
+        >
+          {visibleDays.map((d) => (
+            <a
+              key={d.day}
+              href={`#day-${d.day}`}
+              aria-label={`Day ${d.day}: ${d.title}`}
+              aria-current={activeDay === d.day ? "true" : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                history.replaceState(null, "", `#day-${d.day}`);
+                jumpToDay(d.day);
+              }}
+              className={`font-deva px-1 text-[0.7rem] leading-tight transition-colors focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-gold/70 ${
+                activeDay === d.day ? "text-gold" : "text-ash/40 hover:text-ash"
+              }`}
+            >
+              {toDevanagariNumeral(d.day)}
+            </a>
+          ))}
+        </nav>
+      )}
+
       {/* the days */}
-      <div data-days className="relative mx-auto max-w-4xl px-6 pb-40">
+      <div data-days className="relative mx-auto max-w-5xl px-6 pb-40">
         {/* dotted spine */}
         <div
           data-spine
@@ -129,7 +195,7 @@ export default function WarTimeline() {
               key={d.day}
               data-day
               id={`day-${d.day}`}
-              className={`relative flex min-h-[55vh] flex-col justify-center py-16 pl-20 sm:w-1/2 sm:pl-0 ${
+              className={`relative flex scroll-mt-24 flex-col justify-center py-14 pl-20 sm:w-1/2 sm:pl-0 md:py-20 ${
                 left ? "sm:pr-16 sm:text-right" : "sm:ml-auto sm:pl-16"
               }`}
             >
@@ -160,7 +226,7 @@ export default function WarTimeline() {
                 </p>
                 <ul className={`flex flex-col gap-3 ${left ? "sm:items-end" : ""}`}>
                   {d.events.map((ev, j) => (
-                    <li key={j} className="font-display max-w-sm text-lg leading-relaxed text-bone/80">
+                    <li key={j} className="font-display max-w-md text-lg leading-relaxed text-bone/80">
                       {ev}
                     </li>
                   ))}
@@ -174,25 +240,35 @@ export default function WarTimeline() {
                   </div>
                 )}
                 {d.narrative && d.narrative.length > 0 && (
-                  <div
-                    className={`mt-10 flex max-w-md flex-col gap-5 border-t border-dotted border-ash/25 pt-8 ${
+                  <details
+                    className={`group/details mt-8 max-w-lg border-t border-dotted border-ash/25 pt-4 ${
                       left ? "sm:ml-auto" : ""
                     }`}
+                    onToggle={() => requestAnimationFrame(() => ScrollTrigger.refresh())}
                   >
-                    {d.narrative.map((para, j) => (
-                      <p
-                        key={j}
-                        className={`font-display text-lg leading-relaxed text-bone/75 ${
-                          left ? "sm:text-right" : "text-left"
-                        }`}
-                      >
-                        {para}
+                    <summary
+                      className={`ui-label cursor-pointer list-none py-2 transition-colors hover:text-bone ${
+                        left ? "sm:text-right" : ""
+                      }`}
+                    >
+                      Read the day in full <span aria-hidden>+</span>
+                    </summary>
+                    <div className="mt-4 flex flex-col gap-5">
+                      {d.narrative.map((para, j) => (
+                        <p
+                          key={j}
+                          className={`font-display text-lg leading-relaxed text-bone/75 ${
+                            left ? "sm:text-right" : "text-left"
+                          }`}
+                        >
+                          {para}
+                        </p>
+                      ))}
+                      <p className="ui-label mt-2 !normal-case !text-ash/60">
+                        {d.citations.join(" · ")} · K.M. Ganguli tr.
                       </p>
-                    ))}
-                    <p className="ui-label mt-2 !normal-case !text-ash/60">
-                      {d.citations.join(" · ")} · K.M. Ganguli tr.
-                    </p>
-                  </div>
+                    </div>
+                  </details>
                 )}
                 {d.day === 1 && (
                   <Link
