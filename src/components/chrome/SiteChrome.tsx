@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { causalThreads, characters, epicEvents, parvas, warDays, parvaOfWarDay } from "@/lib/kb";
 import { selectAccessibleParva, useEpicStore } from "@/lib/store";
+import { lenisRef } from "@/lib/lenis";
 
 const NAV_LINKS = [
   { href: "/family-tree", label: "The Kuru Line", hint: "Who begat whom" },
@@ -72,6 +73,7 @@ export default function SiteChrome() {
   const open = openedAt === pathname;
   const [query, setQuery] = useState("");
   const overlayRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const knownParva = useEpicStore(selectAccessibleParva);
   const experienceMode = useEpicStore((s) => s.experienceMode);
   const soundOn = useEpicStore((s) => s.soundOn);
@@ -90,10 +92,17 @@ export default function SiteChrome() {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpenedAt(null);
     window.addEventListener("keydown", onKey);
+    // native lock for reduced-motion sessions; Lenis needs its own stop()
+    // because it applies wheel deltas itself regardless of body overflow
+    const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    lenisRef.current?.stop();
+    const opener = menuButtonRef.current;
     return () => {
       window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
+      document.body.style.overflow = prevOverflow;
+      lenisRef.current?.start();
+      opener?.focus({ preventScroll: true });
     };
   }, [open]);
 
@@ -175,6 +184,7 @@ export default function SiteChrome() {
       {/* fixed chrome */}
       <header className="pointer-events-none fixed inset-x-0 top-0 z-30 flex items-center justify-between p-5">
         <button
+          ref={menuButtonRef}
           onClick={openMenu}
           aria-label="Open menu"
           className="pointer-events-auto group flex cursor-pointer flex-col gap-1.5 p-2"
@@ -198,7 +208,8 @@ export default function SiteChrome() {
       {open && (
         <div
           ref={overlayRef}
-          className="fixed inset-0 z-[45] flex flex-col overflow-y-auto bg-void/95 backdrop-blur-sm"
+          data-lenis-prevent
+          className="fixed inset-0 z-[45] flex flex-col overflow-y-auto overscroll-contain bg-void/95 backdrop-blur-sm"
           role="dialog"
           aria-modal="true"
         >
