@@ -1,0 +1,7 @@
+[
+  { "day": 1, "formation": "Two oceans close", "pattern": "lines", "phases": ["Arjuna's chariot enters the interval", "Yudhishthira crosses unarmed", "The conches release the armies"], "focus": "The war begins only after hesitation, blessing, and choice." },
+  { "day": 10, "formation": "Shikhandi at the point", "pattern": "crescent", "phases": ["The Pandava line narrows toward Bhishma", "Bhishma lowers his answer to Shikhandi", "Arjuna fills the opening with arrows"], "focus": "The first commander falls through a wound older than the war." },
+  { "day": 13, "formation": "Chakravyuha", "pattern": "wheel", "phases": ["Abhimanyu opens the rotating gate", "Jayadratha seals the following army outside", "Six chariots close on the isolated center"], "focus": "A formation becomes a trap when rescue loses the breach." },
+  { "day": 17, "formation": "The field clears for two", "pattern": "duel", "phases": ["The armies peel away from Karna and Arjuna", "The serpent arrow misses by a hand's breadth", "The earth takes Karna's wheel"], "focus": "Thirty years of rivalry contract into one failing chariot." },
+  { "day": 18, "formation": "Encirclement and aftermath", "pattern": "encirclement", "phases": ["Shalya's command collapses", "Duryodhana rises from the lake", "The sleeping camp is opened to the night"], "focus": "Victory is declared, then emptied before morning." }
+]

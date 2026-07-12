@@ -3,18 +3,21 @@
     "assetId": "arjuna-subhadra",
     "commonsTitle": "File:Ravi Varma-Arjuna and Subhadra.jpg",
     "title": "Arjuna and Subhadra",
+    "subjects": ["arjuna", "subhadra"],
     "position": "50% 30%"
   },
   {
     "assetId": "bhishma-arrow-bed",
     "commonsTitle": "File:Bhisma is lying on a bed of arrows with Arjuna standing above him with bow drawn and pointed..jpg",
     "title": "Bhishma on the Bed of Arrows",
+    "subjects": ["bhishma", "arjuna"],
     "position": "50% 45%"
   },
   {
     "assetId": "kichaka-sairandhri",
     "commonsTitle": "File:Raja Ravi Varma, Keechaka and Sairandhri, 1890.jpg",
     "title": "Keechaka and Sairandhri",
+    "subjects": ["draupadi", "bhima"],
     "position": "50% 25%"
   }
 ]

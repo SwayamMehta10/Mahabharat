@@ -1,0 +1,10 @@
+[
+  { "from": "drona", "to": "arjuna", "kind": "mentor", "label": "favored pupil" },
+  { "from": "drona", "to": "ashwatthama", "kind": "mentor", "label": "father and teacher" },
+  { "from": "krishna", "to": "arjuna", "kind": "mentor", "label": "charioteer and guide" },
+  { "from": "kripa", "to": "parikshit", "kind": "mentor", "label": "teacher of the surviving heir" },
+  { "from": "duryodhana", "to": "karna", "kind": "allegiance", "label": "honor answered by loyalty" },
+  { "from": "krishna", "to": "arjuna", "kind": "allegiance", "label": "the unarmed choice" },
+  { "from": "bhishma", "to": "duryodhana", "kind": "allegiance", "label": "bound to the Kuru throne" },
+  { "from": "drona", "to": "duryodhana", "kind": "allegiance", "label": "bound to Hastinapura" }
+]

@@ -6,6 +6,65 @@
 
 export type Allegiance = "pandava" | "kaurava" | "neutral" | "divine";
 
+export type ArtworkOrigin = "historical" | "ai-generated";
+export type ArtworkProvider =
+  | "wikimedia-commons"
+  | "openverse"
+  | "pixabay"
+  | "met-museum"
+  | "smithsonian"
+  | "openai-imagegen";
+export type ArtworkLicense =
+  | "public-domain"
+  | "cc0"
+  | "cc-by"
+  | "cc-by-sa"
+  | "pixabay-content-license"
+  | "unverified"
+  | "project-generated";
+
+export type ArtApproval = "draft" | "reviewed" | "approved";
+export type ArtRole = "portrait" | "journey" | "event";
+
+export interface ArtGeneration {
+  promptId: string;
+  model: string;
+  created: string;
+  referencePolicy: "text-only" | "public-domain-references";
+}
+
+export interface ArtFiles {
+  full: string;
+  thumb?: string;
+}
+
+/** Shared, machine-verifiable provenance for every production artwork. */
+export interface ArtworkProvenance {
+  creator: string;
+  source: string;
+  provider: ArtworkProvider;
+  origin: ArtworkOrigin;
+  license: ArtworkLicense;
+  licenseUrl: string;
+  /** Character ids visibly represented by the artwork. */
+  subjects: string[];
+  /** Generator name when the source identifies an AI-created work. */
+  aiTool?: string;
+  /** Required for generated work and intentionally absent from historical records. */
+  approval?: ArtApproval;
+  role?: ArtRole;
+  generation?: ArtGeneration;
+  /** Explicit runtime derivatives; generated masters never appear here. */
+  files?: ArtFiles;
+}
+
+/** Primary character portrait and its index/tree thumbnail. */
+export interface PrimaryArtEntry extends ArtworkProvenance {
+  title: string;
+  year: string;
+  position: string;
+}
+
 /**
  * One chapter of a character's journey through the epic, DARK-style:
  * the page scrolls chapter by chapter and the background painting
@@ -40,7 +99,7 @@ export interface Character {
   firstParva: number;
   bio: string;
   citations: string[]; // e.g. "Adi Parva §67", "Karna Parva §91"
-  /** Spoiler tier: minimum knownParva before full reveal (else silhouette) */
+  /** Guided-depth tier: minimum parva before full reveal (else silhouette) */
   revealAtParva: number;
   /** Scrollable per-parva chapters; characters without one keep the bio page */
   journey?: JourneyChapter[];
@@ -71,19 +130,63 @@ export interface WarDay {
   narrative?: string[];
 }
 
+export type RelationshipKind = "parent" | "marriage" | "mentor" | "allegiance";
+
+export interface EpicRelationship {
+  from: string;
+  to: string;
+  kind: Exclude<RelationshipKind, "parent" | "marriage">;
+  label: string;
+}
+
+export interface EventPerspective {
+  characterId: string;
+  heading: string;
+  text: string;
+  citations: string[];
+  threadIds: string[];
+}
+
+export interface EpicEvent {
+  id: string;
+  title: string;
+  deva: string;
+  parva: number;
+  day?: number;
+  summary: string;
+  image?: string;
+  perspectives: EventPerspective[];
+}
+
+export interface CausalThread {
+  id: string;
+  title: string;
+  kind: "vow" | "curse" | "boon" | "secret" | "debt";
+  summary: string;
+  parvas: number[];
+  characterIds: string[];
+  eventIds: string[];
+  citations: string[];
+}
+
+export interface StrategicDay {
+  day: number;
+  formation: string;
+  pattern: "lines" | "crescent" | "wheel" | "duel" | "encirclement";
+  phases: string[];
+  focus: string;
+}
+
 /**
  * A piece of art usable as a journey-chapter background. One asset can
  * serve chapters of several characters, so entries live in their own
  * manifest keyed by asset id (file: /art/journey/{assetId}.webp).
- * "unverified" marks material whose rights could not be confirmed
- * (e.g. television stills); validate-kb warns on every use.
+ * "unverified" is available to staging tools but rejected by production
+ * validation, so television stills cannot enter the runtime manifest.
  */
-export interface JourneyArtEntry {
+export interface JourneyArtEntry extends ArtworkProvenance {
   title: string;
-  artist: string;
   year: string;
-  source: string; // where the file came from (URL)
-  license: "public-domain" | "cc0" | "cc-by" | "unverified";
   /** CSS object-position focal hint */
   position: string;
 }

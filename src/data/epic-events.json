@@ -1,0 +1,48 @@
+[
+  {
+    "id": "karna-final-duel",
+    "title": "The Second Meeting",
+    "deva": "कर्णार्जुनयुद्ध",
+    "parva": 8,
+    "day": 17,
+    "summary": "The duel promised at the princes' tournament arrives with curses ripening, a chariot wheel sinking, and one brother killing another without knowing his name.",
+    "image": "karna-final-wheel",
+    "perspectives": [
+      {
+        "characterId": "karna",
+        "heading": "A lifetime reaches its appointed field",
+        "text": "His armor is gone, his single-use spear spent, and the knowledge of his teacher fails when the earth takes the wheel. He still asks the law of duels to remember him.",
+        "citations": ["Karna Parva §87–91"],
+        "threadIds": ["karna-gifts-and-curses", "kunti-secret", "duryodhana-debt"]
+      },
+      {
+        "characterId": "arjuna",
+        "heading": "The enemy he has measured since boyhood",
+        "text": "Arjuna sees the rival from the tournament, the voice from the dice hall, and the warrior behind Abhimanyu's death. He does not see his elder brother.",
+        "citations": ["Karna Parva §87–91", "Stri Parva §27"],
+        "threadIds": ["kunti-secret", "abhimanyu-debt"]
+      },
+      {
+        "characterId": "krishna",
+        "heading": "The field's memory speaks",
+        "text": "Krishna answers Karna's appeal by naming every earlier moment when law was denied to the helpless, then tells Arjuna that hesitation has run out.",
+        "citations": ["Karna Parva §90–91"],
+        "threadIds": ["abhimanyu-debt", "dice-hall-vows"]
+      },
+      {
+        "characterId": "shalya",
+        "heading": "A reluctant charioteer at the last wheel",
+        "text": "Shalya has spent the day wounding Karna with words while holding his reins. At the decisive instant, counsel, curses, and the earth leave the commander exposed.",
+        "citations": ["Karna Parva §37–40", "Karna Parva §87–91"],
+        "threadIds": ["karna-gifts-and-curses"]
+      },
+      {
+        "characterId": "kunti",
+        "heading": "The knowledge absent from the battlefield",
+        "text": "The mother who asked Karna to change sides knows that either outcome kills one of her sons. Her secret turns victory into fratricide only after the pyres are counted.",
+        "citations": ["Udyoga Parva §144–146", "Stri Parva §27"],
+        "threadIds": ["kunti-secret"]
+      }
+    ]
+  }
+]

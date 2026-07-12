@@ -1,26 +1,126 @@
 {
   "arjuna-subhadra": {
     "title": "Arjuna and Subhadra",
-    "artist": "Raja Ravi Varma",
+    "creator": "Raja Ravi Varma",
     "year": "1890",
     "source": "https://commons.wikimedia.org/wiki/File:Ravi_Varma-Arjuna_and_Subhadra.jpg",
+    "provider": "wikimedia-commons",
+    "origin": "historical",
     "license": "public-domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "subjects": ["arjuna", "subhadra"],
     "position": "50% 30%"
   },
   "bhishma-arrow-bed": {
     "title": "Bhishma on the Bed of Arrows",
-    "artist": "unknown, chromolithograph",
+    "creator": "Unknown artist, chromolithograph",
     "year": "c. 1895",
     "source": "https://commons.wikimedia.org/wiki/File:Bhisma_is_lying_on_a_bed_of_arrows_with_Arjuna_standing_above_him_with_bow_drawn_and_pointed..jpg",
+    "provider": "wikimedia-commons",
+    "origin": "historical",
     "license": "public-domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "subjects": ["bhishma", "arjuna"],
     "position": "50% 45%"
   },
   "kichaka-sairandhri": {
     "title": "Keechaka and Sairandhri",
-    "artist": "Raja Ravi Varma",
+    "creator": "Raja Ravi Varma",
     "year": "1890",
     "source": "https://commons.wikimedia.org/wiki/File:Raja_Ravi_Varma,_Keechaka_and_Sairandhri,_1890.jpg",
+    "provider": "wikimedia-commons",
+    "origin": "historical",
     "license": "public-domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "subjects": ["draupadi", "bhima"],
     "position": "50% 25%"
+  },
+  "krishna-generated-portrait": {
+    "title": "Krishna: Stillness Before the Word",
+    "creator": "OpenAI image generation, art-directed for MAHABHARAT", "year": "2026", "source": "/credits#krishna-generated-portrait",
+    "provider": "openai-imagegen", "origin": "ai-generated", "license": "project-generated", "licenseUrl": "/credits", "subjects": ["krishna"],
+    "aiTool": "OpenAI built-in image generation", "approval": "approved", "role": "portrait",
+    "generation": {"promptId": "krishna-portrait", "model": "gpt-image-2", "created": "2026-07-11", "referencePolicy": "text-only"},
+    "files": {"full": "/art/generated/krishna-generated-portrait.webp", "thumb": "/art/generated/krishna-generated-portrait-thumb.webp"}, "position": "50% 14%"
+  },
+  "duryodhana-generated-portrait": {
+    "title": "Duryodhana: Crown of Defiance",
+    "creator": "OpenAI image generation, art-directed for MAHABHARAT", "year": "2026", "source": "/credits#duryodhana-generated-portrait",
+    "provider": "openai-imagegen", "origin": "ai-generated", "license": "project-generated", "licenseUrl": "/credits", "subjects": ["duryodhana"],
+    "aiTool": "OpenAI built-in image generation", "approval": "approved", "role": "portrait",
+    "generation": {"promptId": "duryodhana-portrait", "model": "gpt-image-2", "created": "2026-07-11", "referencePolicy": "text-only"},
+    "files": {"full": "/art/generated/duryodhana-generated-portrait.webp", "thumb": "/art/generated/duryodhana-generated-portrait-thumb.webp"}, "position": "50% 14%"
+  },
+  "karna-tournament-crown": {
+    "title": "The Crown of Anga", "creator": "OpenAI image generation, art-directed for MAHABHARAT", "year": "2026", "source": "/credits#karna-tournament-crown",
+    "provider": "openai-imagegen", "origin": "ai-generated", "license": "project-generated", "licenseUrl": "/credits", "subjects": ["karna", "duryodhana"],
+    "aiTool": "OpenAI built-in image generation", "approval": "approved", "role": "journey", "generation": {"promptId": "karna-tournament-crown", "model": "gpt-image-2", "created": "2026-07-11", "referencePolicy": "text-only"},
+    "files": {"full": "/art/journey/generated/karna-tournament-crown.webp"}, "position": "48% 38%"
+  },
+  "karna-final-wheel": {
+    "title": "The Sunken Wheel", "creator": "OpenAI image generation, art-directed for MAHABHARAT", "year": "2026", "source": "/credits#karna-final-wheel",
+    "provider": "openai-imagegen", "origin": "ai-generated", "license": "project-generated", "licenseUrl": "/credits", "subjects": ["karna", "arjuna", "krishna"],
+    "aiTool": "OpenAI built-in image generation", "approval": "approved", "role": "event", "generation": {"promptId": "karna-final-wheel", "model": "gpt-image-2", "created": "2026-07-11", "referencePolicy": "text-only"},
+    "files": {"full": "/art/journey/generated/karna-final-wheel.webp"}, "position": "52% 48%"
+  },
+  "krishna-peace-embassy": {
+    "title": "The Last Embassy", "creator": "OpenAI image generation, art-directed for MAHABHARAT", "year": "2026", "source": "/credits#krishna-peace-embassy",
+    "provider": "openai-imagegen", "origin": "ai-generated", "license": "project-generated", "licenseUrl": "/credits", "subjects": ["krishna", "duryodhana", "dhritarashtra"],
+    "aiTool": "OpenAI built-in image generation", "approval": "approved", "role": "journey", "generation": {"promptId": "krishna-peace-embassy", "model": "gpt-image-2", "created": "2026-07-11", "referencePolicy": "text-only"},
+    "files": {"full": "/art/journey/generated/krishna-peace-embassy.webp"}, "position": "55% 35%"
+  },
+  "krishna-charioteer": {
+    "title": "Between the Armies", "creator": "OpenAI image generation, art-directed for MAHABHARAT", "year": "2026", "source": "/credits#krishna-charioteer",
+    "provider": "openai-imagegen", "origin": "ai-generated", "license": "project-generated", "licenseUrl": "/credits", "subjects": ["krishna", "arjuna"],
+    "aiTool": "OpenAI built-in image generation", "approval": "approved", "role": "journey", "generation": {"promptId": "krishna-charioteer", "model": "gpt-image-2", "created": "2026-07-11", "referencePolicy": "text-only"},
+    "files": {"full": "/art/journey/generated/krishna-charioteer.webp"}, "position": "52% 40%"
+  },
+  "duryodhana-five-villages": {
+    "title": "Not Even Five Villages", "creator": "OpenAI image generation, art-directed for MAHABHARAT", "year": "2026", "source": "/credits#duryodhana-five-villages",
+    "provider": "openai-imagegen", "origin": "ai-generated", "license": "project-generated", "licenseUrl": "/credits", "subjects": ["duryodhana", "krishna", "bhishma", "dhritarashtra"],
+    "aiTool": "OpenAI built-in image generation", "approval": "approved", "role": "journey", "generation": {"promptId": "duryodhana-five-villages", "model": "gpt-image-2", "created": "2026-07-11", "referencePolicy": "text-only"},
+    "files": {"full": "/art/journey/generated/duryodhana-five-villages.webp"}, "position": "50% 35%"
+  },
+  "duryodhana-mace-duel": {
+    "title": "The Lake at Dusk", "creator": "OpenAI image generation, art-directed for MAHABHARAT", "year": "2026", "source": "/credits#duryodhana-mace-duel",
+    "provider": "openai-imagegen", "origin": "ai-generated", "license": "project-generated", "licenseUrl": "/credits", "subjects": ["duryodhana", "bhima", "krishna"],
+    "aiTool": "OpenAI built-in image generation", "approval": "approved", "role": "journey", "generation": {"promptId": "duryodhana-mace-duel", "model": "gpt-image-2", "created": "2026-07-11", "referencePolicy": "text-only"},
+    "files": {"full": "/art/journey/generated/duryodhana-mace-duel.webp"}, "position": "48% 43%"
+  },
+  "kunti-infant-river": {
+    "title": "The River Keeps the Secret", "creator": "OpenAI image generation, art-directed for MAHABHARAT", "year": "2026", "source": "/credits#kunti-infant-river",
+    "provider": "openai-imagegen", "origin": "ai-generated", "license": "project-generated", "licenseUrl": "/credits", "subjects": ["kunti", "karna"],
+    "aiTool": "OpenAI built-in image generation", "approval": "approved", "role": "journey", "generation": {"promptId": "kunti-infant-river", "model": "gpt-image-2", "created": "2026-07-11", "referencePolicy": "text-only"},
+    "files": {"full": "/art/journey/generated/kunti-infant-river.webp"}, "position": "45% 48%"
+  },
+  "kunti-dawn-karna": {
+    "title": "Mother and Son at Dawn", "creator": "OpenAI image generation, art-directed for MAHABHARAT", "year": "2026", "source": "/credits#kunti-dawn-karna",
+    "provider": "openai-imagegen", "origin": "ai-generated", "license": "project-generated", "licenseUrl": "/credits", "subjects": ["kunti", "karna"],
+    "aiTool": "OpenAI built-in image generation", "approval": "approved", "role": "journey", "generation": {"promptId": "kunti-dawn-karna", "model": "gpt-image-2", "created": "2026-07-11", "referencePolicy": "text-only"},
+    "files": {"full": "/art/journey/generated/kunti-dawn-karna.webp"}, "position": "52% 42%"
+  },
+  "abhimanyu-chakravyuha": {
+    "title": "Into the Wheel", "creator": "OpenAI image generation, art-directed for MAHABHARAT", "year": "2026", "source": "/credits#abhimanyu-chakravyuha",
+    "provider": "openai-imagegen", "origin": "ai-generated", "license": "project-generated", "licenseUrl": "/credits", "subjects": ["abhimanyu"],
+    "aiTool": "OpenAI built-in image generation", "approval": "approved", "role": "journey", "generation": {"promptId": "abhimanyu-chakravyuha", "model": "gpt-image-2", "created": "2026-07-11", "referencePolicy": "text-only"},
+    "files": {"full": "/art/journey/generated/abhimanyu-chakravyuha.webp"}, "position": "42% 42%"
+  },
+  "abhimanyu-final-wheel": {
+    "title": "The Broken Wheel", "creator": "OpenAI image generation, art-directed for MAHABHARAT", "year": "2026", "source": "/credits#abhimanyu-final-wheel",
+    "provider": "openai-imagegen", "origin": "ai-generated", "license": "project-generated", "licenseUrl": "/credits", "subjects": ["abhimanyu"],
+    "aiTool": "OpenAI built-in image generation", "approval": "approved", "role": "journey", "generation": {"promptId": "abhimanyu-final-wheel", "model": "gpt-image-2", "created": "2026-07-11", "referencePolicy": "text-only"},
+    "files": {"full": "/art/journey/generated/abhimanyu-final-wheel.webp"}, "position": "45% 45%"
+  },
+  "ashwatthama-owl-omen": {
+    "title": "The Owl's Lesson", "creator": "OpenAI image generation, art-directed for MAHABHARAT", "year": "2026", "source": "/credits#ashwatthama-owl-omen",
+    "provider": "openai-imagegen", "origin": "ai-generated", "license": "project-generated", "licenseUrl": "/credits", "subjects": ["ashwatthama"],
+    "aiTool": "OpenAI built-in image generation", "approval": "approved", "role": "journey", "generation": {"promptId": "ashwatthama-owl-omen", "model": "gpt-image-2", "created": "2026-07-11", "referencePolicy": "text-only"},
+    "files": {"full": "/art/journey/generated/ashwatthama-owl-omen.webp"}, "position": "48% 38%"
+  },
+  "ashwatthama-curse-dawn": {
+    "title": "The Gem and the Curse", "creator": "OpenAI image generation, art-directed for MAHABHARAT", "year": "2026", "source": "/credits#ashwatthama-curse-dawn",
+    "provider": "openai-imagegen", "origin": "ai-generated", "license": "project-generated", "licenseUrl": "/credits", "subjects": ["ashwatthama", "krishna", "draupadi"],
+    "aiTool": "OpenAI built-in image generation", "approval": "approved", "role": "journey", "generation": {"promptId": "ashwatthama-curse-dawn", "model": "gpt-image-2", "created": "2026-07-11", "referencePolicy": "text-only"},
+    "files": {"full": "/art/journey/generated/ashwatthama-curse-dawn.webp"}, "position": "50% 42%"
   }
 }

@@ -7,9 +7,8 @@
  *      "search": "Arjuna Subhadra Ravi Varma" }]                // discovery mode
  *
  * For each item with a commonsTitle it queries the Wikimedia Commons API
- * (imageinfo + extmetadata), asserts the license is public domain / CC0
- * (anything else is skipped loudly; TV stills never enter this path, they
- * are staged manually with license "unverified"), downloads the original
+ * (imageinfo + extmetadata), accepts only the reusable license families in
+ * the production schema, and downloads the original
  * into scripts/art-staging/journey/{assetId}.{ext}, and prints the block
  * to merge into src/data/journey-art.json.
  *
@@ -23,7 +22,13 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const API = "https://commons.wikimedia.org/w/api.php";
-const OK_LICENSES = /public domain|pd-|cc0/i;
+const mapLicense = (name) => {
+  if (/public domain|^pd-|pd-old/i.test(name)) return "public-domain";
+  if (/cc0/i.test(name)) return "cc0";
+  if (/cc by-sa/i.test(name)) return "cc-by-sa";
+  if (/cc by/i.test(name)) return "cc-by";
+  return null;
+};
 const UA = { headers: { "User-Agent": "mahabharat-guide/1.0 (art pipeline; public domain sourcing)" } };
 
 const worklistPath = path.join(import.meta.dirname, "art-worklist.json");
@@ -57,8 +62,16 @@ for (const item of worklist) {
 
   const meta = info.extmetadata ?? {};
   const licenseName = meta.LicenseShortName?.value ?? "";
-  if (!OK_LICENSES.test(licenseName)) {
+  const license = mapLicense(licenseName);
+  if (!license) {
     console.error(`✗ ${item.assetId}: license "${licenseName}" is not PD/CC0, skipping (verify manually if intended)`);
+    process.exitCode = 1;
+    continue;
+  }
+
+  const licenseUrl = (meta.LicenseUrl?.value ?? "").replace(/<[^>]+>/g, "").trim();
+  if (!licenseUrl) {
+    console.error(`${item.assetId}: license "${licenseName}" has no attribution URL, skipping`);
     process.exitCode = 1;
     continue;
   }
@@ -71,10 +84,14 @@ for (const item of worklist) {
   const strip = (html) => (html ?? "").replace(/<[^>]+>/g, "").trim();
   manifest[item.assetId] = {
     title: item.title ?? strip(meta.ObjectName?.value) ?? item.assetId,
-    artist: strip(meta.Artist?.value) || "unknown",
+    creator: strip(meta.Artist?.value) || "Unknown artist",
     year: strip(meta.DateTimeOriginal?.value) || "",
     source: `https://commons.wikimedia.org/wiki/${encodeURIComponent(item.commonsTitle.replaceAll(" ", "_"))}`,
-    license: /cc0/i.test(licenseName) ? "cc0" : "public-domain",
+    provider: "wikimedia-commons",
+    origin: "historical",
+    license,
+    licenseUrl,
+    subjects: item.subjects ?? [],
     position: item.position ?? "50% 30%",
   };
   console.log(`✓ ${item.assetId} (${licenseName}, ${(buf.length / 1024 / 1024).toFixed(1)}MB) → ${dest}`);
