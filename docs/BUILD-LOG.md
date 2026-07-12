@@ -567,12 +567,19 @@ Verification: tsc, eslint, validate-kb (now a provenance engine),
 check-prose, production build (53 static pages), and a headless-browser
 pass over every new route in both modes with zero console errors.
 
+Then the pilot six got their journeys (`cae5c75`): 39 chapters, 151
+paragraphs in the established voice, each chapter cited to the Ganguli
+sections it retells, with the 12 approved generated scenes attached
+exactly where the plans reserved them. Nine of 39 characters now scroll
+parva by parva. Verified in the browser: Karna's rail runs Adi to Stri,
+the tournament-crown and final-wheel scenes crossfade, credits carry
+the project-generated disclosure inline.
+
 ## Backlog
 
-1. Journeys for the pilot six (Karna, Krishna, Duryodhana, Kunti,
-   Abhimanyu, Ashwatthama) - their 12 generated chapter scenes are
-   already approved and waiting in journey-art.json; attach as each
-   journey is authored. Then the remaining ~30 characters.
+1. Journeys for the remaining ~30 characters (next tier: Bhima,
+   Yudhishthira, Draupadi's kin, Drona, Gandhari, Shakuni); source
+   per-chapter art via scripts/fetch-art.mjs discovery mode.
 2. Broaden the KB toward ~75 characters (Vichitravirya, Amba, Hidimbi,
    Ghatotkacha line, Satyaki, Yuyutsu, Uttara, Ekalavya kin, ...) via
    Sorensen's Index / Dowson (both PD, archive.org).
