@@ -332,9 +332,21 @@ for (const thread of causalThreads) {
   for (const id of thread.eventIds) if (!eventIds.has(id)) errors.push(`threads/${thread.id}: event "${id}" unresolved`);
   checkCitations(thread.citations, `threads/${thread.id}`);
 }
+const vyuhas = new Set([
+  "line", "vajra", "suchi", "krauncha", "garuda", "shyena", "ardhachandra", "makara",
+  "mandala", "chakra", "shringataka", "sarvatobhadra", "shakata-nested", "scatter",
+  "duel", "ring-outer", "ring-inner",
+]);
 for (const strategic of strategicDays) {
   if (!warDays.some((day) => day.day === strategic.day)) errors.push(`strategic-days/${strategic.day}: war day unresolved`);
   checkCitations(strategic.citations, `strategic-days/${strategic.day}`);
+  for (const side of ["pandava", "kaurava"]) {
+    const host = strategic.hosts?.[side];
+    if (!host) { errors.push(`strategic-days/${strategic.day}: missing ${side} host array`); continue; }
+    if (!vyuhas.has(host.vyuha)) errors.push(`strategic-days/${strategic.day}: unknown ${side} vyuha "${host.vyuha}"`);
+    if (!host.name) errors.push(`strategic-days/${strategic.day}: ${side} host missing name`);
+    if (!host.deva) errors.push(`strategic-days/${strategic.day}: ${side} host missing deva`);
+  }
 }
 if (strategicDays.length !== 18) errors.push(`strategic-days: expected 18, found ${strategicDays.length}`);
 if (epicEvents.length !== 3) errors.push(`events: expected 3, found ${epicEvents.length}`);

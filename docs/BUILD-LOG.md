@@ -723,3 +723,33 @@ this environment. The custom domain remains explicitly deferred.
 
 1. Run the visual/browser matrix once Playwright or the in-app browser is
    locally available.
+
+## Session 15 - The vyuhas become real (2026-07-13)
+
+Sanjaya's Eye had been describing eighteen mornings with five abstract
+patterns: eight days shared one static grid, five shared one crescent, and
+both hosts always drew the same shape. Day 3 was titled "Eagle against
+crescent" while rendering two crescents. The day chronicles on /war already
+named the true arrays with citations, so the diagram was contradicting text
+one click away.
+
+The strategic schema now gives each host its own named vyuha per day:
+`StrategicDay.hosts.{pandava,kaurava}` carries a `Vyuha` shape id, an English
+name, and its Devanagari. Seventeen procedural generators replaced the five
+patterns in `SanjayaEye.tsx`: a parametric bird serves the crane, eagle, and
+hawk (they differ in beak and wing, not in kind); the vajra tapers and kinks
+toward its point; the makara opens two jaws; the chakravyuha is a turning
+spiral that day 13's gold needle pierces; day 14 nests the cart, the lotus,
+and the needle in index thirds; day 15 dissolves both hosts into drifting
+night clusters. Every shape is authored in local coordinates with a `facing`
+mirror, so beaks, horns, and needle points always aim at the opposing host,
+and a slow per-point drift keeps every array alive (the old grid ignored
+time entirely). The legend names both vyuhas in English and Devanagari, and
+the canvas aria-label describes both arrays.
+
+All eighteen assignments come from the war-day narratives and their Ganguli
+citations; where the text names no counter-array the label stays honest
+("The counter-line", pankti). `validate-kb` now rejects unknown vyuha ids
+and missing host names. Verified in a real browser this time: all 18 days
+clicked through Playwright with zero console errors, and days 1, 3, 5, 13,
+14, and 15 screenshot-confirmed as distinct facing formations.

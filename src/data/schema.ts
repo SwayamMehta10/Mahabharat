@@ -175,10 +175,41 @@ export interface CausalThread {
   citations: string[];
 }
 
+/**
+ * The named battle arrays of the war books. Most are vyuhas Sanjaya names
+ * outright (garuda, makara, chakravyuha); "scatter", "duel" and the rings
+ * cover mornings when the field held no true array: the night battle, the
+ * single combat, the last encirclement.
+ */
+export type Vyuha =
+  | "line"
+  | "vajra"
+  | "suchi"
+  | "krauncha"
+  | "garuda"
+  | "shyena"
+  | "ardhachandra"
+  | "makara"
+  | "mandala"
+  | "chakra"
+  | "shringataka"
+  | "sarvatobhadra"
+  | "shakata-nested"
+  | "scatter"
+  | "duel"
+  | "ring-outer"
+  | "ring-inner";
+
+export interface HostArray {
+  vyuha: Vyuha;
+  name: string;
+  deva: string;
+}
+
 export interface StrategicDay {
   day: number;
   formation: string;
-  pattern: "lines" | "crescent" | "wheel" | "duel" | "encirclement";
+  hosts: { pandava: HostArray; kaurava: HostArray };
   phases: string[];
   focus: string;
   citations: string[];

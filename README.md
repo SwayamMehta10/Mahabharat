@@ -21,7 +21,7 @@ where every fact carries a citation into the source text.
 | `/parvas` | The eighteen books, each with a full multi-paragraph synopsis, veiled beyond your wheel — with a jump rail, watermark numerals, and painting tableaux at eight of the books' turning points |
 | `/drishti/[id]` | **Drishti — one event, many truths**: Karna's final duel retold through five pairs of eyes (Karna, Arjuna, Krishna, Shalya, Kunti), each perspective swapping the portrait, citations, and the causal threads it pulls on |
 | `/threads` | **The Web of Vows** — nine vows, curses, secrets, and debts mapped to the characters, events, and parvas they bind; each thread veiled until its last consequence is within your depth |
-| `/war/strategy` | **Sanjaya's Eye** — the war days as procedural canvas formations (lines, crescent, chakravyuha wheel, duel, encirclement) beside the prose chronicle, with a legend naming the two hosts and the day's citations |
+| `/war/strategy` | **Sanjaya's Eye** — each war morning drawn as two opposing named vyuhas (the crane's beak, Garuda's wings, the makara's jaws, the turning chakravyuha, day 14's cart-lotus-needle) facing each other in moving points, with both formations named in English and Devanagari beside the prose chronicle and the day's citations |
 | `/credits` | Every artwork's provenance — creator, source link, license, and AI-origin disclosure for the six-character generated pilot, kept off the immersive pages |
 | — | Global overlay menu with **narrative-depth-aware search** (characters, weapons, kin, vows, events, parvas, war days) on every page |
 
