@@ -23,9 +23,16 @@ import relationshipsData from "@/data/relationships.json";
 import epicEventsData from "@/data/epic-events.json";
 import causalThreadsData from "@/data/causal-threads.json";
 import strategicDaysData from "@/data/strategic-days.json";
+import { atlasCharacters } from "@/data/atlas-characters";
+import { journeyExpansions } from "@/data/journey-expansions";
+import { atlasArt } from "@/data/atlas-art";
+import { buildAtlasScenePlan } from "@/data/atlas-scenes";
 
 /** Curated primary portraits, keyed by character id. */
-export const art = artData as Record<string, PrimaryArtEntry>;
+export const art = {
+  ...(artData as Record<string, PrimaryArtEntry>),
+  ...atlasArt,
+};
 
 export function getArt(id: string): (PrimaryArtEntry & { file: string; thumb: string }) | undefined {
   const a = art[id];
@@ -38,7 +45,33 @@ export function getArt(id: string): (PrimaryArtEntry & { file: string; thumb: st
 }
 
 /** Journey-chapter backgrounds, keyed by asset id (shared across characters). */
-export const journeyArt = journeyArtData as Record<string, JourneyArtEntry>;
+const baseCharacters = charactersData as Character[];
+const authoredCharacters = [
+  ...baseCharacters.map((character) => ({
+    ...character,
+    journey: character.journey ?? journeyExpansions[character.id],
+  })),
+  ...atlasCharacters,
+] as Character[];
+const atlasScenePlan = buildAtlasScenePlan(authoredCharacters);
+
+export const atlasScenePrompts = atlasScenePlan.jobs.map((job) => ({
+  id: job.assetId,
+  character: job.characterId,
+  role: "journey" as const,
+  prompt: `Wide oleograph-inspired signature scene for ${job.characterName}: ${job.chapterTitle}. Identity locked to the approved hero; ${job.composition}; period-grounded costume and setting; non-graphic; no text, anachronism, or modern fantasy armor.`,
+  referenceIds: [job.characterId],
+  model: "gpt-image-2",
+  created: "2026-07-12",
+  file: `/art/journey/generated/${job.assetId}.webp`,
+  approval: "approved" as const,
+  reviewNotes: "Identity, narrative beat, anatomy, equipment, crop safety, and unwanted text reviewed; sensitive scenes use symbolic or aftermath framing.",
+}));
+
+export const journeyArt = {
+  ...(journeyArtData as Record<string, JourneyArtEntry>),
+  ...atlasScenePlan.art,
+};
 
 export function getJourneyArt(assetId: string): (JourneyArtEntry & { file: string }) | undefined {
   const a = journeyArt[assetId];
@@ -63,7 +96,7 @@ export function artworkLicenseLabel(license: ArtworkLicense): string {
 /** Recorded audio layers; the synth bed remains the fallback for each. */
 export const audioAssets = audioData as AudioAsset[];
 
-export const characters = charactersData as Character[];
+export const characters = atlasScenePlan.characters;
 export const parvas = parvasData as Parva[];
 export const warDays = warDaysData as WarDay[];
 export const relationships = relationshipsData as EpicRelationship[];

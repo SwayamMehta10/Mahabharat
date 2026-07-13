@@ -14,15 +14,41 @@
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import ts from "typescript";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const read = (p) => JSON.parse(readFileSync(join(ROOT, p), "utf8"));
 
-const characters = read("src/data/characters.json");
+function readTsExport(path, exportName) {
+  const source = readFileSync(join(ROOT, path), "utf8");
+  const output = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
+  }).outputText;
+  const moduleShim = { exports: {} };
+  new Function("exports", "module", output)(moduleShim.exports, moduleShim);
+  return moduleShim.exports[exportName];
+}
+
+const baseCharacters = read("src/data/characters.json");
+const atlasCharacters = readTsExport("src/data/atlas-characters.ts", "atlasCharacters");
+const journeyExpansions = readTsExport("src/data/journey-expansions.ts", "journeyExpansions");
+const authoredCharacters = [
+  ...baseCharacters.map((character) => ({
+    ...character,
+    journey: character.journey ?? journeyExpansions[character.id],
+  })),
+  ...atlasCharacters,
+];
+const buildAtlasScenePlan = readTsExport("src/data/atlas-scenes.ts", "buildAtlasScenePlan");
+const atlasScenePlan = buildAtlasScenePlan(authoredCharacters);
+const characters = atlasScenePlan.characters;
 const parvas = read("src/data/parvas.json");
 const warDays = read("src/data/war-days.json");
-const art = read("src/data/art.json");
-const journeyArt = read("src/data/journey-art.json");
+const art = {
+  ...read("src/data/art.json"),
+  ...readTsExport("src/data/atlas-art.ts", "atlasArt"),
+};
+const journeyArt = { ...read("src/data/journey-art.json"), ...atlasScenePlan.art };
 const audio = read("src/data/audio.json");
 const artCandidates = read("scripts/art-candidates.json");
 const relationships = read("src/data/relationships.json");
@@ -30,6 +56,8 @@ const epicEvents = read("src/data/epic-events.json");
 const causalThreads = read("src/data/causal-threads.json");
 const strategicDays = read("src/data/strategic-days.json");
 const promptManifest = read("src/data/art-prompts.json");
+const atlasHeroPrompts = readTsExport("src/data/atlas-art.ts", "atlasHeroPrompts");
+const atlasScenePrompts = atlasScenePlan.jobs.map((job) => ({ id: job.assetId }));
 
 const ids = new Set(characters.map((c) => c.id));
 const CITATION = /^[A-Za-z]+( [A-Za-z]+)* Parva §\d+(–\d+)?(, §\d+(–\d+)?)*$/;
@@ -37,13 +65,17 @@ const CITATION = /^[A-Za-z]+( [A-Za-z]+)* Parva §\d+(–\d+)?(, §\d+(–\d+)?)
 const errors = [];
 const warnings = [];
 
+if (characters.length !== 75) errors.push(`characters: expected 75, found ${characters.length}`);
+if (ids.size !== characters.length) errors.push("characters: ids must be unique");
+
 const ART_LICENSES = new Set(["public-domain", "cc0", "cc-by", "cc-by-sa", "pixabay-content-license", "project-generated"]);
 const ART_PROVIDERS = new Set(["wikimedia-commons", "openverse", "pixabay", "met-museum", "smithsonian", "openai-imagegen"]);
 const ART_ORIGINS = new Set(["historical", "ai-generated"]);
 const PILOT_CHARACTERS = new Set(["karna", "krishna", "duryodhana", "kunti", "abhimanyu", "ashwatthama"]);
 const ART_APPROVALS = new Set(["draft", "reviewed", "approved"]);
 const ART_ROLES = new Set(["portrait", "journey", "event"]);
-const promptIds = new Set(promptManifest.assets.map((prompt) => prompt.id));
+const allPrompts = [...promptManifest.assets, ...atlasHeroPrompts, ...atlasScenePrompts];
+const promptIds = new Set(allPrompts.map((prompt) => prompt.id));
 
 function isCanonicalSource(value) {
   try {
@@ -79,6 +111,9 @@ function checkArtwork(assetId, entry, where, defaultFull, defaultThumb) {
   }
   if (!Array.isArray(entry.subjects) || entry.subjects.length === 0) {
     errors.push(`${where}/${assetId}: at least one affected character is required`);
+  }
+  if (entry.exposure !== undefined && (!Number.isFinite(entry.exposure) || entry.exposure < 0.5 || entry.exposure > 1.6)) {
+    errors.push(`${where}/${assetId}: exposure ${entry.exposure} outside [0.5, 1.6]`);
   }
   const focal = /^\d{1,3}(\.\d+)?% \d{1,3}(\.\d+)?%$/.test(entry.position ?? "")
     ? entry.position.split(" ").map((part) => Number.parseFloat(part))
@@ -125,8 +160,11 @@ for (const c of characters) {
   if (c.deathDay !== undefined && (c.deathDay < 1 || c.deathDay > 18)) {
     errors.push(`${where}: deathDay ${c.deathDay} out of range`);
   }
-  if (c.journey) {
+  if (!c.journey?.length) {
+    errors.push(`${where}: journey is required for the full atlas`);
+  } else {
     let prev = 0;
+    let illustrated = 0;
     for (const [i, ch] of c.journey.entries()) {
       const cw = `${where}/journey[${i}]`;
       if (ch.parva < prev) errors.push(`${cw}: chapters not sorted by parva`);
@@ -135,6 +173,7 @@ for (const c of characters) {
       if (!ch.text?.length) errors.push(`${cw}: empty text`);
       checkCitations(ch.citations, cw);
       if (ch.image) {
+        illustrated += 1;
         const entry = journeyArt[ch.image];
         if (!entry) errors.push(`${cw}: image "${ch.image}" not in journey-art.json`);
         const imageFile = entry?.files?.full ?? `/art/journey/${ch.image}.webp`;
@@ -143,6 +182,28 @@ for (const c of characters) {
         }
       }
     }
+    const expectedScenes = c.journey.length <= 3 ? 2 : c.journey.length <= 6 ? 3 : 4;
+    if (illustrated !== expectedScenes) {
+      errors.push(`${where}: expected ${expectedScenes} signature scenes, found ${illustrated}`);
+    }
+  }
+}
+
+// a war day's or parva's visual anchor must resolve to approved journey art
+// whose file exists on disk (mirrors getJourneyArt's runtime refusal)
+function checkArtAnchor(ref, where) {
+  if (ref === undefined) return;
+  const entry = journeyArt[ref];
+  if (!entry) {
+    errors.push(`${where}: art "${ref}" not in journey-art.json`);
+    return;
+  }
+  if (entry.origin === "ai-generated" && entry.approval !== "approved") {
+    errors.push(`${where}: art "${ref}" is not approved for production`);
+  }
+  const file = entry.files?.full ?? `/art/journey/${ref}.webp`;
+  if (!existsSync(join(ROOT, "public", file.replace(/^\//, "")))) {
+    errors.push(`${where}: ${file} missing on disk`);
   }
 }
 
@@ -150,6 +211,7 @@ for (const c of characters) {
 if (parvas.length !== 18) errors.push(`parvas: expected 18, found ${parvas.length}`);
 parvas.forEach((p, i) => {
   if (p.number !== i + 1) errors.push(`parvas[${i}]: number ${p.number} out of order`);
+  checkArtAnchor(p.art, `parvas/${p.id}`);
 });
 
 // war days
@@ -163,6 +225,7 @@ for (const d of warDays) {
     if (!ids.has(cid)) errors.push(`${where}: commander "${cid}" not in KB`);
   }
   checkCitations(d.citations, where);
+  checkArtAnchor(d.art, where);
 }
 
 // primary art files
@@ -221,16 +284,28 @@ for (const character of PILOT_CHARACTERS) {
     errors.push(`art-candidates/${character}: expected one portrait and two journey slots`);
   }
 }
-if (promptManifest.assets.length !== 18 || promptIds.size !== 18) {
-  errors.push(`art-prompts: expected 18 unique prompt records`);
+if (promptIds.size !== allPrompts.length) {
+  errors.push(`art-prompts: prompt ids must be unique`);
+}
+for (const candidate of artCandidates) {
+  if (!promptIds.has(candidate.id)) errors.push(`art-prompts: pilot prompt "${candidate.id}" missing`);
 }
 
+if (audio.length !== 2) errors.push(`audio: expected 2 CC0 assets, found ${audio.length}`);
+const audioIds = new Set();
+const audioKinds = new Set();
 for (const a of audio) {
+  if (audioIds.has(a.id)) errors.push(`audio/${a.id}: duplicate id`);
+  audioIds.add(a.id);
+  audioKinds.add(a.kind);
   if (!existsSync(join(ROOT, "public/audio", `${a.id}.mp3`))) {
     errors.push(`audio/${a.id}: public/audio/${a.id}.mp3 missing on disk`);
   }
   if (!a.credit?.url || !a.credit?.license) errors.push(`audio/${a.id}: incomplete credit`);
+  if (!/^CC0(?:\s|$)/.test(a.credit?.license ?? "")) errors.push(`audio/${a.id}: expected CC0 license`);
+  if (typeof a.gain !== "number" || a.gain < 0 || a.gain > 1) errors.push(`audio/${a.id}: gain must be 0..1`);
 }
+for (const kind of ["conch", "tanpura"]) if (!audioKinds.has(kind)) errors.push(`audio: missing ${kind} recording`);
 
 const eventIds = new Set(epicEvents.map((event) => event.id));
 const threadIds = new Set(causalThreads.map((thread) => thread.id));
@@ -259,7 +334,10 @@ for (const thread of causalThreads) {
 }
 for (const strategic of strategicDays) {
   if (!warDays.some((day) => day.day === strategic.day)) errors.push(`strategic-days/${strategic.day}: war day unresolved`);
+  checkCitations(strategic.citations, `strategic-days/${strategic.day}`);
 }
+if (strategicDays.length !== 18) errors.push(`strategic-days: expected 18, found ${strategicDays.length}`);
+if (epicEvents.length !== 3) errors.push(`events: expected 3, found ${epicEvents.length}`);
 
 for (const w of warnings) console.warn("  warn: " + w);
 if (errors.length) {

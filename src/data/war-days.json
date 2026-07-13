@@ -2,7 +2,7 @@
   {
     "day": 1,
     "title": "The Conches Sound",
-    "art": "krishna-charioteer",
+    "art": "war-day-01",
     "commanderKaurava": "bhishma",
     "commanderPandava": "dhrishtadyumna",
     "events": [
@@ -28,6 +28,7 @@
   },
   {
     "day": 2,
+    "art": "war-day-02",
     "title": "Arjuna Answers",
     "commanderKaurava": "bhishma",
     "events": [
@@ -50,6 +51,7 @@
   },
   {
     "day": 3,
+    "art": "war-day-03",
     "title": "The Eagle and the Crescent",
     "commanderKaurava": "bhishma",
     "events": [
@@ -73,6 +75,7 @@
   },
   {
     "day": 4,
+    "art": "war-day-04",
     "title": "Bhima's Day",
     "commanderKaurava": "bhishma",
     "events": [
@@ -95,6 +98,7 @@
   },
   {
     "day": 5,
+    "art": "war-day-05",
     "title": "Grinding of Hosts",
     "commanderKaurava": "bhishma",
     "events": [
@@ -115,6 +119,7 @@
   },
   {
     "day": 6,
+    "art": "war-day-06",
     "title": "Formations Broken",
     "commanderKaurava": "bhishma",
     "events": [
@@ -137,6 +142,7 @@
   },
   {
     "day": 7,
+    "art": "war-day-07",
     "title": "The Grandsire Unstoppable",
     "commanderKaurava": "bhishma",
     "events": [
@@ -158,6 +164,7 @@
   },
   {
     "day": 8,
+    "art": "war-day-08",
     "title": "Sons Fall",
     "commanderKaurava": "bhishma",
     "events": [
@@ -180,6 +187,7 @@
   },
   {
     "day": 9,
+    "art": "war-day-09",
     "title": "The Vow Nearly Broken",
     "commanderKaurava": "bhishma",
     "events": [
@@ -204,7 +212,7 @@
   {
     "day": 10,
     "title": "The Bed of Arrows",
-    "art": "bhishma-arrow-bed",
+    "art": "war-day-10",
     "commanderKaurava": "bhishma",
     "events": [
       "Shikhandi stands at Arjuna's chariot-front; Bhishma will not raise his bow at Amba reborn",
@@ -231,6 +239,7 @@
   },
   {
     "day": 11,
+    "art": "war-day-11",
     "title": "The Teacher Takes Command",
     "commanderKaurava": "drona",
     "events": [
@@ -252,6 +261,7 @@
   },
   {
     "day": 12,
+    "art": "war-day-12",
     "title": "The Elephant King",
     "commanderKaurava": "drona",
     "events": [
@@ -276,7 +286,7 @@
   {
     "day": 13,
     "title": "The Wheel Closes",
-    "art": "abhimanyu-chakravyuha",
+    "art": "war-day-13",
     "commanderKaurava": "drona",
     "events": [
       "Drona forms the chakravyuha; only the absent Arjuna knows its exit",
@@ -304,6 +314,7 @@
   },
   {
     "day": 14,
+    "art": "war-day-14",
     "title": "The Darkened Sun",
     "commanderKaurava": "drona",
     "events": [
@@ -333,6 +344,7 @@
   },
   {
     "day": 15,
+    "art": "war-day-15",
     "title": "A Truth That Was a Lie",
     "commanderKaurava": "drona",
     "events": [
@@ -362,6 +374,7 @@
   },
   {
     "day": 16,
+    "art": "war-day-16",
     "title": "The Sun's Son Commands",
     "commanderKaurava": "karna",
     "events": [
@@ -383,7 +396,7 @@
   {
     "day": 17,
     "title": "The Wheel Sinks",
-    "art": "karna-final-wheel",
+    "art": "war-day-17",
     "commanderKaurava": "karna",
     "events": [
       "Bhima tears open Dushasana's chest and keeps the vow made in the dice hall",
@@ -412,7 +425,7 @@
   {
     "day": 18,
     "title": "Thigh and Mace",
-    "art": "duryodhana-mace-duel",
+    "art": "war-day-18",
     "commanderKaurava": "shalya",
     "events": [
       "Yudhishthira, gentlest of the five, slays Shalya with the spear",

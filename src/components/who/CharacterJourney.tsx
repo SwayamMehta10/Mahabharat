@@ -57,12 +57,17 @@ export default function CharacterJourney({ chapters, images, defaultImage }: Cha
     const root = rootRef.current;
     if (!root) return;
 
-    // warm every painting the scroll will ask for
-    for (const img of images) if (img) preloadPortrait(img.url);
+    // Warm only the opening pair. Gated chapters are never requested, and
+    // later chapters warm just-in-time as the reading line reaches them.
     if (defaultImage) preloadPortrait(defaultImage.url);
+    if (visible[0] && images[0]) preloadPortrait(images[0].url);
 
-    const setPortrait = (img: JourneyImage | undefined) => {
+    const setPortrait = (img: JourneyImage | undefined, idx = -1) => {
       const want = img ?? defaultImage;
+      if (want) preloadPortrait(want.url);
+      if (idx >= 0 && idx + 1 < visible.length && images[idx + 1]) {
+        preloadPortrait(images[idx + 1]!.url);
+      }
       atmosphere.portrait = want
         ? { url: want.url, focalX: want.focalX, focalY: want.focalY, exposure: want.exposure }
         : null;
@@ -89,11 +94,11 @@ export default function CharacterJourney({ chapters, images, defaultImage }: Cha
           end: "bottom 60%",
           onEnter: () => {
             setActive(idx);
-            setPortrait(images[idx]);
+            setPortrait(images[idx], idx);
           },
           onEnterBack: () => {
             setActive(idx);
-            setPortrait(images[idx]);
+            setPortrait(images[idx], idx);
           },
         });
       });

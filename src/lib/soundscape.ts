@@ -1,6 +1,6 @@
 /**
- * The soundscape is synthesized, not sampled - the same philosophy as the
- * conch. Three scenes, all built from oscillators and filtered noise:
+ * The soundscape keeps a complete synth bed and optionally layers decoded
+ * CC0 recordings through SampleBank when their manifest files are available.
  *
  *   void - a deep breathing drone on Sa (A1) and its fifth, with a whisper
  *          of wind. The night before everything.
@@ -13,6 +13,8 @@
  * user gesture (autoplay policy), and the master gain follows the store's
  * soundOn flag.
  */
+import { audioAssets } from "@/lib/kb";
+import { SampleBank } from "@/lib/sample-bank";
 
 export type SceneName = "void" | "war" | "gita" | "silence";
 
@@ -31,6 +33,7 @@ class Soundscape {
   private currentName: SceneName = "silence";
   private enabled = true;
   private pendingScene: SceneName = "silence";
+  private samples: SampleBank | null = null;
 
   /** Must be called from a user gesture. Safe to call repeatedly. */
   init(): void {
@@ -49,6 +52,8 @@ class Soundscape {
     this.master = this.ctx.createGain();
     this.master.gain.value = this.enabled ? 1 : 0;
     this.master.connect(this.ctx.destination);
+    this.samples = new SampleBank(this.ctx, audioAssets);
+    this.samples.preload();
     this.setScene(this.pendingScene);
     // debug/demo handle - lets devtools ask what the soundscape is doing
     (window as unknown as { __soundscape?: unknown }).__soundscape = this;
@@ -207,6 +212,7 @@ class Soundscape {
     const gain = this.sceneGain();
     const stopDrone = this.drone(gain, [SA * 0.5, SA], 0.05, 170);
     const stopWind = this.wind(gain, 0.011);
+    const stopConch = this.samples?.attach("conch", gain) ?? (() => undefined);
 
     // sparse, irregular war drums - distant, patient
     let alive = true;
@@ -225,6 +231,7 @@ class Soundscape {
         alive = false;
         stopDrone();
         stopWind();
+        stopConch();
         gain.disconnect();
       },
     };
@@ -253,6 +260,7 @@ class Soundscape {
   private buildGita(): Scene {
     const gain = this.sceneGain();
     const stopDrone = this.drone(gain, [SA], 0.03, 200);
+    const stopTanpura = this.samples?.attach("tanpura", gain) ?? (() => undefined);
 
     // the eternal tanpura cycle: Pa · Sa · Sa · Sa(low)
     const cycle = [PA, SA * 2, SA * 2, SA];
@@ -271,6 +279,7 @@ class Soundscape {
       stop: () => {
         alive = false;
         stopDrone();
+        stopTanpura();
         gain.disconnect();
       },
     };

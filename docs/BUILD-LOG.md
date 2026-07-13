@@ -658,3 +658,68 @@ resolving art anchors), and a production build all green.
 4. More Drishti events (the dice hall, the night raid) and strategic
    days; the data contracts are validated and waiting.
 5. Custom domain, if the project earns one.
+
+## Session 14 - The full visual atlas (2026-07-13)
+
+The approved backlog became a complete production atlas: exactly 75
+characters, a cited journey for every character, 75 approved hero artworks,
+and the chapter-length scene rule enforced across the whole knowledge base.
+The final runtime inventory is 150 generated journey scenes plus 17 preserved
+curated journey paintings, with two scenes for 1-3 chapters, three for 4-6,
+and four for journeys of seven chapters or more.
+
+The ImageGen contract is now data, not an informal convention. Every generated
+asset carries its role, subjects, final prompt, model, date, output files,
+review notes, and approval state. Historical public-domain art remains the
+first choice; generation fills canonical gaps without replacing strong
+paintings. Character scenes use the accepted hero as their identity reference
+so complexion, age, costume vocabulary, weapons, and heraldry stay coherent.
+Masters remained staging artifacts; only optimized WebP derivatives entered
+`public/`. Hero files stay under 500 KB, scene and war files under 700 KB, and
+every generated hero has a thumbnail.
+
+Review was deliberately fail-closed. Ambalika's first portrait read as male
+and Parashara's first portrait read as a warrior, so both were rejected and
+regenerated with targeted corrections. Four potentially unsafe or misleading
+scenes were reframed symbolically: Ganga's seven sons as lotus lamps and Vasu
+constellations, Satyavati and Parashara as a mist-bound ferry encounter,
+Karna's divine armor as an intact exchange on cloth, and the infant Parikshit
+as a healthy child receiving Krishna's blessing. Runtime lookup still rejects
+unapproved work.
+
+The Eighteen Days now has 18 unique wide tableaux, one cited composition per
+day, registered as `war-day-01` through `war-day-18`. Desktop connects the
+active day to the existing portrait atmosphere at restrained strength;
+reduced-motion and mobile layouts render the same work inline. The art map is
+built only from spoiler-visible days, and both war and character journeys warm
+only the active and next texture. Route cleanup clears the portrait channel so
+images cannot leak between experiences.
+
+The remaining knowledge backlog landed with the art: the balanced 36-person
+roster expansion, journeys for the original characters that lacked them, dice
+hall and night-raid Drishti events with five cited perspectives each, causal
+thread links, and all 18 cited Sanjaya strategy days. Credits now groups 75
+heroes, journey scenes, and war tableaux into collapsible provenance sections;
+the character index lazy-loads and asynchronously decodes thumbnails.
+
+Recorded-audio plumbing also landed as a `SampleBank` on the existing
+AudioContext. It preloads and decodes optional conch and tanpura recordings,
+while the existing synthesis remains the complete fetch/decode/runtime
+fallback. Two selected strict-CC0 Freesound recordings ship as their public
+high-quality MP3 derivatives: RoofDog's `Conch.wav` and luckylittleraven's
+`Tanpura Slap Drone C sharp.wav`. Their author, source page, and CC0 1.0 terms
+are recorded in `audio.json` and surfaced on `/credits`.
+
+The programmatic audit reports 75/75 approved heroes, zero missing journey
+scenes, 18/18 war tableaux, no duplicate prompt IDs, no generated size
+violations, and no unapproved runtime references. `npx tsc --noEmit`, lint,
+prose checks, KB validation, and the production build all pass. Next.js emitted
+exactly 91 static pages: 75 character routes, three Drishti routes, and the
+remaining atlas surfaces. A real-browser pass is still pending because neither
+a local Playwright binary nor an in-app browser connection was available in
+this environment. The custom domain remains explicitly deferred.
+
+### Remaining external verification
+
+1. Run the visual/browser matrix once Playwright or the in-app browser is
+   locally available.

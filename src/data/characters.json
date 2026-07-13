@@ -8,7 +8,7 @@
     ],
     "allegiance": "neutral",
     "parents": [
-      "Pratipa"
+      "pratipa"
     ],
     "spouses": [
       "ganga",
@@ -16,7 +16,7 @@
     ],
     "children": [
       "bhishma",
-      "chitrangada",
+      "chitrangada-kuru",
       "vichitravirya"
     ],
     "firstParva": 1,
@@ -63,7 +63,7 @@
     ],
     "children": [
       "vyasa",
-      "chitrangada",
+      "chitrangada-kuru",
       "vichitravirya"
     ],
     "firstParva": 1,
@@ -195,7 +195,7 @@
     ],
     "allegiance": "neutral",
     "parents": [
-      "Parashara",
+      "parashara",
       "satyavati"
     ],
     "spouses": [],
@@ -221,7 +221,7 @@
     "allegiance": "kaurava",
     "parents": [
       "vyasa",
-      "Ambika"
+      "ambika"
     ],
     "spouses": [
       "gandhari"
@@ -230,7 +230,7 @@
       "duryodhana",
       "dushasana",
       "Ninety-eight others",
-      "Duhshala"
+      "duhshala"
     ],
     "firstParva": 1,
     "bio": "Born blind and passed over for the throne, he spent a lifetime seeing only through his attachment to his firstborn. His silence at every injustice was the war's quietest cause.",
@@ -248,7 +248,7 @@
     ],
     "allegiance": "kaurava",
     "parents": [
-      "Subala"
+      "subala"
     ],
     "spouses": [
       "dhritarashtra"
@@ -257,7 +257,7 @@
       "duryodhana",
       "dushasana",
       "Ninety-eight others",
-      "Duhshala"
+      "duhshala"
     ],
     "firstParva": 1,
     "bio": "She bound her own eyes for life when she married a blind man. Mother of a hundred sons, she blessed Duryodhana each morning of the war with 'where there is dharma, there is victory', never once 'may you win.' Her grief cursed Krishna's whole race.",
@@ -277,7 +277,7 @@
     "allegiance": "pandava",
     "parents": [
       "vyasa",
-      "Ambalika"
+      "ambalika"
     ],
     "spouses": [
       "kunti",
@@ -483,7 +483,7 @@
       "draupadi"
     ],
     "children": [
-      "Prativindhya"
+      "prativindhya"
     ],
     "weapons": [
       "Spear"
@@ -513,11 +513,11 @@
     ],
     "spouses": [
       "draupadi",
-      "Hidimba"
+      "hidimbi"
     ],
     "children": [
       "ghatotkacha",
-      "Sutasoma"
+      "sutasoma"
     ],
     "weapons": [
       "Mace"
@@ -550,14 +550,14 @@
     "spouses": [
       "draupadi",
       "subhadra",
-      "Ulupi",
-      "Chitrangadaa"
+      "ulupi",
+      "chitrangada-manipura"
     ],
     "children": [
       "abhimanyu",
-      "Shrutakarma",
-      "Babruvahana",
-      "Iravan"
+      "shrutakarma",
+      "babruvahana",
+      "iravan"
     ],
     "weapons": [
       "Gandiva bow",
@@ -712,7 +712,7 @@
       "draupadi"
     ],
     "children": [
-      "Shatanika"
+      "shatanika"
     ],
     "weapons": [
       "Sword"
@@ -741,7 +741,7 @@
       "draupadi"
     ],
     "children": [
-      "Shrutasena"
+      "shrutasena"
     ],
     "weapons": [
       "Sword"
@@ -768,14 +768,14 @@
     "divineParent": "Surya, the sun",
     "parents": [
       "kunti",
-      "Adhiratha (foster)",
-      "Radha (foster)"
+      "adhiratha",
+      "radha"
     ],
     "spouses": [
       "Vrushali"
     ],
     "children": [
-      "Vrishasena"
+      "vrishasena"
     ],
     "weapons": [
       "Vijaya bow",
@@ -916,10 +916,10 @@
       "gandhari"
     ],
     "spouses": [
-      "Bhanumati"
+      "bhanumati"
     ],
     "children": [
-      "Lakshmana Kumara"
+      "lakshmana-kumara"
     ],
     "weapons": [
       "Mace"
@@ -1049,11 +1049,11 @@
     ],
     "allegiance": "kaurava",
     "parents": [
-      "Subala"
+      "subala"
     ],
     "spouses": [],
     "children": [
-      "Uluka"
+      "uluka"
     ],
     "weapons": [
       "Loaded dice"
@@ -1091,7 +1091,11 @@
       "sahadeva"
     ],
     "children": [
-      "The five Upapandavas"
+      "prativindhya",
+      "sutasoma",
+      "shrutakarma",
+      "shatanika",
+      "shrutasena"
     ],
     "firstParva": 1,
     "bio": "Dark as storm, born full-grown from fire with a prophecy that she would destroy the kshatriya race. Wife to all five brothers, staked and lost at dice, saved by Krishna when the court sat silent. She left her hair unbound for thirteen years until it could be washed in vengeance.",
@@ -1201,7 +1205,7 @@
     "allegiance": "divine",
     "divineParent": "Vishnu, the preserver, himself",
     "parents": [
-      "Vasudeva",
+      "vasudeva",
       "Devaki"
     ],
     "spouses": [
@@ -1345,7 +1349,7 @@
     "allegiance": "neutral",
     "divineParent": "Incarnation of Shesha",
     "parents": [
-      "Vasudeva",
+      "vasudeva",
       "Rohini"
     ],
     "spouses": [
@@ -1372,7 +1376,7 @@
     ],
     "allegiance": "pandava",
     "parents": [
-      "Vasudeva",
+      "vasudeva",
       "Rohini"
     ],
     "spouses": [
@@ -1745,11 +1749,11 @@
     "allegiance": "pandava",
     "parents": [],
     "spouses": [
-      "Sudeshna"
+      "sudeshna"
     ],
     "children": [
       "uttara",
-      "Uttar Kumar"
+      "uttara-kumara"
     ],
     "deathDay": 15,
     "firstParva": 4,
@@ -1770,7 +1774,7 @@
     "allegiance": "pandava",
     "parents": [
       "bhima",
-      "Hidimba"
+      "hidimbi"
     ],
     "spouses": [],
     "children": [],
@@ -1795,7 +1799,7 @@
       "Vriddhakshatra"
     ],
     "spouses": [
-      "Duhshala"
+      "duhshala"
     ],
     "children": [],
     "deathDay": 14,
@@ -1859,7 +1863,7 @@
     ],
     "allegiance": "neutral",
     "parents": [
-      "Hiranyadhanus"
+      "hiranyadhanus"
     ],
     "spouses": [],
     "children": [],
@@ -1887,7 +1891,7 @@
     ],
     "spouses": [],
     "children": [
-      "Janamejaya"
+      "janamejaya"
     ],
     "firstParva": 14,
     "bio": "Killed in the womb by Ashwatthama's brahmastra and revived by Krishna: the sole heir of the entire dynasty, whose grandson's snake sacrifice is where the whole epic is first recited.",

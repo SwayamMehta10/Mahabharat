@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ArtworkProvenance } from "@/data/schema";
-import { art, artworkLicenseLabel, journeyArt } from "@/lib/kb";
+import { art, artworkLicenseLabel, atlasScenePrompts, audioAssets, journeyArt } from "@/lib/kb";
 import promptsData from "@/data/art-prompts.json";
+import { atlasHeroPrompts } from "@/data/atlas-art";
 
 export const metadata = {
   title: "Credits & Visual Method | MAHABHARAT",
@@ -21,7 +22,7 @@ const PROVIDERS: Record<ArtworkProvenance["provider"], string> = {
 type CreditEntry = ArtworkProvenance & { title: string; year: string; position: string };
 
 function CreditCard({ assetId, entry, image, role }: { assetId: string; entry: CreditEntry; image: string; role: string }) {
-  const prompt = promptsData.assets.find((item) => item.id === entry.generation?.promptId);
+  const prompt = [...promptsData.assets, ...atlasHeroPrompts, ...atlasScenePrompts].find((item) => item.id === entry.generation?.promptId);
   return (
     <li id={assetId} className="grid gap-5 border-t border-dotted border-ash/25 py-7 sm:grid-cols-[8rem_1fr]">
       <div className="relative aspect-[4/5] overflow-hidden bg-ink-soft">
@@ -65,6 +66,8 @@ function CreditCard({ assetId, entry, image, role }: { assetId: string; entry: C
 export default function CreditsPage() {
   const allEntries = [...Object.values(art), ...Object.values(journeyArt)];
   const aiCount = allEntries.filter((entry) => entry.origin === "ai-generated").length;
+  const journeyEntries = Object.entries(journeyArt).filter(([id]) => !id.startsWith("war-day-"));
+  const warEntries = Object.entries(journeyArt).filter(([id]) => id.startsWith("war-day-"));
 
   return (
     <main className="mx-auto min-h-dvh w-full max-w-4xl px-6 py-28">
@@ -85,20 +88,53 @@ export default function CreditsPage() {
 
       <section className="mt-16">
         <h2 className="ui-label mb-4 !text-gold">Primary portraits</h2>
-        <ul>
-          {Object.entries(art).map(([id, entry]) => (
+        <details open className="group border-t border-dotted border-ash/25">
+          <summary className="ui-label cursor-pointer py-5 marker:text-gold">{Object.keys(art).length} character heroes</summary>
+          <ul>{Object.entries(art).map(([id, entry]) => (
             <CreditCard key={id} assetId={`portrait-${id}`} entry={entry} image={entry.files?.thumb ?? `/art/${id}-thumb.webp`} role="Portrait" />
-          ))}
-        </ul>
+          ))}</ul>
+        </details>
       </section>
 
       <section className="mt-16">
         <h2 className="ui-label mb-4 !text-gold">Journey scenes</h2>
-        <ul>
-          {Object.entries(journeyArt).map(([id, entry]) => (
+        <details className="group border-t border-dotted border-ash/25">
+          <summary className="ui-label cursor-pointer py-5 marker:text-gold">{journeyEntries.length} curated and generated scenes</summary>
+          <ul>{journeyEntries.map(([id, entry]) => (
             <CreditCard key={id} assetId={id} entry={entry} image={entry.files?.thumb ?? entry.files?.full ?? `/art/journey/${id}.webp`} role={entry.role === "portrait" ? "Portrait study" : entry.role === "event" ? "Shared event" : "Journey scene"} />
-          ))}
-        </ul>
+          ))}</ul>
+        </details>
+      </section>
+
+      <section className="mt-16">
+        <h2 className="ui-label mb-4 !text-gold">The eighteen days</h2>
+        <details className="group border-t border-dotted border-ash/25">
+          <summary className="ui-label cursor-pointer py-5 marker:text-gold">18 battlefield tableaux</summary>
+          <ul>{warEntries.map(([id, entry]) => (
+            <CreditCard key={id} assetId={id} entry={entry} image={entry.files?.full ?? `/art/journey/${id}.webp`} role="War day" />
+          ))}</ul>
+        </details>
+      </section>
+
+      <section className="mt-16">
+        <h2 className="ui-label mb-4 !text-gold">Recorded sound</h2>
+        <details className="group border-t border-dotted border-ash/25">
+          <summary className="ui-label cursor-pointer py-5 marker:text-gold">{audioAssets.length} CC0 field and instrument recordings</summary>
+          <ul>{audioAssets.map((entry) => (
+            <li key={entry.id} className="border-t border-dotted border-ash/25 py-7">
+              <div className="flex flex-wrap items-baseline justify-between gap-3">
+                <h3 className="font-display text-2xl capitalize text-bone">{entry.kind}</h3>
+                <span className="ui-label">{entry.loop ? "Loop" : "One-shot"}</span>
+              </div>
+              <p className="font-display mt-2 text-lg text-ash">
+                {entry.credit.author ?? entry.credit.source} · {entry.credit.license}
+              </p>
+              <a className="ui-label mt-3 inline-block underline decoration-dotted underline-offset-4 hover:text-bone" href={entry.credit.url} target="_blank" rel="noopener noreferrer">
+                View source and license
+              </a>
+            </li>
+          ))}</ul>
+        </details>
       </section>
 
       <section className="mt-16 border-t border-dotted border-ash/25 pt-8">

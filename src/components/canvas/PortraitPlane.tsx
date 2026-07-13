@@ -101,8 +101,8 @@ const fragmentShader = /* glsl */ `
 const textureCache = new Map<string, THREE.Texture>();
 const loader = new THREE.TextureLoader();
 
-/** Warm the texture cache ahead of a crossfade (journey pages preload
- *  every chapter's painting on mount so scroll swaps never stall). */
+/** Warm a texture immediately before a crossfade. Callers restrict this to
+ *  the active and next spoiler-visible tableau. */
 export function preloadPortrait(url: string): void {
   loadTexture(url, () => {});
 }

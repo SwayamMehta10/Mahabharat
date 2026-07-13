@@ -48,6 +48,8 @@ function CharacterCard({ c, revealed }: { c: Character; revealed: boolean }) {
           <img
             src={painting.thumb}
             alt=""
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
             style={{ filter: "grayscale(0.2) sepia(0.12) contrast(1.04) brightness(0.78)" }}
           />

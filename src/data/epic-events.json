@@ -44,5 +44,35 @@
         "threadIds": ["kunti-secret"]
       }
     ]
+  },
+  {
+    "id": "dice-hall",
+    "title": "The Question in the Hall",
+    "deva": "द्यूतसभा",
+    "parva": 2,
+    "summary": "A loaded game turns sovereignty into ownership, until Draupadi asks whether a man who has already lost himself can still wager another person.",
+    "perspectives": [
+      { "characterId": "draupadi", "heading": "The question no elder will answer", "text": "Dragged into the assembly and treated as property, Draupadi refuses the frame of humiliation. She makes the court decide whether Yudhishthira had any legal self left from which to stake her.", "citations": ["Sabha Parva §60–69"], "threadIds": ["dice-hall-vows", "bhishma-vow"] },
+      { "characterId": "yudhishthira", "heading": "A king bound to the game he accepted", "text": "He recognizes the dice as crooked and continues because royal invitation, pride, and fatal obedience converge. His silence leaves Draupadi to argue the law he has broken.", "citations": ["Sabha Parva §58–65"], "threadIds": ["dice-hall-vows"] },
+      { "characterId": "bhima", "heading": "The vows begin counting", "text": "Every restraint in Bhima becomes a future death. He names Dushasana's blood and Duryodhana's thigh, turning the hall into a ledger the war will settle literally.", "citations": ["Sabha Parva §68–72"], "threadIds": ["dice-hall-vows"] },
+      { "characterId": "vikarna", "heading": "A Kaurava objects", "text": "Vikarna alone among Dhritarashtra's sons accepts the force of Draupadi's reasoning and asks the assembly to declare the wager invalid.", "citations": ["Sabha Parva §68"], "threadIds": ["dice-hall-vows"] },
+      { "characterId": "dhritarashtra", "heading": "Fear repairs what justice did not", "text": "The blind king waits until omens and the threat to his house become unmistakable, then grants Draupadi boons that restore freedom without judging the crime.", "citations": ["Sabha Parva §71–72"], "threadIds": ["dice-hall-vows", "duryodhana-debt"] }
+    ]
+  },
+  {
+    "id": "night-raid",
+    "title": "The Night After Victory",
+    "deva": "सौप्तिकरात्रि",
+    "parva": 10,
+    "day": 18,
+    "summary": "An owl among sleeping crows gives Ashwatthama the method by which the defeated side empties the victors' camp after the war has formally ended.",
+    "image": "ashwatthama-owl-omen",
+    "perspectives": [
+      { "characterId": "ashwatthama", "heading": "Grief chooses its example", "text": "His father is dead by deception and Duryodhana lies broken. The owl's attack on sleeping crows becomes permission to abandon the remaining laws of combat.", "citations": ["Sauptika Parva §1–4"], "threadIds": ["drona-promise", "abhimanyu-debt"] },
+      { "characterId": "kripa", "heading": "Counsel gives way to complicity", "text": "Kripa argues for daylight battle. When Ashwatthama refuses, the old teacher rides with him and guards the exits.", "citations": ["Sauptika Parva §2–5"], "threadIds": ["drona-promise"] },
+      { "characterId": "kritavarma", "heading": "The surviving commander at the gate", "text": "Kritavarma has survived eighteen days only to spend the victory night preventing sleepers from escaping the camp Ashwatthama has entered.", "citations": ["Sauptika Parva §5–8"], "threadIds": ["abhimanyu-debt"] },
+      { "characterId": "draupadi", "heading": "Five sons after five husbands return", "text": "The brothers survive and the sons do not. Draupadi receives a victory stripped of succession and asks for the gem from Ashwatthama's head as proof that grief has been answered.", "citations": ["Sauptika Parva §10–16"], "threadIds": ["dice-hall-vows", "abhimanyu-debt"] },
+      { "characterId": "krishna", "heading": "The final weapon is turned toward the future", "text": "Krishna stops the reciprocal celestial weapons, then preserves the child in Uttara's womb when Ashwatthama redirects destruction toward the sole heir.", "citations": ["Sauptika Parva §13–16", "Ashvamedhika Parva §68–70"], "threadIds": ["gandhari-curse", "abhimanyu-debt"] }
+    ]
   }
 ]

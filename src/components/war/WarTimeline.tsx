@@ -61,15 +61,14 @@ export default function WarTimeline() {
       if (d.art) current = toPortraitRequest(d.art, TABLEAU_STRENGTH);
       portraitForDay.set(d.day, current);
     }
-    if (!reduced) {
-      const seen = new Set<string>();
-      for (const p of portraitForDay.values()) {
-        if (p && !seen.has(p.url)) {
-          seen.add(p.url);
-          preloadPortrait(p.url);
-        }
-      }
-    }
+    const warmDay = (day: number) => {
+      if (reduced) return;
+      const currentPortrait = portraitForDay.get(day);
+      const nextPortrait = portraitForDay.get(day + 1);
+      if (currentPortrait) preloadPortrait(currentPortrait.url);
+      if (nextPortrait && nextPortrait.url !== currentPortrait?.url) preloadPortrait(nextPortrait.url);
+    };
+    if (visibleDays[0]) warmDay(visibleDays[0].day);
 
     const ctx = gsap.context(() => {
       // the spine draws itself as you descend
@@ -108,6 +107,7 @@ export default function WarTimeline() {
         if (!Number.isFinite(day) || !el.id) return;
         const arrive = () => {
           setActiveDay(day);
+          warmDay(day);
           if (!reduced) atmosphere.portrait = portraitForDay.get(day) ?? null;
         };
         ScrollTrigger.create({
