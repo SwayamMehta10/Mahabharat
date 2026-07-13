@@ -77,7 +77,7 @@ export const smokeFragment = /* glsl */ `
     float wisp = smoothstep(0.42, 0.78, f);
     float fine = smoothstep(0.55, 0.95, fbm(p * 3.0 + r * 2.0 + t * 1.4)) * 0.35;
 
-    vec3 void_c   = vec3(0.020, 0.024, 0.039); // #05060a
+    vec3 void_c   = vec3(0.035, 0.043, 0.071); // #090b12
     vec3 indigo_c = vec3(0.075, 0.102, 0.200); // #131a33
     vec3 dusk_c   = vec3(0.137, 0.173, 0.306); // #232c4e
 

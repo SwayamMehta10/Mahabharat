@@ -753,3 +753,21 @@ citations; where the text names no counter-array the label stays honest
 and missing host names. Verified in a real browser this time: all 18 days
 clicked through Playwright with zero console errors, and days 1, 3, 5, 13,
 14, and 15 screenshot-confirmed as distinct facing formations.
+
+### The cinematic pass (committed alongside)
+
+A parallel session lifted the site out of the crush: the void palette rose
+from #05060a to #090b12, the portrait shader now runs at 1.08 exposure with
+most of its desaturation and indigo wash removed, tableaux climbed from 0.45
+to 0.78 strength, and the vignette thinned. Legibility moved from global
+dimming to local ink: an `.ink-wash` gradient sits only behind reading
+columns, `.reading-ink` puts a blurred wash behind each alternating war-day
+block, and `painting-readable`/`cinematic-control` add text shadows to type
+that floats over paint. Reviewed in a real browser across desktop and mobile
+widths on /who, /who/karna, /war, /war/strategy, /parvas, /drishti, and
+/family-tree; the one fix the review demanded was a stronger mobile
+`.reading-ink` wash, where day text sits centered over the brightest part of
+the paintings. One environment lesson: a stale Turbopack persistent cache
+(.next/dev) can serve a globals.css chunk that silently lacks newly added
+rules; when styles are missing that exist on disk, clear the dev cache
+before debugging the CSS itself.

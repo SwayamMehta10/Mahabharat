@@ -11,7 +11,7 @@ interface PersonView {
   id: string;
   name: string;
   deva: string;
-  image?: { url: string; focalX: number; focalY: number };
+  image?: { url: string; focalX: number; focalY: number; exposure?: number };
 }
 
 export default function DrishtiExperience({ event, people, threads }: { event: EpicEvent; people: PersonView[]; threads: CausalThread[] }) {
@@ -52,7 +52,8 @@ export default function DrishtiExperience({ event, people, threads }: { event: E
   const activeThreads = threads.filter((thread) => perspective.threadIds.includes(thread.id));
 
   return (
-    <main className="relative mx-auto min-h-dvh w-full max-w-5xl px-6 pb-28 pt-28">
+    <main className="painting-readable relative mx-auto min-h-dvh w-full max-w-5xl px-6 pb-28 pt-28">
+      <div aria-hidden className="ink-wash" />
       <p className="ui-label !text-gold">Drishti · one event, many truths</p>
       <h1 className="font-display mt-4 text-5xl font-light text-bone sm:text-6xl">{event.title}</h1>
       <p className="font-deva mt-2 text-2xl text-gold/70">{event.deva}</p>
@@ -66,7 +67,7 @@ export default function DrishtiExperience({ event, people, threads }: { event: E
         ))}
       </nav>
 
-      <section key={activeId} className="mt-16 max-w-2xl border-l border-gold/35 pl-6 sm:pl-10">
+      <section key={activeId} className="reading-ink relative mt-16 max-w-2xl border-l border-gold/35 pl-6 sm:pl-10">
         <p className="font-deva text-xl text-gold/70">{person?.deva}</p>
         <h2 className="font-display mt-2 text-3xl font-light italic text-bone">{perspective.heading}</h2>
         <p className="font-display mt-6 text-2xl leading-relaxed text-bone/85">{perspective.text}</p>

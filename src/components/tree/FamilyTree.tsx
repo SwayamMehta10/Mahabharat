@@ -232,10 +232,10 @@ export default function FamilyTree() {
                       className="absolute inset-0 h-full w-full object-cover opacity-90"
                       style={{
                         filter:
-                          "grayscale(0.2) sepia(0.12) contrast(1.04) brightness(0.78)",
+                          "grayscale(0.12) sepia(0.10) contrast(1.04) brightness(0.98) saturate(0.98)",
                       }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-void/95 via-transparent to-void/30" />
+                    <div className="absolute inset-x-0 bottom-0 h-[52%] bg-gradient-to-t from-void/95 via-void/45 to-transparent" />
                     <span className="ui-label relative mt-auto pb-1.5 !text-[0.75rem] !tracking-[0.13em] !text-bone">
                       {c.name}
                     </span>
@@ -257,7 +257,7 @@ export default function FamilyTree() {
       </div>
 
       {/* HUD, pushed below the fixed chrome (menu glyph / chakra icon) */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-start justify-between px-6 pb-6 pt-16">
+      <div className="cinematic-control pointer-events-none absolute inset-x-0 top-0 z-20 flex items-start justify-between px-6 pb-6 pt-16">
         <div>
           <h1 className="font-display text-2xl font-light tracking-[0.2em] text-bone">
             THE KURU LINE
@@ -276,12 +276,12 @@ export default function FamilyTree() {
           <span className="ui-label"><span className="text-ash">●</span> Unaligned</span>
         </div>
       </div>
-      <p className="ui-label pointer-events-none absolute inset-x-0 bottom-5 z-20 text-center">
+      <p className="cinematic-control ui-label pointer-events-none absolute inset-x-0 bottom-5 z-20 text-center">
         Drag to wander · Scroll to draw near
       </p>
       <a
         href="/war"
-        className="ui-label absolute bottom-5 right-6 z-20 transition-colors hover:text-vermillion"
+        className="cinematic-control ui-label absolute bottom-5 right-6 z-20 transition-colors hover:text-vermillion"
       >
         The Eighteen Days →
       </a>

@@ -191,7 +191,7 @@ export default function GitaExperience() {
             className="pointer-events-none absolute left-1/2 top-1/2 h-[34rem] w-[54rem] max-w-[120vw] -translate-x-1/2 -translate-y-1/2"
             style={{
               background:
-                "radial-gradient(closest-side, rgba(5,6,10,0.9) 0%, rgba(5,6,10,0.55) 45%, transparent 72%)",
+                "radial-gradient(closest-side, rgba(9,11,18,0.9) 0%, rgba(9,11,18,0.55) 45%, transparent 72%)",
             }}
           />
           <div ref={thousandSunsRef} className="relative flex flex-col items-center gap-7">

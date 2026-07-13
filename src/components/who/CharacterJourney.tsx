@@ -138,7 +138,7 @@ export default function CharacterJourney({ chapters, images, defaultImage }: Cha
       {visible.length > 1 && (
         <nav
           aria-label="Journey chapters"
-          className="fixed right-5 top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-4 md:flex"
+          className="cinematic-control fixed right-5 top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-4 md:flex"
         >
           {visible.map((ch, i) => (
             <button
@@ -173,9 +173,10 @@ export default function CharacterJourney({ chapters, images, defaultImage }: Cha
           <section
             key={i}
             data-chapter={i}
-            className="relative flex min-h-dvh flex-col justify-center px-6 py-24"
+            className="painting-readable relative flex min-h-dvh flex-col justify-center px-6 py-24"
           >
-            <div data-chapter-body className="mx-auto w-full max-w-3xl">
+            <div aria-hidden className="ink-wash" />
+            <div data-chapter-body className="relative z-10 mx-auto w-full max-w-3xl">
               <p className="ui-label mb-4 !text-gold-dim">
                 {parva.name} · <span className="font-deva">{toDevanagariNumeral(ch.parva)}</span>
               </p>
@@ -191,7 +192,7 @@ export default function CharacterJourney({ chapters, images, defaultImage }: Cha
                   className="mb-8 hidden max-h-72 w-full rounded-sm object-cover motion-reduce:block"
                   style={{
                     objectPosition: `${img.focalX * 100}% ${img.focalY * 100}%`,
-                    filter: `grayscale(0.15) sepia(0.10) contrast(1.04) brightness(${(0.9 * (img.exposure ?? 1)).toFixed(2)})`,
+                    filter: `grayscale(0.05) sepia(0.08) contrast(1.04) brightness(${(1.08 * (img.exposure ?? 1)).toFixed(2)}) saturate(0.98)`,
                   }}
                 />
               )}

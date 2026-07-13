@@ -139,15 +139,11 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
               className="absolute inset-0 hidden h-full w-full object-cover motion-reduce:block"
               style={{
                 objectPosition: painting.position,
-                filter: `grayscale(0.15) sepia(0.10) contrast(1.04) brightness(${(0.9 * (painting.exposure ?? 1)).toFixed(2)}) saturate(0.92)`,
+                filter: `grayscale(0.05) sepia(0.08) contrast(1.04) brightness(${(1.08 * (painting.exposure ?? 1)).toFixed(2)}) saturate(0.98)`,
               }}
             />
           )}
-          {/* a localized scrim carries text legibility; the painting itself
-             stays present to the top and right edges of the frame */}
-          <div className="absolute inset-0 bg-gradient-to-r from-void from-8% via-void/70 via-50% to-transparent to-82%" />
-          <div className="absolute inset-0 bg-gradient-to-t from-void/85 to-45% to-transparent" />
-          <div className="absolute inset-0 bg-indigo-deep/8 mix-blend-multiply" />
+          <div className="ink-wash" />
         </div>
       ) : (
         /* no painting yet - the Devanagari watermark stands in */
@@ -159,7 +155,7 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
         </div>
       )}
 
-      <div className="relative z-10 mx-auto flex min-h-dvh max-w-4xl flex-col justify-center gap-10 px-6 py-24">
+      <div className="painting-readable relative z-10 mx-auto flex min-h-dvh max-w-4xl flex-col justify-center gap-10 px-6 py-24">
         <div>
           <Link
             href="/who"
@@ -262,7 +258,7 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
           </div>
           <Link
             href="/family-tree"
-            className="ui-label shrink-0 transition-colors hover:text-bone [text-shadow:0_1px_10px_rgba(5,6,10,0.95),0_0_3px_rgba(5,6,10,0.9)]"
+            className="ui-label shrink-0 transition-colors hover:text-bone [text-shadow:0_1px_10px_rgba(9,11,18,0.95),0_0_3px_rgba(9,11,18,0.9)]"
           >
             ← The Kuru Line
           </Link>

@@ -178,7 +178,7 @@ export default function WarTimeline() {
   }, [visibleDays.length]);
 
   return (
-    <div ref={rootRef} className="relative">
+    <div ref={rootRef} className="painting-readable relative">
       {/* hero */}
       <section className="flex min-h-dvh flex-col items-center justify-center gap-8 px-6 text-center">
         <p className="ui-label">Bhishma Parva · Drona Parva · Karna Parva · Shalya Parva</p>
@@ -203,7 +203,7 @@ export default function WarTimeline() {
       {visibleDays.length > 1 && (
         <nav
           aria-label="War days"
-          className="fixed right-4 top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-2 md:flex"
+          className="cinematic-control fixed right-4 top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-2 md:flex"
         >
           {visibleDays.map((d) => (
             <a
@@ -269,7 +269,7 @@ export default function WarTimeline() {
                 {toDevanagariNumeral(d.day)}
               </span>
 
-              <div className="relative">
+              <div className="reading-ink relative">
                 <p className="ui-label mb-3">Day {d.day}</p>
                 <h2 className="font-display mb-2 text-3xl font-light italic text-bone">
                   {d.title}
@@ -288,7 +288,7 @@ export default function WarTimeline() {
                     className="mb-6 hidden max-h-64 w-full rounded-sm object-cover motion-reduce:block"
                     style={{
                       objectPosition: tableau.position,
-                      filter: `grayscale(0.15) sepia(0.10) contrast(1.04) brightness(${(0.9 * (tableau.exposure ?? 1)).toFixed(2)})`,
+                      filter: `grayscale(0.05) sepia(0.08) contrast(1.04) brightness(${(1.08 * (tableau.exposure ?? 1)).toFixed(2)}) saturate(0.98)`,
                     }}
                   />
                 )}

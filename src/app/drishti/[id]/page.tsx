@@ -14,7 +14,7 @@ export default async function DrishtiPage({ params }: { params: Promise<{ id: st
     const character = charactersById.get(perspective.characterId)!;
     const art = getArt(character.id);
     const [focalX = 0.5, focalY = 0.3] = art?.position.split(" ").map((value) => (parseFloat(value) || 50) / 100) ?? [];
-    return { id: character.id, name: character.name, deva: character.deva, image: art ? { url: art.file, focalX, focalY } : undefined };
+    return { id: character.id, name: character.name, deva: character.deva, image: art ? { url: art.file, focalX, focalY, exposure: art.exposure } : undefined };
   });
   return <DrishtiExperience event={event} people={people} threads={causalThreads} />;
 }

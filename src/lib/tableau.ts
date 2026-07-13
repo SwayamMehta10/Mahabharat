@@ -3,7 +3,7 @@ import type { atmosphere } from "@/lib/atmosphere";
 
 /** How present the war and parva tableaux are: atmosphere behind the
  *  reading column, not the full-strength treatment the journeys use. */
-export const TABLEAU_STRENGTH = 0.45;
+export const TABLEAU_STRENGTH = 0.78;
 
 /** Resolve an approved journey-art id into an atmosphere.portrait request. */
 export function toPortraitRequest(

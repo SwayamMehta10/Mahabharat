@@ -33,7 +33,7 @@ export default function CanvasRoot() {
         className="fixed inset-0 z-0"
         style={{
           background:
-            "radial-gradient(ellipse 90% 70% at 50% 40%, #0a0d16 0%, #05060a 70%)",
+            "radial-gradient(ellipse 90% 70% at 50% 40%, #101522 0%, #090b12 70%)",
         }}
       />
     );

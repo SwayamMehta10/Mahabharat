@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  /* The void — near-black indigo, the night before the war */
-  --color-void: #05060a;
-  --color-abyss: #0a0d16;
+  /* The void — lifted indigo-black, still night but no longer crushed */
+  --color-void: #090b12;
+  --color-abyss: #101522;
   --color-indigo-deep: #131a33;
   --color-indigo-dusk: #232c4e;
 
@@ -55,7 +55,7 @@ body {
   height: 200%;
   pointer-events: none;
   z-index: 40;
-  opacity: 0.045;
+  opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   animation: grain-shift 0.9s steps(4) infinite;
 }
@@ -74,7 +74,7 @@ body {
   pointer-events: none;
   z-index: 41;
   background:
-    radial-gradient(ellipse 120% 90% at 50% 45%, transparent 55%, rgba(3, 4, 7, 0.55) 100%);
+    radial-gradient(ellipse 120% 90% at 50% 45%, transparent 55%, rgba(3, 4, 7, 0.28) 100%);
 }
 
 /* the Gita moment: when time stops, even the film grain holds its breath */
@@ -102,6 +102,66 @@ input[type="search"]::-webkit-search-cancel-button {
   letter-spacing: var(--tracking-wide-ui);
   text-transform: uppercase;
   color: var(--color-ash);
+  text-shadow: 0 1px 8px rgba(9, 11, 18, 0.72);
+}
+
+/* Localized readability for full-bleed paintings. The wash is dense only
+   behind the reading column and dissolves before it reaches the subject. */
+.ink-wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 54% 72% at 22% 46%, rgba(9, 11, 18, 0.58) 0%, rgba(9, 11, 18, 0.34) 48%, transparent 78%),
+    linear-gradient(90deg, rgba(9, 11, 18, 0.94) 0%, rgba(9, 11, 18, 0.88) 24%, rgba(9, 11, 18, 0.64) 43%, rgba(9, 11, 18, 0.18) 60%, transparent 74%);
+}
+
+.painting-readable .font-display,
+.painting-readable .font-deva {
+  text-shadow: 0 2px 14px rgba(9, 11, 18, 0.86), 0 1px 3px rgba(9, 11, 18, 0.96);
+}
+
+.painting-readable {
+  isolation: isolate;
+}
+
+.painting-readable > .ink-wash {
+  z-index: -1;
+}
+
+.painting-readable .ui-label,
+.cinematic-control {
+  text-shadow: 0 1px 10px rgba(9, 11, 18, 0.92), 0 0 3px rgba(9, 11, 18, 0.94);
+  filter: drop-shadow(0 1px 5px rgba(9, 11, 18, 0.78));
+}
+
+/* Alternating timeline columns need a wash that follows each text block
+   instead of dimming the full field. */
+.reading-ink {
+  isolation: isolate;
+}
+
+.reading-ink::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -2rem -2.5rem;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 45% 48%, rgba(9, 11, 18, 0.86) 0%, rgba(9, 11, 18, 0.68) 48%, rgba(9, 11, 18, 0.2) 72%, transparent 84%);
+  filter: blur(10px);
+}
+
+@media (max-width: 639px) {
+  .ink-wash {
+    background:
+      radial-gradient(ellipse 82% 70% at 32% 46%, rgba(9, 11, 18, 0.64) 0%, rgba(9, 11, 18, 0.42) 55%, transparent 88%),
+      linear-gradient(90deg, rgba(9, 11, 18, 0.9) 0%, rgba(9, 11, 18, 0.8) 56%, rgba(9, 11, 18, 0.48) 78%, rgba(9, 11, 18, 0.08) 96%, transparent 100%);
+  }
+
+  .reading-ink::before {
+    inset: -1.75rem -1.5rem;
+    background: radial-gradient(ellipse at 45% 48%, rgba(9, 11, 18, 0.95) 0%, rgba(9, 11, 18, 0.82) 55%, rgba(9, 11, 18, 0.38) 80%, transparent 95%);
+  }
 }
 
 /* ————— scroll cue: a gold drop falling down a dotted line ————— */
@@ -118,6 +178,7 @@ input[type="search"]::-webkit-search-cancel-button {
   gap: 0.5rem;
   pointer-events: none;
   transition: opacity 0.8s ease;
+  filter: drop-shadow(0 1px 5px rgba(9, 11, 18, 0.78));
 }
 
 .scroll-cue-line {

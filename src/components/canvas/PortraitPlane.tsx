@@ -85,11 +85,11 @@ const fragmentShader = /* glsl */ `
 
     // the grade, same intent as the CSS treatment, computed per-pixel
     float g = dot(c, vec3(0.299, 0.587, 0.114));
-    c = mix(vec3(g), c, 0.85);            // desaturate, gently
+    c = mix(vec3(g), c, 0.95);            // preserve the source color
     c *= vec3(1.05, 0.99, 0.90);          // lean warm
-    c *= 0.90 * uExposure;                // into the dusk, not the dark
+    c *= 1.08 * uExposure;                // luminous dusk, manifest-adjustable
     vec3 indigo = vec3(0.075, 0.102, 0.200);
-    c = mix(c, c * indigo * 4.2, 0.10);   // indigo wash in the shadows
+    c = mix(c, c * indigo * 4.2, 0.04);   // a trace of indigo in the shadows
 
     // full-bleed dissolve: the painting never shows an edge; it fades
     // into the void under the text column instead of stopping at one
@@ -137,7 +137,7 @@ export default function PortraitPlane() {
       uPlaneAspect: { value: 1 },
       uTexAspect: { value: 1 },
       uFocal: { value: new THREE.Vector2(0.5, 0.3) },
-      uFadeX: { value: 0.45 },
+      uFadeX: { value: 0.22 },
       uExposure: { value: 1 },
     }),
     []
@@ -202,7 +202,7 @@ export default function PortraitPlane() {
     // on small screens the text runs full width, so fade less territory;
     // legibility over the text column is the DOM scrim's job, not the
     // shader's, so the dissolve stays short and the painting stays present
-    mat.uniforms.uFadeX.value = size.width < 640 ? 0.3 : 0.34;
+    mat.uniforms.uFadeX.value = size.width < 640 ? 0.18 : 0.22;
     // world units scale linearly with pixels, so world w/h IS the pixel aspect
     mat.uniforms.uPlaneAspect.value = w / h;
 

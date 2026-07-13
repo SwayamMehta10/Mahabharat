@@ -51,9 +51,9 @@ function CharacterCard({ c, revealed }: { c: Character; revealed: boolean }) {
             loading="lazy"
             decoding="async"
             className="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
-            style={{ filter: "grayscale(0.2) sepia(0.12) contrast(1.04) brightness(0.78)" }}
+            style={{ filter: "grayscale(0.12) sepia(0.10) contrast(1.04) brightness(0.98) saturate(0.98)" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-[44%] bg-gradient-to-t from-void/95 via-void/55 to-transparent" />
         </>
       ) : (
         <span

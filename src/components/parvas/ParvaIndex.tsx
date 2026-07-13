@@ -83,11 +83,12 @@ export default function ParvaIndex() {
   }, [knownParva]);
 
   return (
-    <div ref={rootRef} className="mx-auto w-full max-w-4xl px-6 pb-32 pt-28">
+    <div ref={rootRef} className="painting-readable relative mx-auto w-full max-w-4xl px-6 pb-32 pt-28">
+      <div aria-hidden className="ink-wash" />
       {/* the parva rail: jump to any book */}
       <nav
         aria-label="Parvas"
-        className="fixed right-4 top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-2 md:flex"
+        className="cinematic-control fixed right-4 top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-2 md:flex"
       >
         {parvas.map((p) => (
           <a
@@ -172,7 +173,7 @@ export default function ParvaIndex() {
                         className="mt-5 hidden max-h-64 w-full max-w-2xl rounded-sm object-cover motion-reduce:block"
                         style={{
                           objectPosition: tableau.position,
-                          filter: `grayscale(0.15) sepia(0.10) contrast(1.04) brightness(${(0.9 * (tableau.exposure ?? 1)).toFixed(2)})`,
+                          filter: `grayscale(0.05) sepia(0.08) contrast(1.04) brightness(${(1.08 * (tableau.exposure ?? 1)).toFixed(2)}) saturate(0.98)`,
                         }}
                       />
                     )}

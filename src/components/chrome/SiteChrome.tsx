@@ -182,7 +182,7 @@ export default function SiteChrome() {
     <>
       <ScrollCue key={pathname} />
       {/* fixed chrome */}
-      <header className="pointer-events-none fixed inset-x-0 top-0 z-30 flex items-center justify-between p-5">
+      <header className="cinematic-control pointer-events-none fixed inset-x-0 top-0 z-30 flex items-center justify-between p-5">
         <button
           ref={menuButtonRef}
           onClick={openMenu}
