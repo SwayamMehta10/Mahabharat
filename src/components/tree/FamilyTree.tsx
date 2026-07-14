@@ -256,8 +256,14 @@ export default function FamilyTree() {
         })}
       </div>
 
-      {/* HUD, pushed below the fixed chrome (menu glyph / chakra icon) */}
-      <div className="cinematic-control pointer-events-none absolute inset-x-0 top-0 z-20 flex items-start justify-between px-6 pb-6 pt-16">
+      {/* readability scrims: the canvas is busy with paintings, so the HUD
+          needs its own darkening behind the text (below the HUD, above world) */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-72 bg-gradient-to-b from-void/92 via-void/60 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-28 bg-gradient-to-t from-void/85 to-transparent" />
+
+      {/* HUD, pushed below the fixed chrome (menu glyph / chakra icon).
+          Mobile stacks the legend under the title; sm+ keeps the two columns. */}
+      <div className="cinematic-control pointer-events-none absolute inset-x-0 top-0 z-20 flex flex-col gap-4 px-5 pb-6 pt-16 sm:flex-row sm:items-start sm:justify-between sm:px-6">
         <div>
           <h1 className="font-display text-2xl font-light tracking-[0.2em] text-bone">
             THE KURU LINE
@@ -269,19 +275,21 @@ export default function FamilyTree() {
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-end gap-1.5 text-right">
+        <div className="flex flex-wrap gap-x-3 gap-y-1 sm:flex-col sm:items-end sm:gap-1.5 sm:text-right">
           <span className="ui-label"><span className="text-gold">●</span> Pandava</span>
           <span className="ui-label"><span className="text-vermillion">●</span> Kaurava</span>
           <span className="ui-label"><span className="text-gold-bright">●</span> Divine</span>
           <span className="ui-label"><span className="text-ash">●</span> Unaligned</span>
         </div>
       </div>
-      <p className="cinematic-control ui-label pointer-events-none absolute inset-x-0 bottom-5 z-20 text-center">
+      {/* mobile: caption sits above the link so they never overprint;
+          sm+: caption centered at bottom, link pinned bottom-right (unchanged) */}
+      <p className="cinematic-control ui-label pointer-events-none absolute inset-x-0 bottom-14 z-20 text-center sm:bottom-5">
         Drag to wander · Scroll to draw near
       </p>
       <a
         href="/war"
-        className="cinematic-control ui-label absolute bottom-5 right-6 z-20 transition-colors hover:text-vermillion"
+        className="cinematic-control ui-label absolute bottom-5 left-1/2 z-20 -translate-x-1/2 transition-colors hover:text-vermillion sm:left-auto sm:right-6 sm:translate-x-0"
       >
         The Eighteen Days →
       </a>
