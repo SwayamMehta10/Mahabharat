@@ -5,7 +5,7 @@ import Link from "next/link";
 import { selectAccessibleParva, useEpicStore } from "@/lib/store";
 import type { CausalThread } from "@/data/schema";
 
-export default function CausalThreads({ threads, names }: { threads: CausalThread[]; names: Record<string, string> }) {
+export default function CausalThreads({ threads, names, events }: { threads: CausalThread[]; names: Record<string, string>; events: Record<string, string> }) {
   const accessibleParva = useEpicStore(selectAccessibleParva);
   const [selected, setSelected] = useState("");
   // a thread stays veiled until its last consequence is within the
@@ -48,7 +48,14 @@ export default function CausalThreads({ threads, names }: { threads: CausalThrea
         <div className="mt-8 flex flex-wrap gap-2">
           {active.characterIds.map((id) => <Link key={id} href={`/who/${id}`} className="ui-label border border-dotted border-ash/30 px-3 py-2 hover:border-gold/50 hover:text-bone">{names[id] ?? id}</Link>)}
         </div>
-        {active.eventIds.map((id) => <Link key={id} href={`/drishti/${id}`} className="ui-label mt-6 block underline decoration-dotted underline-offset-4 hover:text-gold">Enter the shared event →</Link>)}
+        {active.eventIds.length > 0 && (
+          <div className="mt-8">
+            <p className="ui-label !text-vermillion">{active.eventIds.length === 1 ? "Shared event" : "Shared events"}</p>
+            <div className="mt-3 flex flex-col gap-2">
+              {active.eventIds.map((id) => <Link key={id} href={`/drishti/${id}`} className="ui-label underline decoration-dotted underline-offset-4 hover:text-gold">{events[id] ?? id} →</Link>)}
+            </div>
+          </div>
+        )}
         <p className="ui-label mt-8 !normal-case !text-ash/60">{active.citations.join(" · ")} · K.M. Ganguli tr.</p>
       </section>
     </div>
