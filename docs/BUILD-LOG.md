@@ -771,3 +771,121 @@ the paintings. One environment lesson: a stale Turbopack persistent cache
 (.next/dev) can serve a globals.css chunk that silently lacks newly added
 rules; when styles are missing that exist on disk, clear the dev cache
 before debugging the CSS itself.
+
+---
+
+## Session 16 - A trailer of the real thing (2026-07-13)
+
+### The decision: capture the site, don't re-create it
+
+The goal was a "banger" ~45s demo video for X. The tempting path — rebuild the
+smoke shader, the particle wheel, and the vyuha arrays inside Remotion as
+motion graphics — was rejected. The whole pitch of this site is that the
+motion is *live*: a GLSL smoke canvas, 16,000 scrubbed particles, Lenis-eased
+scroll. A trailer *about* those effects would be weaker than a trailer *of*
+them. So the pipeline captures the actual deployed site and only adds the
+editorial layer — captions, cuts, a closing card — in Remotion. Everything
+lives in an isolated `demo-video/` package so the site's dependency tree is
+never touched.
+
+### Capturing a 1080p site on an 864p desktop
+
+First captures looked wrong — content sat off-center, clipped. The cause was
+physical: the laptop's logical desktop is 1536×864 (a 1080p panel at 125%
+scaling), so a *headed* Chromium window can never actually be 1920×1080. The
+browser emulates the larger viewport but only shows a clipped corner, and
+headed GPU compositing of an off-window region is unreliable. The fix was to
+render fully offscreen in **new-headless** (`channel: "chromium"`, GPU via
+ANGLE d3d11) at a true 1920×1080 — framing then stops depending on the display
+at all. `page.screencast` (Playwright 1.59+) records one webm per scene.
+
+Two other capture lessons. **Seed the store**: a fresh browser defaults to
+`experienceMode: null`, which renders the family tree and vyuhas as locked "?"
+placeholders — an `addInitScript` writing the "open" envelope to the
+`mahabharat-progress` localStorage key reveals the whole atlas. **Never
+`scrollTo`**: Lenis owns the scroll, so the driver sends real `mouse.wheel`
+ticks and lets the site's own lerp(0.12) turn discrete steps into cinematic
+glide; the first pass raced through all 18 war days because the deltas were
+too large. Network latency to the deployed site also made scripted clicks land
+later than nominal, which shifted the chakravyuha several seconds into the
+strategy clip — caught by extracting frames and re-aligning the caption rather
+than trusting the timing math.
+
+### The composite
+
+Screencast webm is variable-frame-rate, so every clip is transcoded to CFR
+30fps H.264 (`ffmpeg-static`) before Remotion — frame-accurate trims depend on
+it. The cut is a `TransitionSeries` of eight shots driven by a single
+`config.ts` cut sheet (clip, trimBefore, duration, cut/fade, captions), opening
+on the wheel of fire as the hook and closing on a Remotion-drawn URL card.
+Captions use the site's own three faces via `@remotion/google-fonts` over a
+gradient scrim, so they read for muted autoplay (X's default) without
+competing with the site's own typography. Result: 42s, 1080p, ~29 MB — well
+inside X's limits. Verified the way everything else here is: by rendering and
+eyeballing extracted frames at every scene and transition, not by trusting the
+timeline. Music is left as a drop-in (`public/audio/music.mp3` + a
+`HAS_MUSIC` flag) so a licensed track never gets committed.
+
+---
+
+## Session 17 - The trailer becomes a film (2026-07-13)
+
+### The verdict on session 16: "it just looks like a screen recording"
+
+The captioned screen-capture cut was competent but not cinema. Every shot
+carried the site's chrome (the menu glyph, the corner chakra, "SCROLL" hints,
+nav tabs) and the captions sat in a lower-third scrim — the grammar of a
+tutorial, not a trailer. The one shot that sang was the full-frame fire-wheel,
+because it was pure imagery with no UI. That was the whole lesson: rebuild it as
+a **motion-graphics film**, ~70% procedural, zero browser UI in the cinematic
+act.
+
+The pivot exploited an asset the earlier plan undervalued: the repo already
+holds a stylistically-consistent library of ~337 painterly images (all 18
+war-day tableaux, event scenes, the whole cast) plus the site's own smoke and
+particle shaders. So the trailer needed no external AI video — it could be
+composed in Remotion from what the project already generates.
+
+### Everything is a function of the frame
+
+The site's `SanjayaEye` and `VishvarupaParticles` animate with
+`requestAnimationFrame` — wall-clock, non-deterministic, useless to a frame
+renderer. The rebuild ports the exact formation math (`vyuhaPoint`) into
+`lib/field.ts` as a pure function of a frame-derived time, drawn through a
+`delayRender`-gated canvas so the offline renderer never captures a half-drawn
+frame. The same discipline drives the ember fields, the clash of particle
+armies, the self-drawing dynasty, and the 18-spoke Kalachakra. The site's
+breathing-painting grade (`PortraitPlane.tsx`) is reproduced as a 2D
+camera-push-plus-grade for the four painting accents (Draupadi, Krishna, Karna,
+Bhishma), which are the *only* source images in the cinematic act.
+
+### The film has three acts, and the middle one shows the product
+
+A pure art-film would have failed the actual brief — this is a **launch video
+for a website someone built**. So the cut is deliberately three acts: Act 1 is
+the cinematic procedural world; Act 2 is a product reveal that opens the real
+site inside a minimal browser frame (address bar and all) before going
+full-bleed through a feature montage — here the UI that was poison in Act 1 is
+exactly what signals "this is an interactive site you can visit"; Act 3 is the
+title and URL. The 56s runtime is set by the user's supplied track, and the
+beat markers were placed against an FFmpeg RMS-envelope analysis of that track
+(it builds to a loud finale rather than dropping, so the title reveal lands on
+the loudest bars).
+
+### The render nearly didn't finish
+
+First full render crawled — each frame slower than the last — and died at frame
+631 on a 30s-per-frame timeout. The cause was canvas `shadowBlur`: gaussian-
+blurring 560 + 840 + 90 glowing particles every frame is murderously expensive
+and leaks. Replacing it with pre-rendered radial-gradient **glow sprites**
+(`lib/glow.ts`) drawn additively cut per-frame cost dramatically and removed the
+hang; reusing one offscreen buffer for grain/smoke instead of allocating a
+canvas per frame stopped the memory growth. Lesson banked: on a software-canvas
+headless render, `shadowBlur` at scale is a non-starter — bake the glow once.
+
+Verified the way everything here is: render, then read back extracted frames at
+every beat and transition — cold open धर्म, the Kalachakra, the lineage split,
+the chakravyuha pierced, the browser-frame reveal, the title — confirming no
+browser UI in Act 1, real motion (not flat Ken Burns), and legible type
+throughout. The screen-capture pipeline from session 16 survives only as the
+source of the Act 2 clips and the one reused fire-wheel.

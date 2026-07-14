@@ -56,6 +56,16 @@ npm run dev     # http://localhost:3000
 npm run build   # 46 static pages
 ```
 
+## Cinematic trailer
+
+A ~56s cinematic launch video lives in [`demo-video/`](demo-video/). It is a
+**motion-graphics film** built in Remotion — living particle battle-formations,
+a self-drawing dynasty, an animated Kalachakra, painting accents brought alive
+with depth and grade, embers and smoke, kinetic Devanagari — that reveals the
+real interactive site (inside a browser frame) and lands on the URL. Three acts:
+the world, the product reveal, the title. Timed to a cinematic track. See
+[`demo-video/README.md`](demo-video/README.md) to regenerate it.
+
 ## Documentation
 
 The full engineering narrative — recon, architecture decisions, tradeoffs,
