@@ -889,3 +889,57 @@ the chakravyuha pierced, the browser-frame reveal, the title — confirming no
 browser UI in Act 1, real motion (not flat Ken Burns), and legible type
 throughout. The screen-capture pipeline from session 16 survives only as the
 source of the Act 2 clips and the one reused fire-wheel.
+
+## Session 18 - Two small cuts that stop the gate lying (2026-07-15)
+
+### The Kalachakra was overwriting the visitor's place
+
+Two bugs surfaced from real clicking on `/saga`. First, choosing **Open the
+Epic** and then switching back to **Experience the Telling** snapped the wheel
+to "Parva 18 of 18." The cause was in the store: selecting open mode
+force-wrote `knownParva = 18`, so the return to guided read that 18 as the
+visitor's position. But that write was never needed. Every gated surface
+already unlocks through `selectAccessibleParva`, which returns 18 for open mode
+regardless of `knownParva`. So the fix was to stop touching `knownParva` in
+open mode at all and let it stand as the true guided position. Now open and
+guided are genuinely independent: the unlock reach is derived, the remembered
+place is preserved, and toggling between the modes no longer destroys progress.
+
+Second, a missing affordance rather than a bug: in open mode, reaching for a
+single book (any parva under 18) reads as a request for the telling, not for
+the full-atlas view. `choose()` now flips the mode to guided and lands the
+position on that parva when the visitor clicks below 18; clicking the 18th
+segment still keeps "all eighteen books." The card state follows automatically
+because the mode itself changes.
+
+### The ink-wash was a bar, not a wash
+
+The reading scrim behind the left parva column carried a 90deg linear gradient
+that darkened the left edge with the blue-tinted void (`#090b12`) and faded out
+mid-column. On the centered painting pages that hard left edge floated inside a
+full-bleed painting on wide screens, reading as a vertical bar cutting the
+image. The `.ink-wash` class is shared by five surfaces, so this was the same
+seam everywhere. The fix drops the linear band entirely (desktop and mobile
+overrides both) and keeps only the soft left-biased radial glow; legibility
+still rides on that glow plus the existing `.painting-readable` text-shadows.
+The paintings now read cleanly across the full width.
+
+Removing the band did cost some contrast where text sits over the bright sky
+and water, so the `/parvas` copy that was painted in the dim `ash` grey (the
+intro line, each book's meaning) or low-opacity bone (the Devanagari, the
+character chips, the synopsis) was lifted toward warm-white `bone` at high
+opacity. The lesson: over a busy painting, legibility is carried by contrast,
+not colour alone - the dark text-shadow halo was already there, so the fix was
+just to stop painting the text grey and let the halo work. The one place a
+brighter colour was not enough was the full-parva synopsis, a long passage that
+runs across the bright water: it borrows the existing `.reading-ink` scrim (a
+soft, blurred, localized darkening built for the war timeline) so the block gets
+its own backdrop only when expanded, keeping the painting clean by default. The
+vermillion vow chips, red-on-orange and inherently low-contrast, got a faint
+`void` fill rather than more halo (a stronger text-shadow lost the specificity
+fight with `.painting-readable .ui-label` anyway); the dark pill makes the red
+pop and reads as a distinct thread-chip category.
+
+Verified by driving `/saga` through the open-then-guided toggles (no 18 snap),
+the sub-18 auto-switch, a fresh-visitor start at Parva 1, and confirming
+`/parvas` still unlocks all books in open mode while the bluish bar is gone.

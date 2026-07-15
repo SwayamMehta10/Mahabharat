@@ -12,7 +12,7 @@ where every fact carries a citation into the source text.
 | Route | What it is |
 |---|---|
 | `/` | Entry gate — WebGL ink-smoke void, synthesized conch (Web Audio, zero assets), staggered type |
-| `/saga` | **The Kalachakra gate** — choose your path: *Experience the Telling* (guided, the site reveals parva by parva) or *Open the Epic* (all eighteen books at once); the wheel of 18 parvas measures your depth |
+| `/saga` | **The Kalachakra gate** — choose your path: *Experience the Telling* (guided, the site reveals parva by parva) or *Open the Epic* (all eighteen books at once); the wheel of 18 parvas measures your depth, and reaching for a single book on it drops you into the guided telling there |
 | `/family-tree` | **The Kuru Line** — drag/zoom node graph; Kaurava wing in vermillion, Pandava wing in gold, Karna alone between the worlds, joined to Kunti by a line that crosses the whole tree |
 | `/who/[id]` | 39 statically generated character pages — full-bleed portraits dissolving into the void (shader-side veil, no hard edges), epithets, relationships, arms, divine parentage, and guided-depth fates; nine characters (Arjuna, Bhishma, Draupadi, Karna, Krishna, Duryodhana, Kunti, Abhimanyu, Ashwatthama) carry **DARK-style journeys**: their lives scroll parva by parva while the background painting crossfades per chapter, with a Devanagari chapter rail |
 | `/war` | **The Eighteen Days** — a scroll-driven descent through Kurukshetra; the smoke bruises from indigo to ash as the war deepens, five days carry full-bleed painting tableaux that hold until the next turning point, a fixed Devanagari day rail jumps to any morning, and every day's full chronicle (141 paragraphs, cited to Ganguli) folds open behind *Read the day in full* |

@@ -81,8 +81,19 @@ export default function KalachakraGate() {
   }, []);
 
   const choose = (n: number) => {
-    if (experienceMode === "open") setBrowsedParva(n);
-    else if (experienceMode === "guided") setKnownParva(n);
+    if (experienceMode === "open") {
+      // reaching for a single book (< 18) is a request for the telling;
+      // flip the mode and land the guided position on that parva
+      if (n < 18) {
+        setExperienceMode("guided");
+        setKnownParva(n);
+        setBrowsedParva(null);
+      } else {
+        setBrowsedParva(n); // clicking 18 keeps "all eighteen books"
+      }
+    } else if (experienceMode === "guided") {
+      setKnownParva(n);
+    }
   };
 
   const chooseMode = (mode: "guided" | "open") => {

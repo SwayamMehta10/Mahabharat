@@ -120,7 +120,7 @@ export default function ParvaIndex() {
       >
         THE EIGHTEEN PARVAS
       </h1>
-      <p className="font-display mb-16 text-lg italic text-ash">
+      <p className="font-display mb-16 text-lg italic text-bone/80">
         One epic, eighteen books, from the first oath to the last ascent.
       </p>
 
@@ -154,12 +154,12 @@ export default function ParvaIndex() {
               <div className="relative min-w-0">
                 <h2 className="font-display text-2xl font-light text-bone">
                   {p.name}
-                  <span className="font-deva ml-3 text-base text-bone/50">{p.deva}</span>
+                  <span className="font-deva ml-3 text-base text-bone/70">{p.deva}</span>
                 </h2>
-                <p className="font-display mt-1 text-lg italic text-ash">{p.meaning}</p>
+                <p className="font-display mt-1 text-lg italic text-bone/70">{p.meaning}</p>
                 {known ? (
                   <>
-                    <p className="font-display mt-4 max-w-2xl text-xl leading-relaxed text-bone/85">
+                    <p className="font-display mt-4 max-w-2xl text-xl leading-relaxed text-bone/95">
                       {p.summary}
                     </p>
                     {tableau && (
@@ -179,8 +179,8 @@ export default function ParvaIndex() {
                     )}
                     {(arrivals.length > 0 || threads.length > 0) && (
                       <div className="mt-5 flex flex-wrap gap-2">
-                        {arrivals.map((character) => <Link key={character.id} href={`/who/${character.id}`} className="ui-label border border-dotted border-ash/25 px-2.5 py-1.5 hover:border-gold/50 hover:text-bone">{character.name}</Link>)}
-                        {threads.slice(0, 3).map((thread) => <Link key={thread.id} href={`/threads#${thread.id}`} className="ui-label border border-dotted border-vermillion/30 px-2.5 py-1.5 !text-vermillion/80 hover:border-vermillion hover:!text-vermillion">{thread.title}</Link>)}
+                        {arrivals.map((character) => <Link key={character.id} href={`/who/${character.id}`} className="ui-label !text-bone/80 border border-dotted border-ash/30 px-2.5 py-1.5 hover:border-gold/50 hover:!text-bone">{character.name}</Link>)}
+                        {threads.slice(0, 3).map((thread) => <Link key={thread.id} href={`/threads#${thread.id}`} className="ui-label border border-dotted border-vermillion/40 bg-void/40 px-2.5 py-1.5 !text-vermillion hover:border-vermillion hover:bg-void/60 hover:!text-vermillion">{thread.title}</Link>)}
                       </div>
                     )}
                     {p.synopsis && p.synopsis.length > 0 && (
@@ -189,8 +189,8 @@ export default function ParvaIndex() {
                         onToggle={() => requestAnimationFrame(() => ScrollTrigger.refresh())}
                       >
                         <summary className="ui-label cursor-pointer list-none py-2 transition-colors hover:text-bone">Read the full parva <span aria-hidden>+</span></summary>
-                        <div className="mt-4 flex flex-col gap-4">
-                          {p.synopsis.map((para, j) => <p key={j} className="font-display text-lg leading-relaxed text-bone/70">{para}</p>)}
+                        <div className="reading-ink relative mt-4 flex flex-col gap-4">
+                          {p.synopsis.map((para, j) => <p key={j} className="font-display text-lg leading-relaxed text-bone">{para}</p>)}
                         </div>
                       </details>
                     )}

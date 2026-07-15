@@ -33,17 +33,16 @@ export const useEpicStore = create<EpicState>()(
       knownParva: 0,
       setEntered: (entered) => set({ entered }),
       setSoundOn: (soundOn) => set({ soundOn }),
+      // knownParva is the guided position; open mode never overwrites it.
+      // Unlocking rides on selectAccessibleParva (open ⇒ 18) instead, so
+      // switching open → guided restores the visitor's real place.
       setExperienceMode: (experienceMode) =>
         set((state) => ({
           experienceMode,
-          knownParva:
-            experienceMode === "open" ? 18 : Math.max(1, Math.min(18, state.knownParva)),
+          knownParva: Math.max(0, Math.min(18, state.knownParva)),
         })),
       setKnownParva: (knownParva) =>
-        set((state) => ({
-          knownParva:
-            state.experienceMode === "open" ? 18 : Math.max(0, Math.min(18, knownParva)),
-        })),
+        set(() => ({ knownParva: Math.max(0, Math.min(18, knownParva)) })),
     }),
     {
       name: "mahabharat-progress",
@@ -72,7 +71,7 @@ export const useEpicStore = create<EpicState>()(
           ...saved,
           soundOn: typeof saved.soundOn === "boolean" ? saved.soundOn : current.soundOn,
           experienceMode: mode,
-          knownParva: mode === "open" ? 18 : mode === "guided" ? known : 0,
+          knownParva: mode ? known : 0,
         };
       },
       partialize: (s) => ({
